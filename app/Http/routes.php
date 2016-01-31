@@ -32,4 +32,41 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+
+    /*
+     *                  ADMIN
+     */
+    Route::group(['prefix' => 'admin'], function() {
+
+        Route::group(['prefix' => 'preset'], function() {
+
+            Route::get('markah', [
+                'as'        => 'admin.preset.markah',
+                'uses'      => 'Admin\PresetController@markah'
+            ]);
+
+            Route::post('markah', [
+                'as'        => 'admin.preset.markah',
+                'uses'      => 'Admin\PresetController@markahPost'
+            ]);
+
+            Route::post('markah', [
+                'as'        => 'admin.preset.markah.kemaskini',
+                'uses'      => 'Admin\PresetController@markahKemaskini'
+            ]);
+
+
+
+            Route::get('markah/{id}', function($id) {
+                $mark = \App\Markah::findOrFail($id);
+
+                return View('admin.preset.markah.edit', compact('mark'));
+            });
+
+        });
+
+    });
+
+
+
 });

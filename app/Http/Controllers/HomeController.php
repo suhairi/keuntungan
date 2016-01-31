@@ -24,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(auth()->user()->level->name == 'SYS_ADMIN')
+            return view('admin/home');
+        elseif(auth()->user()->level->name == 'PENGURUS BESAR')
+            return view('gm/home');
+        elseif(auth()->user()->level->name == 'PENGARAH BPIP')
+            return view('pengarah/home');
+        else
+            return view('home');
     }
 }

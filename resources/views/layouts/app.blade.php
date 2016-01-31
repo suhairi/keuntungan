@@ -40,7 +40,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    e-Dividen
                 </a>
             </div>
 
@@ -48,6 +48,17 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+
+                    @if(auth()->user()->level->name == 'SYS_ADMIN')
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Preset <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ route('admin.preset.markah') }}"><i class="glyphicon glyphicon-pencil"></i> Markah</a></li>
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -55,8 +66,9 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
-                        {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
+
                     @else
+                        <li><a href="{{ url('/register') }}">Register</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -72,7 +84,14 @@
         </div>
     </nav>
 
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            @include('_notifications')
+        </div>
+    </div>
     @yield('content')
+
+
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

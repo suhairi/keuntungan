@@ -1,0 +1,1 @@
+<button class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> {{ $value }}</button>
