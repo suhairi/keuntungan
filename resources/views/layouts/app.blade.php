@@ -62,6 +62,19 @@
                                 </ul>
                             </li>
                         @endif
+
+                            @if(auth()->user()->level->name == 'KERANI AKAUN')
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        Permohonan <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{ route('ppk.rekod.kertasmarkah') }}"><i class="glyphicon glyphicon-pencil"></i> Permohonan Pembahagian</a></li>
+                                    </ul>
+                                </li>
+                            @endif
+
+
                     @endif
                 </ul>
 
