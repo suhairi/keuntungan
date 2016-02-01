@@ -10,23 +10,24 @@
             <div class="panel-heading"><h4>Preset Markah</h4></div>
             <div class="panel-body">
 
-                <form action="{{ route('admin.preset.markah') }}" method="post">
-                {{ csrf_field() }}
+                {{ Form::open(['method' => 'post', 'route' => 'admin.preset.markah']) }}
+
                 <table class="table table-hover">
                     <tr>
                         <th>Jawatan</th>
-                        <td><input type="text" name="position" class="form-control" placeholder="Contoh: Pengurus Besar" autofocus="" required="" /></td>
+                        <td>{{ Form::text('position', '', ['class' => 'form-control', 'placeholder' => 'Contoh : Pengerusi Jemaah Pengarah']) }}</td>
                     </tr>
                     <tr>
                         <th>Markah</th>
-                        <td><input type="number" name="mark" class="form-control" required="" /></td>
+                        <td>{{ Form::number('mark', '', ['class' => 'form-control']) }}</td>
                     </tr>
                     <tr>
                         <td colspan="2" align="right">@include('buttons._record', ['value' => 'Rekod'])</td>
                     </tr>
-
                 </table>
-                </form>
+
+                {{ Form::close() }}
+
 
             </div>
         </div>

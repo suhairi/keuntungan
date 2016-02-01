@@ -8,11 +8,11 @@
     <title>BPIP : E-Dividen</title>
 
     <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -49,15 +49,19 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
 
-                    @if(auth()->user()->level->name == 'SYS_ADMIN')
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                Preset <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('admin.preset.markah') }}"><i class="glyphicon glyphicon-pencil"></i> Markah</a></li>
-                            </ul>
-                        </li>
+                    @if(!Auth::guest())
+
+                        @if(auth()->user()->level->name == 'SYS_ADMIN')
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Preset <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ route('admin.preset.markah') }}"><i class="glyphicon glyphicon-pencil"></i> Markah</a></li>
+                                    <li><a href="{{ route('admin.preset.users') }}"><i class="glyphicon glyphicon-pencil"></i> Pengguna</a></li>
+                                </ul>
+                            </li>
+                        @endif
                     @endif
                 </ul>
 
@@ -68,12 +72,11 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
 
                     @else
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
-
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
@@ -94,8 +97,8 @@
 
 
     <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>

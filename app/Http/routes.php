@@ -40,6 +40,9 @@ Route::group(['middleware' => 'web'], function () {
 
         Route::group(['prefix' => 'preset'], function() {
 
+            /*
+             * MARKAH
+             */
             Route::get('markah', [
                 'as'        => 'admin.preset.markah',
                 'uses'      => 'Admin\PresetController@markah'
@@ -56,12 +59,62 @@ Route::group(['middleware' => 'web'], function () {
             ]);
 
 
-
             Route::get('markah/{id}', function($id) {
                 $mark = \App\Markah::findOrFail($id);
 
                 return View('admin.preset.markah.edit', compact('mark'));
             });
+
+            /*
+             * Users
+             */
+
+            Route::get('users', [
+                'as'        => 'admin.preset.users',
+                'uses'      => 'Admin\PresetController@users'
+            ]);
+
+            Route::post('users', [
+                'as'        => 'admin.preset.usersPost',
+                'uses'      => 'Admin\PresetController@userPost'
+            ]);
+
+            Route::get('users/hapus/{id}', function($id) {
+
+                \App\User::destroy($id);
+                return Redirect::back();
+            });
+
+            Route::get('users/{id}', function($id) {
+
+                $user = \App\User::findOrFail($id);
+                $level = \App\Level::lists('name', 'id');
+                $ppk = \App\Ppk::lists('name', 'id');
+
+                return View('admin.preset.users.edit', compact('user', 'level', 'ppk'));
+            });
+
+            Route::post('users/kemaskini', [
+                'as'        => 'admin.preset.users.kemaskini',
+                'uses'      => 'Admin\PresetController@kemaskini'
+            ]);
+
+        });
+
+    });
+
+    /*
+     *                  PPK
+     */
+
+    Route::group(['prefix' => 'ppk'], function() {
+
+        Route::group(['prefix'  => 'rekod'], function() {
+
+            Route::get('kertasmarkah', [
+                'as'        => 'ppk.rekod.kertasmarkah',
+                'uses'      => 'Ppk\RecordController@kertasMarkah'
+            ]);
 
         });
 

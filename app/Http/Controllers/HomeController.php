@@ -30,6 +30,9 @@ class HomeController extends Controller
             return view('gm/home');
         elseif(auth()->user()->level->name == 'PENGARAH BPIP')
             return view('pengarah/home');
+        elseif(auth()->user()->level->name == 'KERANI AKAUN')
+            return view('ppk/home');
+
         else
             return view('home');
     }

@@ -9,22 +9,28 @@
                 <div class="panel-heading"><h4>Kemaskini Markah</h4></div>
                 <div class="panel-body">
 
+                    {{ Form::model($mark, ['route' => 'admin.preset.markah.kemaskini']) }}
+
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Jawatan</th>
+                                <td>{{ Form::text('position', $mark->position, ['class' => 'form-control', 'required' => 'true']) }}</td>
+                            </tr>
+                            <tr>
+                                <th>Markah</th>
+                                <td>{{ Form::number('mark', $mark->mark, ['class' => 'form-control', 'required' => 'true']) }}</td>
+                            </tr>
+                            <tr>
+                                <td align="right" colspan="2">@include('buttons._kemaskini', ['value' => 'Kemaskini'])</td>
+                            </tr>
+                        </table>
+
+                    {{ Form::close() }}
+
                     <form method="post" action="{{ route('admin.preset.markah.kemaskini') }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="id" value="{{ $mark->id }}" />
-                    <table class="table table-hover">
-                        <tr>
-                            <th>Jawatan</th>
-                            <td><input type="text" value="{{ $mark->position }}" name="position" class="form-control" placeholder="Contoh: Pengurus Besar" autofocus="" /></td>
-                        </tr>
-                        <tr>
-                            <th>Markah</th>
-                            <td><input type="number" value="{{ $mark->mark }}" name="mark" class="form-control" /></td>
-                        </tr>
-                        <tr>
-                            <td align="right" colspan="2">@include('buttons._kemaskini', ['value' => 'Kemaskini'])</td>
-                        </tr>
-                    </table>
+
 
                     </form>
 
