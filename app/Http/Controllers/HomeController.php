@@ -24,15 +24,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->level->name == 'SYS_ADMIN')
+        if(auth()->user()->level->name == 1)
             return view('admin/home');
-        elseif(auth()->user()->level->name == 'PENGURUS BESAR')
+        elseif(auth()->user()->level->name == 2)
             return view('gm/home');
-        elseif(auth()->user()->level->name == 'PENGARAH BPIP')
+        elseif(auth()->user()->level->name == 3)
             return view('pengarah/home');
-        elseif(auth()->user()->level->name == 'KERANI AKAUN')
+        elseif(auth()->user()->level->name == 4)
+            return view('akauntan/home');
+        elseif(auth()->user()->level->name == 5)
+            return view('pendaftar/home');
+        elseif(auth()->user()->level->name == 6)
+            return view('wilayah/home');
+        elseif(auth()->user()->level->id == 7 || auth()->user()->level->id == 8)
             return view('ppk/home');
-
         else
             return view('home');
     }

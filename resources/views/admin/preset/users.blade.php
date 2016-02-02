@@ -48,7 +48,7 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-8 col-xs-offset-1">
+        <div class="col-xs-10 col-xs-offset-1">
             <h3>List of Users</h3>
 
             <div class="panel panel-primary">

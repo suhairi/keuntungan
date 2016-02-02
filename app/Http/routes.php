@@ -31,7 +31,10 @@ Route::get('/', function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', [
+        'as'        => 'home',
+        'uses'      => 'HomeController@index'
+    ]);
 
     /*
      *                  ADMIN
@@ -110,6 +113,35 @@ Route::group(['middleware' => 'web'], function () {
     Route::group(['prefix' => 'ppk'], function() {
 
         Route::group(['prefix'  => 'rekod'], function() {
+
+            Route::get('users', [
+                'as'        =>  'ppk.rekod.users',
+                'uses'      => 'Ppk\UsersController@users'
+            ]);
+
+            Route::post('users', [
+                'as'        =>  'ppk.rekod.users',
+                'uses'      => 'Ppk\UsersController@usersPost'
+            ]);
+
+            Route::get('users/hapus/{id}', function($id) {
+
+                $user = \App\User::findOrFail($id);
+                $user->destroy($user->id);
+
+                return redirect()->back();
+            });
+
+            Route::get('users/{id}', function($id) {
+                $user = \App\User::findOrFail($id);
+
+                return View('ppk.rekod.users.edit', compact('user'));
+            });
+
+            Route::post('users/kemaskini', [
+                'as'        => 'ppk.rekod.users.kemaskini',
+                'uses'      => 'Ppk\UsersController@kemaskini'
+            ]);
 
             Route::get('kertasmarkah', [
                 'as'        => 'ppk.rekod.kertasmarkah',

@@ -63,7 +63,19 @@
                             </li>
                         @endif
 
-                            @if(auth()->user()->level->name == 'KERANI AKAUN')
+                            {{--PPK--}}
+                            @if(auth()->user()->level->id == 7 /*'PENGURUS BESAR PPK'*/)
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        Daftar <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{ route('ppk.rekod.users') }}"><i class="glyphicon glyphicon-pencil"></i> Kerani Akaun</a></li>
+                                    </ul>
+                                </li>
+                            @endif
+
+                            @if(auth()->user()->level->id == 8 /*'KERANI AKAUN'*/)
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                         Permohonan <span class="caret"></span>

@@ -38,6 +38,26 @@ class UserTableSeeder extends Seeder
             'ppk_id'    => '1'
         ]);
 
+        User::create([
+            'name'      => strtoupper('Muhamad Hishamudin bin mohd noor'),
+            'email'     => 'muhamad.hishamudin@mada.gov.my',
+            'password'  => bcrypt('password'),
+            'level_id'     => '6',
+            'ppk_id'    => '4'
+        ]);
+
+        User::create([
+            'name'      => strtoupper('ulul azmi bin mohamad noor'),
+            'email'     => 'ulul.azmi@mada.gov.my',
+            'password'  => bcrypt('password'),
+            'level_id'     => '7',
+            'ppk_id'    => '24'
+        ]);
+
+
+
+
+
 
 
 
