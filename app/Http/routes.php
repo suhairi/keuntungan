@@ -114,6 +114,9 @@ Route::group(['middleware' => 'web'], function () {
 
         Route::group(['prefix'  => 'rekod'], function() {
 
+            /*
+             * User
+             */
             Route::get('users', [
                 'as'        =>  'ppk.rekod.users',
                 'uses'      => 'Ppk\UsersController@users'
@@ -143,10 +146,33 @@ Route::group(['middleware' => 'web'], function () {
                 'uses'      => 'Ppk\UsersController@kemaskini'
             ]);
 
-            Route::get('kertasmarkah', [
-                'as'        => 'ppk.rekod.kertasmarkah',
-                'uses'      => 'Ppk\RecordController@kertasMarkah'
+            /*
+             * Penerima Bonus dan Honororium
+             */
+
+            Route::get('penerima', [
+                'as'        => 'ppk.rekod.penerima',
+                'uses'      => 'Ppk\PenerimaController@penerima'
             ]);
+
+            Route::post('penerima', [
+                'as'        => 'ppk.rekod.penerima',
+                'uses'      => 'Ppk\PenerimaController@penerimaPost'
+            ]);
+
+            /*
+             * Permohonan
+             */
+
+            Route::get('permohonan', [
+                'as'        => 'ppk.rekod.permohonan',
+                'uses'      => 'Ppk\PermohonanController@permohonan'
+            ]);
+
+
+
+
+
 
         });
 

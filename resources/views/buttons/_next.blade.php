@@ -1,0 +1,1 @@
+<button class="btn btn-success">{{ $value }} <i class="glyphicon glyphicon-forward"></i></button>

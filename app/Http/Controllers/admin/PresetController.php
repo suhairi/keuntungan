@@ -86,6 +86,7 @@ class PresetController extends Controller
      */
 
     public function users() {
+
         $users = User::orderBy('level_id', 'asc')->get();
         $level = Level::lists('name', 'id');
         $ppk = Ppk::lists('name', 'id');

@@ -10,6 +10,7 @@
             <div class="panel-body">
 
                 {{ Form::model($user, ['route' => 'ppk.rekod.users.kemaskini']) }}
+                {{ Form::hidden('id', $user->id) }}
                 <table class="table table-striped">
                     <tr>
                         <th>Nama</th>
@@ -17,7 +18,7 @@
                     </tr>
                     <tr>
                         <th>Email</th>
-                        <td>{{ Form::text('email', $user->email, ['class' => 'form-control']) }}</td>
+                        <td>{{ Form::email('email', $user->email, ['class' => 'form-control']) }}</td>
                     </tr>
                     <tr>
                         <td colspan="2" align="right">@include('buttons._kemaskini', ['value' => 'Kemaskini'])</td>
