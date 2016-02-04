@@ -16,6 +16,11 @@ class CreatePpkTable extends Migration
             $table->increments('id');
             $table->string('code', 2);
             $table->string('name', 255);
+            $table->string('fullname');
+            $table->text('address');
+            $table->string('notel1');
+            $table->string('notel2');
+            $table->string('fax');
         });
     }
 

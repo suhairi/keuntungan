@@ -12,6 +12,7 @@
 */
 use Illuminate\Support\Facades\Redirect as Redirect;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', function () {
     return redirect('/home');
@@ -161,6 +162,42 @@ Route::group(['middleware' => 'web'], function () {
             ]);
 
             /*
+             * Permarkahan
+             */
+
+            Route::get('permarkahan', [
+                'as'        => 'ppk.rekod.permarkahan',
+                'uses'      => 'Ppk\PermarkahanController@index'
+            ]);
+
+            Route::post('permarkahan', [
+                'as'        => 'ppk.rekod.permarkahanPost',
+                'uses'      => 'Ppk\PermarkahanController@indexPost'
+            ]);
+
+            Route::get('permarkahan/hapus/{id}', function($id) {
+
+                if(\App\Markah::destroy($id))
+                    Session::flash('success', 'Berjaya. Permarkahan berjaya dihapus.');
+                else
+                    Session::flash('error', 'Gagal. Permarkahan gagal dihapus.');
+
+                return redirect()->back();
+            });
+
+            Route::get('permarkahan/{id}', function($id) {
+
+                $mark = \App\Markah::findOrFail($id);
+
+                return View('ppk.rekod.permarkahan.edit', compact('mark'));
+            });
+
+            Route::post('permarkahan/edit', [
+                'as'        => 'ppk.rekod.permarkahan.edit',
+                'uses'      => 'Ppk\PermarkahanController@edit'
+            ]);
+
+            /*
              * Permohonan
              */
 
@@ -169,7 +206,10 @@ Route::group(['middleware' => 'web'], function () {
                 'uses'      => 'Ppk\PermohonanController@permohonan'
             ]);
 
-
+            Route::post('permohonan', [
+                'as'        => 'ppk.rekod.permohonan2',
+                'uses'      => 'Ppk\PermohonanController@permohonan2'
+            ]);
 
 
 

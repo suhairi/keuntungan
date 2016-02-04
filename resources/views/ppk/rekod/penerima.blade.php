@@ -8,7 +8,7 @@
         <div class="col-xs-4 col-xs-offset-1">
 
             <div class="panel panel-primary">
-                <div class="panel-heading"><h4>Daftar Kerani Akaun</h4></div>
+                <div class="panel-heading"><h4>Daftar Penerima</h4></div>
                 <div class="panel-body">
 
                     {{ Form::open(['route' => 'ppk.rekod.penerima']) }}
@@ -68,7 +68,7 @@
         <div class="col-xs-8 col-xs-offset-1">
 
             <div class="panel panel-primary">
-                <div class="panel-heading"><h4>Senarai Pengguna</h4></div>
+                <div class="panel-heading"><h4>Senarai Penerima Bonus dan Honororium</h4></div>
                 <div class="panel-body">
 
                     <table class="table table-striped">

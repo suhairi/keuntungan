@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMarkahTable extends Migration
+class CreateAccountTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,14 @@ class CreateMarkahTable extends Migration
      */
     public function up()
     {
-        Schema::create('markah', function (Blueprint $table) {
+        Schema::create('account', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('position', 255);
-            $table->tinyInteger('mark', false, false);
+            $table->string('bank_id');
             $table->tinyInteger('ppk_id', false, false);
+            $table->enum('type', ['SEMASA', 'SIMPANAN', 'TETAP']);
+            $table->float('amount', 9, 2);
+            $table->date('date');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +30,6 @@ class CreateMarkahTable extends Migration
      */
     public function down()
     {
-        Schema::drop('markah');
+        Schema::drop('account');
     }
 }

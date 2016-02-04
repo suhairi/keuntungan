@@ -12,7 +12,7 @@ class MarkahTableSeeder extends Seeder
      */
     public function run()
     {
-        Markah::create(['position' => 'Pengerusi Jemaah Pengarah', 'mark' => 8]);
-        Markah::create(['position' => 'Ahli Lembaga Pengarah', 'mark' => 7]);
+        Markah::create(['position' => strtoupper('Pengerusi Jemaah Pengarah'), 'mark' => 8, 'ppk_id' => 24]);
+        Markah::create(['position' => strtoupper('Ahli Lembaga Pengarah'), 'mark' => 7, 'ppk_id' => 24]);
     }
 }

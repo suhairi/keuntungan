@@ -22,10 +22,10 @@
             <div class="panel-heading"><h4>Tarikh bagi Tahun Berakhir</h4></div>
             <div class="body" style="margin: 5px">
 
-                {{ Form::open() }}
+                {{ Form::open(['route' => 'ppk.rekod.permohonan2']) }}
                 <div class="form-group">
-                    <label for="tahun">Tahun Berakhir</label>
-                    {{ Form::date('tahun', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+                    <label for="tarikh">Tarikh bagi Tahun Berakhir</label>
+                    {{ Form::date('tarikh', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
                 </div>
                 <div class="form-group" align="right">
                     <label for="submit"></label>

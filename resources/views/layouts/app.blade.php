@@ -79,10 +79,13 @@
                                 <li><a href="{{ route('ppk.rekod.permohonan') }}"> Permohonan</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        Merekod <span class="caret"></span>
+                                        Pre - Set <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{ route('ppk.rekod.penerima') }}"> Detail PPK</a></li>
+                                        <li><a href="{{ route('ppk.rekod.permarkahan') }}"> Permarkahan</a></li>
                                         <li><a href="{{ route('ppk.rekod.penerima') }}"> Penerima</a></li>
+
                                     </ul>
                                 </li>
                             @endif
