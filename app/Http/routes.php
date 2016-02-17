@@ -148,8 +148,41 @@ Route::group(['middleware' => 'web'], function () {
             ]);
 
             /*
-             * Penerima Bonus dan Honororium
+             * Rekod Preset
+             * PPK Details, Pengurus, Bank, Penerima Bonus dan Honororium
              */
+
+            Route::get('ppk', [
+                'as'        => 'ppk.rekod.ppk',
+                'uses'      => 'Ppk\RecordsController@ppk'
+            ]);
+
+            Route::post('ppk', [
+                'as'        => 'ppk.rekod.ppk',
+                'uses'      => 'Ppk\RecordsController@ppkPost'
+            ]); 
+
+
+            Route::get('pengurus', [
+                'as'        => 'ppk.rekod.pengurus',
+                'uses'      => 'Ppk\PengurusController@pengurus'
+            ]);
+
+            Route::post('pengurus', [
+                'as'        => 'ppk.rekod.pengurus',
+                'uses'      => 'Ppk\PengurusController@pengurusPost'
+
+            ]);
+
+            Route::get('bank', [
+                'as'        => 'ppk.rekod.bank',
+                'uses'      => 'ppk\BankController@bank'
+            ]);
+
+            Route::post('bank', [
+                'as'        => 'ppk.rekod.bank',
+                'uses'      => 'Ppk\BankController@bankPost'
+            ]);
 
             Route::get('penerima', [
                 'as'        => 'ppk.rekod.penerima',
@@ -211,13 +244,8 @@ Route::group(['middleware' => 'web'], function () {
                 'uses'      => 'Ppk\PermohonanController@permohonan2'
             ]);
 
-
-
-
         });
 
     });
-
-
 
 });

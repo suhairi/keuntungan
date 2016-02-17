@@ -82,7 +82,9 @@
                                         Pre - Set <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ route('ppk.rekod.penerima') }}"> Detail PPK</a></li>
+                                        <li><a href="{{ route('ppk.rekod.ppk') }}"> Detail PPK</a></li>
+                                        <li><a href="{{ route('ppk.rekod.pengurus') }}">Pengurus</a></li>
+                                        <li><a href="{{ route('ppk.rekod.bank') }}">Bank</a></li>                                        
                                         <li><a href="{{ route('ppk.rekod.permarkahan') }}"> Permarkahan</a></li>
                                         <li><a href="{{ route('ppk.rekod.penerima') }}"> Penerima</a></li>
 

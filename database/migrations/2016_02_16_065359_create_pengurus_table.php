@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBankTable extends Migration
+class CreatePengurusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,16 @@ class CreateBankTable extends Migration
      */
     public function up()
     {
-        Schema::create('bank', function (Blueprint $table) {
+        Schema::create('pengurus', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('short_name', 15);
             $table->string('name');
+            $table->string('nokp');
+            $table->string('nama_jawatan');
+            $table->string('kod_jawatan');
+            $table->string('notel');
             $table->integer('ppk_id', false, false);
+            $table->timestamps();
+            $table->date('deleted_at');
         });
     }
 
@@ -27,6 +32,6 @@ class CreateBankTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bank');
+        Schema::drop('pengurus');
     }
 }
