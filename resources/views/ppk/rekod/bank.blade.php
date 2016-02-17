@@ -3,88 +3,113 @@
 @section('content')
 
     <div class="row">
-        <div class="col-xs-10 col-xs-offset-1">
+        <div class="col-xs-3 col-xs-offset-1">
             <div class=" panel panel-info">
-                <div class="panel-heading"><h4>Maklumat PPK</div>
+                <div class="panel-heading"><h4>Bank Akaun Semasa</div>
                 <div class="panel-body">
                     <table class="table table-condensed">   
                         <tr>
-                            <th>Nama Pengurus</th>
-                            <th>No KP</th>
-                            <th>Nama Jawatan</th>
-                            <th>Kod Jawatan</th>
-                            <th>No Telefon</th>
+                            <th>Nama Singkatan</th>
+                            <th>Nama Bank</th>
+                            <th>Pilihan</th>
                         </tr>
-
-                        @if($bank == null)
-                        	<tr>
-	                            <td></td>
-	                            <td></td>
-	                            <td></td>
-	                            <td></td>
-	                            <td></td>
-	                        </tr>
-                        @else
-	                        <tr>
-	                            <td>{{ $bank->name }}</td>
-	                            <td>{{ $bank->nokp }}</td>
-	                            <td>{{ $bank->nama_jawatan }}</td>
-	                            <td>{{ $bank->kod_jawatan }}</td>
-	                            <td>{{ $bank->notel }}</td>
-	                        </tr>
-                        @endif
+                        @foreach($banks as $bank)
+                            @if($bank->saving_type == 'SEMASA')
+                                <tr>
+                                    <td>{{ $bank->short_name }}</td>
+                                    <td>{{ $bank->name }}</td>
+                                    <td><a href="{{ url('ppk/rekod/bank', ['id' => $bank->id]) }}">@include('buttons._hapus', ['value' => 'Hapus'])</a></td>
+                                </tr>
+                            @endif
+                        @endforeach
 
                     </table>
                 </div>
                 
             </div>
-        </div>      
+        </div>
+        <div class="col-xs-3">
+            <div class=" panel panel-info">
+                <div class="panel-heading"><h4>Bank Akaun Simpanan Biasa</div>
+                <div class="panel-body">
+                    <table class="table table-condensed">   
+                        <tr>
+                            <th>Nama Singkatan</th>
+                            <th>Nama Bank</th>
+                            <th>Pilihan</th>
+                        </tr>
+                        @foreach($banks as $bank)
+                            @if($bank->saving_type == 'BIASA')
+                                <tr>
+                                    <td>{{ $bank->short_name }}</td>
+                                    <td>{{ $bank->name }}</td>
+                                    <td><a href="{{ url('ppk/rekod/bank', ['id' => $bank->id]) }}">@include('buttons._hapus', ['value' => 'Hapus'])</a></td>
+                                </tr>
+                            @endif
+                        @endforeach
+
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class=" panel panel-info">
+                <div class="panel-heading"><h4>Bank Akaun Simpanan Tetap</div>
+                <div class="panel-body">
+                    <table class="table table-condensed">   
+                        <tr>
+                            <th>Nama Singkatan</th>
+                            <th>Nama Bank</th>
+                            <th>Pilihan</th>
+                        </tr>
+                        @foreach($banks as $bank)
+                            @if($bank->saving_type == 'TETAP')
+                                <tr>
+                                    <td>{{ $bank->short_name }}</td>
+                                    <td>{{ $bank->name }}</td>
+                                    <td><a href="{{ url('ppk/rekod/bank', ['id' => $bank->id]) }}">@include('buttons._hapus', ['value' => 'Hapus'])</a></td>
+                                </tr>
+                            @endif
+                        @endforeach
+
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+
     </div>
 
     <div class="row">
         <div class="col-xs-6 col-xs-offset-1">
 
             <div class="panel panel-primary">
-                <div class="panel-heading"><h4>Kemaskini Maklumat PPK</h4></div>
+                <div class="panel-heading"><h4>Kemaskini Maklumat Bank</h4></div>
                 <div class="panel-body">
 
-
-                    @if($pengurus != null)
-                    	{{ Form::model($pengurus, ['route' => 'ppk.rekod.pengurus', 'method' => 'post']) }}
-                    	{{ Form::hidden('id', $pengurus->id)}}
-
-                	@else
-                		{{ Form::open(['route' => 'ppk.rekod.pengurus', 'method' => 'post']) }}
-                	@endif
+            		{{ Form::open(['route' => 'ppk.rekod.bank', 'method' => 'post']) }}
 
                     <table class="table table-condensed">
                         <tr>
-                            <th>*Nama Pengurus</th>
-                            <td>{{ Form::text('name', null, ['class' => 'form-control', 'required' => 'true']) }}</td>
+                            <th>*Nama Singkatan</th>
+                            <td>{{ Form::text('short_name', null, ['class' => 'form-control', 'placeholder' => 'Contoh : Maybank', 'required' => 'true']) }}</td>
                         </tr>
                         <tr>
-                            <th>*No Kad Pengenalan</th>
-                            <td>{{ Form::text('nokp', null, ['class' => 'form-control', 'required' => 'true']) }}</td>
+                            <th>*Nama Bank</th>
+                            <td>{{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Contoh : Malayan Banking Berhad', 'required' => 'true']) }}</td>
                         </tr>
                         <tr>
-                            <th>*Jawatan</th>
-                            <td>{{ Form::text('nama_jawatan', null, ['class' => 'form-control', 'required' => 'true']) }}</td>
-                        </tr>
+                            <th>*Jenis Simpanan</th>
+                            <td>{{ Form::select('saving_type', ['SEMASA' => 'SEMASA', 'BIASA' => 'BIASA', 'TETAP' => 'TETAP'], '', ['class' => 'form-control', 'placeholder' => 'Jenis Simpanan', 'required']) }}
+                        </tr>                  
                         <tr>
-                            <th>*Kod Jawatan</th>
-                            <td>{{ Form::text('kod_jawatan', null, ['class' => 'form-control', 'required' => 'true']) }}</td>
-                        </tr>
-                        <tr>
-                            <th>No Telefon</th>
-                            <td>{{ Form::text('notel', null, ['class' => 'form-control']) }}</td>
-                        </tr>                      
-
-                        <tr>
-                            <td colspan="2" align="right">@include('buttons._kemaskini', ['value' => 'Kemaskini Maklumat Pengurus'])</td>
+                            <td colspan="2" align="right">@include('buttons._kemaskini', ['value' => 'Kemaskini Maklumat Bank'])</td>
                         </tr>
                     </table>
 
                     {{ Form::close() }}
+
                 </div>
             </div>
         </div>

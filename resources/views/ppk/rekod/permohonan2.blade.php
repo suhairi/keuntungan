@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-        <h4>Peratusan Kemajuan Permohonan</h4>
+        <h4>Penunjuk Kemajuan Permohonan</h4>
         <div class="progress">
             <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
                 <span class="sr-only">20% Complete</span>
@@ -61,10 +61,10 @@
                             <td>:</td>
                             <td></td>
                             <td valign="middle"> RM </td>
-                            <td>{{ Form::number('ditangan', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00']) }}</td>
+                            <td>{{ Form::number('ditangan', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'ditangan']) }}</td>
                         </tr>
                         <tr>
-                            <td>ii)</td>
+                            <td>iii)</td>
                             <td>Di Bank</td>
                             <td>&nbsp;</td>
                             <td></td>
@@ -79,73 +79,101 @@
                             <td></td>
                             <td></td>
                         </tr>
+
                         <tr>
                             <td></td>
                             <td>No Akaun</td>
                             <td>:</td>
-                            <td>CIMB</td>
+                            <td>
+                                {{ Form::select('semasa1', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 1', 'id' => 'semasa1Select']) }}                                
+
+                            </td>
                             <td>RM</td>
-                            <td>{{ Form::number('ditangan', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00']) }}</td>
+                            <td>
+                                {{ Form::number('semasa1', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'semasa1']) }}
+                            </td>
                         </tr>
                         <tr>
                             <td></td>
                             <td>No Akaun</td>
                             <td>:</td>
-                            <td>BSN</td>
+                            <td>
+                                {{ Form::select('semasa2', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 2', 'id' => 'semasa2Select']) }}                                
+
+                            </td>
                             <td>RM</td>
-                            <td>{{ Form::number('ditangan', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00']) }}</td>
+                            <td>
+                                {{ Form::number('semasa2', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'semasa2']) }}
+                            </td>
                         </tr>
+
                         <tr>
                             <td></td>
                             <td>No Akaun</td>
                             <td>:</td>
-                            <td>AGRO</td>
+                            <td>
+                                {{ Form::select('semasa3', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 3', 'id' => 'semasa3Select']) }}                                
+
+                            </td>
                             <td>RM</td>
-                            <td>{{ Form::number('ditangan', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00']) }}</td>
+                            <td>
+                                {{ Form::number('semasa3', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'semasa3']) }}
+                            </td>
                         </tr>
+
+
+
+                       
+
                         {{--Akaun Simpanan--}}
                         <tr>
                             <td>&nbsp;</td>
-                            <td><strong>Akaun Simpanan</strong></td>
+                            <td><strong>Akaun Simpanan Biasa</strong></td>
                             <td>&nbsp;</td>
                             <td>&nbsp; </td>
                             <td></td>
                             <td></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td>No Akaun</td>
-                            <td>:</td>
-                            <td></td>
-                            <td>RM</td>
-                            <td>{{ Form::number('ditangan', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00']) }}</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Bank</td>
-                            <td>:</td>
-                            <td></td>
-                            <td>RM</td>
-                            <td>{{ Form::number('ditangan', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00']) }}</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Bank</td>
-                            <td>:</td>
-                            <td></td>
-                            <td>RM</td>
-                            <td>{{ Form::number('ditangan', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00']) }}</td>
-                        </tr>
+                        
                         {{--Gutter--}}
                         <tr><td height="20"></td></tr>
                         {{--Akaun Simpanan Tetap--}}
                         <tr>
                             <td>&nbsp;</td>
-                            <td colspan="2"><strong>Akaun Simpanan Tetap</strong></td>
-                            <td>-</td>
-                            <td>RM</td>
-                            <td>{{ Form::number('ditangan', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00']) }}</td>
+                            <td><strong>Akaun Simpanan Tetap</strong></td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp; </td>
+                            <td></td>
+                            <td></td>
                         </tr>
+                        
+                        {{--Gutter--}}
+                        <tr><td height="20"></td></tr>
+
+                        <tr border=1>
+                            <th colspan="3"><div align="right">JUMLAH</div></th>
+                            <td>&nbsp;</td>
+                            <td>RM</td>
+                            <td>{{ Form::number('jumlahA', '', ['class' => 'form-control', 'step' => 'any', 'id' => 'jumlahA']) }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <p>*</p>
+                                <p>(b) Jumlah Pembahagian Keuntungan</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><p>seperti dipohon </p></td>
+                            <td align="right">RM </td>
+                            <td>{{ Form::number('dipohon', '', ['class' => 'form-control']) }}</td>
+                        </tr>  
+                        <tr>
+                            <td colspan="4">
+                                <p>* Jika melebihi satu tahun, jumlahkan keseluruhan<br />
+                                Pembahagian Keuntungan bagi tahun-tahun yang <br />
+                                berkenaan.</p>
+                            </td>
+                        </tr>                      
 
                     </table>
                 </td>
@@ -220,25 +248,25 @@
                         <tr>
                             <td>i.</td>
                             <td>Baki W/Tunai</td>
-                            <td align="right">1,378,239.74</td>
+                            <td align="right" colspan="2">{{ Form::number('jumlahI', '' , ['class' => 'form-control', 'id' => 'jumlahI']) }}</td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>ii.</td>
                             <td>Simpanan Ahli</td>
-                            <td align="right">278,969.10</td>
+                            <td align="right"><div id="jumlahII"></div></td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>iii.</td>
                             <td>Terimaan Terdahulu</td>
-                            <td align="right">471,458.97</td>
+                            <td align="right"><div id="jumlahIII"></div></td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>iv.</td>
                             <td>Jumlah ii + iii</td>
-                            <td align="right">750,428.07</td>
+                            <td align="right"><div id="jumlahII_III"></div></td>
                             <td>&nbsp;</td>
                         </tr>
 
@@ -269,4 +297,9 @@
     </div>
 </div>
 {{ Form::close() }}
+
+
+
+<script src={{ asset('js/permohonan/permohonan2.js')}}></script>
+
 @stop

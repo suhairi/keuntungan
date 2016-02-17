@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-    <h4>Peratusan Kemajuan Permohonan</h4>
+    <h4>Penunjuk Kemajuan Permohonan</h4>
     <div class="progress">
         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
             <span class="sr-only">10% Complete</span>
@@ -25,7 +25,7 @@
                 {{ Form::open(['route' => 'ppk.rekod.permohonan2']) }}
                 <div class="form-group">
                     <label for="tarikh">Tarikh bagi Tahun Berakhir</label>
-                    {{ Form::date('tarikh', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+                    {{ Form::date('tarikh', \Carbon\Carbon::createFromDate(date('Y'), 12, 31), ['class' => 'form-control']) }}
                 </div>
                 <div class="form-group" align="right">
                     <label for="submit"></label>

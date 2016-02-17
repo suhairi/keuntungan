@@ -184,6 +184,15 @@ Route::group(['middleware' => 'web'], function () {
                 'uses'      => 'Ppk\BankController@bankPost'
             ]);
 
+            Route::get('bank/{id}', function($id) {
+                if(\App\Bank::destroy($id))
+                    Session::flash('success', 'Berjaya. Permarkahan berjaya dihapus.');
+                else
+                    Session::flash('error', 'Gagal. Permarkahan gagal dihapus.');
+
+                return redirect()->back();
+            });
+
             Route::get('penerima', [
                 'as'        => 'ppk.rekod.penerima',
                 'uses'      => 'Ppk\PenerimaController@penerima'
