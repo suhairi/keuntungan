@@ -253,6 +253,23 @@ Route::group(['middleware' => 'web'], function () {
                 'uses'      => 'Ppk\PermohonanController@permohonan2'
             ]);
 
+            Route::post('permohonan3', [
+                'as'        => 'ppk.rekod.permohonan3',
+                'uses'      => 'Ppk\PermohonanController@permohonan3'
+            ]);
+
+            Route::post('permohonan4', [
+                'as'        => 'ppk.rekod.permohonan4',
+                'uses'      => 'Ppk\PermohonanController@permohonan4'
+            ]);
+
+            Route::post('permohonan5', [
+                'as'        => 'ppk.rekod.permohonan5',
+                'uses'      => 'Ppk\PermohonanController@permohonan5'
+            ]);
+
+
+
         });
 
     });

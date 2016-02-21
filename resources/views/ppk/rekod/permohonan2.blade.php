@@ -17,7 +17,7 @@
 
 
 {{--The MAIN table--}}
-{{ Form::open(['route' => 'ppk.rekod.permohonan2']) }}
+{{ Form::open(['route' => 'ppk.rekod.permohonan3']) }}
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
         <table class="table table-bordered">
@@ -90,7 +90,7 @@
                             </td>
                             <td>RM</td>
                             <td>
-                                {{ Form::number('semasa1', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'semasa1']) }}
+                                {{ Form::number('semasa1', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'semasa1']) }}
                             </td>
                         </tr>
                         <tr>
@@ -103,7 +103,7 @@
                             </td>
                             <td>RM</td>
                             <td>
-                                {{ Form::number('semasa2', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'semasa2']) }}
+                                {{ Form::number('semasa2', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'semasa2']) }}
                             </td>
                         </tr>
 
@@ -117,10 +117,36 @@
                             </td>
                             <td>RM</td>
                             <td>
-                                {{ Form::number('semasa3', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'semasa3']) }}
+                                {{ Form::number('semasa3', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'semasa3']) }}
                             </td>
                         </tr>
-                       
+                        <tr>
+                            <td></td>
+                            <td>No Akaun</td>
+                            <td>:</td>
+                            <td>
+                                {{ Form::select('semasa4', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 4', 'id' => 'semasa4Select']) }}                                
+
+                            </td>
+                            <td>RM</td>
+                            <td>
+                                {{ Form::number('semasa4', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'semasa4']) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>No Akaun</td>
+                            <td>:</td>
+                            <td>
+                                {{ Form::select('semasa5', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 5', 'id' => 'semasa5Select']) }}                                
+
+                            </td>
+                            <td>RM</td>
+                            <td>
+                                {{ Form::number('semasa5', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'semasa5']) }}
+                            </td>
+                        </tr>
+                        
 
                         {{--Akaun Simpanan--}}
                         <tr>
@@ -141,7 +167,7 @@
                             </td>
                             <td>RM</td>
                             <td>
-                                {{ Form::number('biasa1', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'biasa1']) }}
+                                {{ Form::number('biasa1', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'biasa1']) }}
                             </td>
                         </tr>
 
@@ -155,7 +181,7 @@
                             </td>
                             <td>RM</td>
                             <td>
-                                {{ Form::number('biasa2', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'biasa2']) }}
+                                {{ Form::number('biasa2', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'biasa2']) }}
                             </td>
                         </tr>
 
@@ -169,7 +195,7 @@
                             </td>
                             <td>RM</td>
                             <td>
-                                {{ Form::number('biasa3', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'biasa3']) }}
+                                {{ Form::number('biasa3', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'biasa3']) }}
                             </td>
                         </tr>
 
@@ -191,12 +217,12 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap1', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Tetap 1', 'id' => 'tetap1Select']) }}                                
+                                {{ Form::select('tetap1', $semasa, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 1', 'id' => 'tetap1Select']) }}                                
 
                             </td>
                             <td>RM</td>
                             <td>
-                                {{ Form::number('tetap1', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'tetap1']) }}
+                                {{ Form::number('tetap1', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'tetap1']) }}
                             </td>
                         </tr>
                         <tr>
@@ -204,12 +230,12 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap2', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Tetap 2', 'id' => 'tetap2Select']) }}                                
+                                {{ Form::select('tetap2', $semasa, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 2', 'id' => 'tetap2Select']) }}                                
 
                             </td>
                             <td>RM</td>
                             <td>
-                                {{ Form::number('tetap2', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'tetap2']) }}
+                                {{ Form::number('tetap2', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'tetap2']) }}
                             </td>
                         </tr>
                         <tr>
@@ -222,7 +248,7 @@
                             </td>
                             <td>RM</td>
                             <td>
-                                {{ Form::number('tetap3', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'tetap3']) }}
+                                {{ Form::number('tetap3', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'tetap3']) }}
                             </td>
                         </tr>
                         <tr>
@@ -230,12 +256,12 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap4', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Tetap 4', 'id' => 'tetap4Select']) }}                                
+                                {{ Form::select('tetap4', $semasa, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 4', 'id' => 'tetap4Select']) }}                                
 
                             </td>
                             <td>RM</td>
                             <td>
-                                {{ Form::number('tetap4', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'tetap4']) }}
+                                {{ Form::number('tetap4', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'tetap4']) }}
                             </td>
                         </tr>
 
@@ -244,12 +270,12 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap5', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Tetap 5', 'id' => 'tetap5Select']) }}                                
+                                {{ Form::select('tetap5', $semasa, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 5', 'id' => 'tetap5Select']) }}                                
 
                             </td>
                             <td>RM</td>
                             <td>
-                                {{ Form::number('tetap5', '', ['class' => 'form-control', 'step' => 'any', 'required' => 'true', 'placeholder' => '0.00', 'id' => 'tetap5']) }}
+                                {{ Form::number('tetap5', '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => '0.00', 'id' => 'tetap5']) }}
                             </td>
                         </tr>
 
@@ -272,7 +298,7 @@
                         <tr>
                             <td colspan="2"><p>seperti dipohon </p></td>
                             <td align="right">RM </td>
-                            <td>{{ Form::number('jumlahPembahagian', '', ['class' => 'form-control', 'id' => 'jumlahPembahagian', 'placeholder' => '0.00']) }}</td>
+                            <td>{{ Form::number('jumlahPembahagian', '', ['class' => 'form-control', 'step' => 'any', 'id' => 'jumlahPembahagian', 'placeholder' => '0.00']) }}</td>
                         </tr>  
                         <tr>
                             <td colspan="4">
@@ -363,19 +389,19 @@
                         <tr>
                             <td>ii.</td>
                             <td>Simpanan Ahli</td>
-                            <td align="right" colspan="2">{{ Form::number('simpananAhli', '' , ['class' => 'form-control', 'id' => 'simpananAhli', 'required', 'placeholder' => '0.00']) }}</td>
+                            <td align="right" colspan="2">{{ Form::number('simpananAhli', '' , ['class' => 'form-control', 'step' => 'any', 'id' => 'simpananAhli', 'required', 'placeholder' => '0.00']) }}</td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>iii.</td>
                             <td>Terimaan Terdahulu</td>
-                            <td align="right" colspan="2">{{ Form::number('terimaanTerdahulu', '' , ['class' => 'form-control', 'id' => 'terimaanTerdahulu', 'required', 'placeholder' => '0.00']) }}</td>
+                            <td align="right" colspan="2">{{ Form::number('terimaanTerdahulu', '' , ['class' => 'form-control', 'step' => 'any', 'id' => 'terimaanTerdahulu', 'required', 'placeholder' => '0.00']) }}</td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td>iv.</td>
                             <td>Jumlah ii + iii</td>
-                            <td align="right" colspan="2">{{ Form::number('jumlahIV', '' , ['class' => 'form-control', 'id' => 'jumlahIV', 'readonly']) }}</td>
+                            <td align="right" colspan="2">{{ Form::number('jumlahIV', '' , ['class' => 'form-control', 'step' => 'any', 'id' => 'jumlahIV', 'readonly']) }}</td>
                             <td>&nbsp;</td>
                         </tr>
 
@@ -402,7 +428,9 @@
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
         <div class="pull-left"><a href="{{ redirect()->back() }}">@include('buttons._previous', ['value' => 'Kembali'])</a></div>
-        <div class="pull-right">@include('buttons._next', ['value' => 'Seterusnya'])</div>
+        <div class="pull-right">
+            <input class="btn btn-success" type="submit" value="Seterusnya" />
+        </div>
     </div>
 </div>
 {{ Form::close() }}
