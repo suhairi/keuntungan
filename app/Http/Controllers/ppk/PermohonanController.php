@@ -28,43 +28,58 @@ class PermohonanController extends Controller
 
         // ########################  END SESSION  ################################
 
-        $existed = false;
+        $year = Carbon::parse($request->get('tarikh'))->format('Y');
+
+        $lampiranbsatu = Lampiranbsatu::where('ppk_id', Auth::user()->ppk_id)
+            ->where('tahun', $year)
+            ->first();
 
         $banks = Bank::lists('name', 'id');
 
-        return View('ppk.rekod.permohonan2', compact('banks'));
+        return View('ppk.rekod.permohonan2', compact('banks', 'existed', 'lampiranbsatu'));
     }
 
     public function permohonan3(Request $request) {
 
-        // ###########################  SESSION  #################################
+        $year = Carbon::parse(Session::get('tarikh'))->format('Y');
 
-        Session::put('ditangan', $request->get('ditangan'));
+        $lampiranbsatu = Lampiranbsatu::where('ppk_id', Auth::user()->ppk_id)
+            ->where('tahun', $year)
+            ->first();
 
-        Session::put('semasa1', $request->get('semasa1'));
-        Session::put('semasa2', $request->get('semasa2'));
-        Session::put('semasa3', $request->get('semasa3'));
-        Session::put('semasa4', $request->get('semasa4'));
-        Session::put('semasa5', $request->get('semasa5'));
+        if($lampiranbsatu == null)            
+            $lampiranbsatu = new Lampiranbsatu;  
 
-        Session::put('biasa1', $request->get('biasa1'));
-        Session::put('biasa2', $request->get('biasa2'));
-        Session::put('biasa3', $request->get('biasa3'));
+        $lampiranbsatu->tahun = $year;
+             
+        $lampiranbsatu->ditangan = $request->get('ditangan');
 
-        Session::put('tetap1', $request->get('tetap1'));
-        Session::put('tetap2', $request->get('tetap2'));
-        Session::put('tetap3', $request->get('tetap3'));
-        Session::put('tetap4', $request->get('tetap4'));
-        Session::put('tetap5', $request->get('tetap5'));
+        $lampiranbsatu->semasa1 =  $request->get('semasa1');
+        $lampiranbsatu->semasa2 =  $request->get('semasa2');
+        $lampiranbsatu->semasa3 =  $request->get('semasa3');
+        $lampiranbsatu->semasa4 =  $request->get('semasa4');
+        $lampiranbsatu->semasa5 =  $request->get('semasa5');
 
-        Session::put('jumlahA', $request->get('jumlahA'));
-        Session::put('jumlahPembahagian', $request->get('jumlahPembahagian'));
-        Session::put('simpananAhli', $request->get('simpananAhli'));
-        Session::put('terimaanTerdahulu', $request->get('terimaanTerdahulu'));
+        $lampiranbsatu->biasa1 =  $request->get('biasa1');
+        $lampiranbsatu->biasa2 =  $request->get('biasa2');
+        $lampiranbsatu->biasa3 =  $request->get('biasa3');
 
-        Session::put('p2Markah', $request->get('markah'));
+        $lampiranbsatu->tetap1 =  $request->get('tetap1');
+        $lampiranbsatu->tetap2 =  $request->get('tetap2');
+        $lampiranbsatu->tetap3 =  $request->get('tetap3');
+        $lampiranbsatu->tetap4 =  $request->get('tetap4');
+        $lampiranbsatu->tetap5 =  $request->get('tetap5');
 
-        // ########################  END SESSION  ################################
+        $lampiranbsatu->jumlahPembahagian =  $request->get('jumlahPembahagian');
+        $lampiranbsatu->simpananAhli =  $request->get('simpananAhli');
+        $lampiranbsatu->terimaanTerdahulu =  $request->get('terimaanTerdahulu');
+
+        $lampiranbsatu->markah = $request->get('markah');
+
+        if($lampiranbsatu->save())
+            Session::flash('success', 'Berjaya. Lampiran B(1) telah berjaya disimpan');
+        else 
+            Session::flash('error', 'Gagal. Lampiran B(1) gagal disimpan');
 
         return View('ppk.rekod.permohonan3');
     }

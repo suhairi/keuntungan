@@ -1,21 +1,23 @@
 $(document).ready(function(){
 
 
-	$('#semasa1').hide();
-	$('#semasa2').hide();
-	$('#semasa3').hide();
-	$('#semasa4').hide();
-	$('#semasa5').hide();
+	if($('#semasa1').val() == 0 ) $('#semasa1').hide();
+	if($('#semasa2').val() == 0 ) $('#semasa2').hide();
+	if($('#semasa3').val() == 0 ) $('#semasa3').hide();
+	if($('#semasa4').val() == 0 ) $('#semasa4').hide();
+	if($('#semasa5').val() == 0 ) $('#semasa5').hide();
 
-	$('#biasa1').hide();
-	$('#biasa2').hide();
-	$('#biasa3').hide();
+	if($('#biasa1').val() == 0) $('#biasa1').hide();
+	if($('#biasa2').val() == 0) $('#biasa2').hide();
+	if($('#biasa3').val() == 0) $('#biasa3').hide();
 
-	$('#tetap1').hide();
-	$('#tetap2').hide();
-	$('#tetap3').hide();
-	$('#tetap4').hide();
-	$('#tetap5').hide();
+	if($('#tetap1').val() == 0) $('#tetap1').hide();
+	if($('#tetap2').val() == 0) $('#tetap2').hide();
+	if($('#tetap3').val() == 0) $('#tetap3').hide();
+	if($('#tetap4').val() == 0) $('#tetap4').hide();
+	if($('#tetap5').val() == 0) $('#tetap5').hide();
+
+	calc();
 
 	$('#semasa1Select').change(function() {
 		$('#semasa1').show();
@@ -166,8 +168,8 @@ $(document).ready(function(){
 		semasa1 = $('#semasa1').val();
 		semasa2 = $('#semasa2').val();
 		semasa3 = $('#semasa3').val();
-		semasa3 = $('#semasa4').val();
-		semasa3 = $('#semasa5').val();
+		semasa4 = $('#semasa4').val();
+		semasa5 = $('#semasa5').val();
 
 		biasa1 = $('#biasa1').val();
 		biasa2 = $('#biasa2').val();
