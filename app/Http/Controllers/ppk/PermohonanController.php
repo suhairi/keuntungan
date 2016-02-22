@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 use Auth;
 use App\Bank;
+use App\Lampiranbsatu;
 
 class PermohonanController extends Controller
 {
@@ -26,6 +27,8 @@ class PermohonanController extends Controller
         Session::put('tahunBerakhir', Carbon::parse($request->get('tarikh'))->format('d M Y'));
 
         // ########################  END SESSION  ################################
+
+        $existed = false;
 
         $banks = Bank::lists('name', 'id');
 
