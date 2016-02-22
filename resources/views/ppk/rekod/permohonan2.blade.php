@@ -85,7 +85,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('semasa1', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 1', 'id' => 'semasa1Select']) }}                                
+                                {{ Form::select('semasa1', $banks, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 1', 'id' => 'semasa1Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -98,7 +98,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('semasa2', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 2', 'id' => 'semasa2Select']) }}                                
+                                {{ Form::select('semasa2', $banks, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 2', 'id' => 'semasa2Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -112,7 +112,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('semasa3', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 3', 'id' => 'semasa3Select']) }}                                
+                                {{ Form::select('semasa3', $banks, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 3', 'id' => 'semasa3Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -125,7 +125,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('semasa4', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 4', 'id' => 'semasa4Select']) }}                                
+                                {{ Form::select('semasa4', $banks, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 4', 'id' => 'semasa4Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -138,7 +138,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('semasa5', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 5', 'id' => 'semasa5Select']) }}                                
+                                {{ Form::select('semasa5', $banks, '', ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 5', 'id' => 'semasa5Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -162,7 +162,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('biasa1', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 1', 'id' => 'biasa1Select']) }}                                
+                                {{ Form::select('biasa1', $banks, '', ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 1', 'id' => 'biasa1Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -176,7 +176,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('biasa2', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 2', 'id' => 'biasa2Select']) }}                                
+                                {{ Form::select('biasa2', $banks, '', ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 2', 'id' => 'biasa2Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -190,7 +190,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('biasa3', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 3', 'id' => 'biasa3Select']) }}                                
+                                {{ Form::select('biasa3', $banks, '', ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 3', 'id' => 'biasa3Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -217,7 +217,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap1', $semasa, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 1', 'id' => 'tetap1Select']) }}                                
+                                {{ Form::select('tetap1', $banks, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 1', 'id' => 'tetap1Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -230,7 +230,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap2', $semasa, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 2', 'id' => 'tetap2Select']) }}                                
+                                {{ Form::select('tetap2', $banks, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 2', 'id' => 'tetap2Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -243,7 +243,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap3', $semasa, '', ['class' => 'form-control', 'placeholder' => 'Akaun Tetap 3', 'id' => 'tetap3Select']) }}                                
+                                {{ Form::select('tetap3', $banks, '', ['class' => 'form-control', 'placeholder' => 'Akaun Tetap 3', 'id' => 'tetap3Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -256,7 +256,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap4', $semasa, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 4', 'id' => 'tetap4Select']) }}                                
+                                {{ Form::select('tetap4', $banks, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 4', 'id' => 'tetap4Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -270,7 +270,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap5', $semasa, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 5', 'id' => 'tetap5Select']) }}                                
+                                {{ Form::select('tetap5', $banks, '', ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 5', 'id' => 'tetap5Select']) }}                                
 
                             </td>
                             <td>RM</td>

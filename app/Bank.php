@@ -8,7 +8,7 @@ class Bank extends Model
 {
     protected $table = 'bank';
     protected $primaryKey = 'id';
-    protected $fillable = ['short_name', 'name', 'ppk_id'];
+    protected $fillable = ['short_name', 'name'];
 
     public $timestamps = false;
 

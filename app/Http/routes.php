@@ -103,6 +103,30 @@ Route::group(['middleware' => 'web'], function () {
                 'uses'      => 'Admin\PresetController@kemaskini'
             ]);
 
+
+            /*
+             * Bank
+             */
+
+            Route::get('bank', [
+                'as'        => 'admin.preset.bank',
+                'uses'      => 'Admin\BankController@bank'
+            ]);
+
+            Route::post('bank', [
+                'as'        => 'admin.preset.bank',
+                'uses'      => 'Admin\BankController@bankPost'
+            ]);
+
+            Route::get('bank/{id}', function($id) {
+                if(\App\Bank::destroy($id))
+                    Session::flash('success', 'Berjaya. Permarkahan berjaya dihapus.');
+                else
+                    Session::flash('error', 'Gagal. Permarkahan gagal dihapus.');
+
+                return redirect()->back();
+            });
+
         });
 
     });
@@ -174,24 +198,7 @@ Route::group(['middleware' => 'web'], function () {
 
             ]);
 
-            Route::get('bank', [
-                'as'        => 'ppk.rekod.bank',
-                'uses'      => 'ppk\BankController@bank'
-            ]);
-
-            Route::post('bank', [
-                'as'        => 'ppk.rekod.bank',
-                'uses'      => 'Ppk\BankController@bankPost'
-            ]);
-
-            Route::get('bank/{id}', function($id) {
-                if(\App\Bank::destroy($id))
-                    Session::flash('success', 'Berjaya. Permarkahan berjaya dihapus.');
-                else
-                    Session::flash('error', 'Gagal. Permarkahan gagal dihapus.');
-
-                return redirect()->back();
-            });
+            
 
             Route::get('penerima', [
                 'as'        => 'ppk.rekod.penerima',

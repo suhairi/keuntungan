@@ -27,20 +27,9 @@ class PermohonanController extends Controller
 
         // ########################  END SESSION  ################################
 
-        $semasa = Bank::where('ppk_id', Auth::user()->ppk_id)
-            ->where('saving_type', 'SEMASA')
-            ->lists('name', 'id');
+        $banks = Bank::lists('name', 'id');
 
-        $simpanan = Bank::where('ppk_id', Auth::user()->ppk_id)
-            ->where('saving_type', 'BIASA')
-            ->lists('name', 'id');
-
-        $tetap = Bank::where('ppk_id', Auth::user()->ppk_id)
-            ->where('saving_type', 'TETAP')
-            ->lists('name', 'id');
-
-
-        return View('ppk.rekod.permohonan2', compact('semasa', 'biasa', 'tetap'));
+        return View('ppk.rekod.permohonan2', compact('banks'));
     }
 
     public function permohonan3(Request $request) {
@@ -55,9 +44,9 @@ class PermohonanController extends Controller
         Session::put('semasa4', $request->get('semasa4'));
         Session::put('semasa5', $request->get('semasa5'));
 
-        Session::put('tetap1', $request->get('tetap1'));
-        Session::put('tetap2', $request->get('tetap2'));
-        Session::put('tetap3', $request->get('tetap3'));
+        Session::put('biasa1', $request->get('biasa1'));
+        Session::put('biasa2', $request->get('biasa2'));
+        Session::put('biasa3', $request->get('biasa3'));
 
         Session::put('tetap1', $request->get('tetap1'));
         Session::put('tetap2', $request->get('tetap2'));

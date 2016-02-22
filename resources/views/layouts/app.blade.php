@@ -62,6 +62,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ route('admin.preset.markah') }}"><i class="glyphicon glyphicon-pencil"></i> Markah</a></li>
                                     <li><a href="{{ route('admin.preset.users') }}"><i class="glyphicon glyphicon-pencil"></i> Pengguna</a></li>
+                                    <li><a href="{{ route('admin.preset.bank') }}"><i class="glyphicon glyphicon-pencil"></i> Bank</a></li>
                                 </ul>
                             </li>
                         @endif
@@ -86,8 +87,7 @@
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="{{ route('ppk.rekod.ppk') }}"> Detail PPK</a></li>
-                                        <li><a href="{{ route('ppk.rekod.pengurus') }}">Pengurus</a></li>
-                                        <li><a href="{{ route('ppk.rekod.bank') }}">Bank</a></li>                                        
+                                        <li><a href="{{ route('ppk.rekod.pengurus') }}">Pengurus</a></li>                                                                                
                                         <li><a href="{{ route('ppk.rekod.permarkahan') }}"> Permarkahan</a></li>
                                         <li><a href="{{ route('ppk.rekod.penerima') }}"> Penerima</a></li>
 

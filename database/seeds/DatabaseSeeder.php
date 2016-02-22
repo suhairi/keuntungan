@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
          $this->call(PpkTableSeeder::class);
          $this->call(LevelTableSeeder::class);
          $this->call(MarkahTableSeeder::class);
+         $this->call(BankTableSeeder::class);
     }
 }

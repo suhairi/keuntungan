@@ -16,8 +16,6 @@ class CreateBankTable extends Migration
             $table->increments('id');
             $table->string('short_name', 255);
             $table->string('name');
-            $table->enum('saving_type',['semasa', 'biasa', 'tetap']);
-            $table->integer('ppk_id', false, false);
         });
     }
 
