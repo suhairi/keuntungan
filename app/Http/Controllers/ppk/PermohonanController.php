@@ -15,10 +15,19 @@ use App\Lampiranbsatu;
 
 class PermohonanController extends Controller
 {
+
+    /*
+     *  PERMOHONAN 1
+     */
     public function permohonan() {
 
         return View('ppk.rekod.permohonan');
     }
+
+
+    /*
+     *  PERMOHONAN 2
+     */
 
     public function permohonan2(Request $request) {
 
@@ -39,7 +48,13 @@ class PermohonanController extends Controller
         return View('ppk.rekod.permohonan2', compact('banks', 'existed', 'lampiranbsatu'));
     }
 
+    /*
+     *  PERMOHONAN 3
+     */
+
     public function permohonan3(Request $request) {
+
+        // Handling posted datas
 
         $year = Carbon::parse(Session::get('tarikh'))->format('Y');
 
@@ -77,14 +92,25 @@ class PermohonanController extends Controller
         $lampiranbsatu->markah = $request->get('markah');
 
         if($lampiranbsatu->save())
-            Session::flash('success', 'Berjaya. Lampiran B(1) telah berjaya disimpan');
+            Session::flash('success', 'Berjaya. Lampiran B(1) telah berjaya disimpan/kemaskini');
         else 
             Session::flash('error', 'Gagal. Lampiran B(1) gagal disimpan');
+
+        // Checking next data
 
         return View('ppk.rekod.permohonan3');
     }
     
+
+    /*
+     *  PERMOHONAN 4
+     */
     public function permohonan4(Request $request) {
+
+        if(Session::has('success'))
+            return Session::get('success');
+        else
+            return Session::get('error');
 
 
         // ###########################  SESSION  #################################
@@ -106,6 +132,9 @@ class PermohonanController extends Controller
 
     }
 
+    /*
+     *  PERMOHONAN 5
+     */
     public function permohonan5(Request $request) {
 
         // ###########################  SESSION  #################################

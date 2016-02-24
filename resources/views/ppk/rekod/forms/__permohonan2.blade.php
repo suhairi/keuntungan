@@ -1,7 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-
 {{--Progress Bar--}}
 
 
@@ -441,6 +437,6 @@
 
 
 
-<script src={{ asset('js/permohonan/permohonan2.js')}}></script>
+
 
 @stop

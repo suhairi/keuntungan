@@ -439,7 +439,4 @@
 {{ Form::close() }}
 
 
-
-<script src={{ asset('js/permohonan/permohonan2.js')}}></script>
-
 @stop
