@@ -146,23 +146,17 @@ class PermohonanController extends Controller
      */
     public function permohonan4(Request $request) {
 
-
-        $existed = 0;
-
         $year = Carbon::parse(Session::get('tarikh'))->format('Y');
 
-        // if(Session::has('success'))
-        //     return Session::get('success');
-        // else
-        //     return Session::get('error');
 
-        if($existed == 1) {
+        if($request->get('existed') == 1) {
             $lampiranbdua = Lampiranbdua::where('tahun', $year)
                 ->where('ppk_id', Auth::user()->ppk_id)
                 ->first();
         } else {
             $lampiranbdua = new Lampiranbdua;
         }
+
 
         $jumlah = $request->get('item1') + $request->get('item2') + $request->get('item3') + $request->get('item4') + $request->get('item5');
 
@@ -198,20 +192,22 @@ class PermohonanController extends Controller
 
         $existed = 0;
 
-        $lampiranbtiga = Lampiranbdua::where('tahun', $year)
+        $lampiranbdua = Lampiranbdua::where('tahun', $year)
             ->where('ppk_id', Auth::user()->ppk_id)
             ->first();
 
 
         if($lampiranbdua != null)
             $existed = 1;
+        else {
+            Session::flash('error', 'Sila isikan ruangan ini terlebih dahulu sebelum ke ruangan berikutnya.');
+            return View('ppk.rekod.permohonan4');
+        }
 
-        // edit here
         if($existed == 1)
             return View('ppk.rekod.forms._permohonan4', compact('existed', 'lampiranbdua'));
         else
             return View('ppk.rekod.permohonan4');
-
 
     }
 
@@ -219,12 +215,6 @@ class PermohonanController extends Controller
      *  PERMOHONAN 5
      */
     public function permohonan5(Request $request) {
-
-        // ###########################  SESSION  #################################
-
-        
-
-        // ########################  END SESSION  ################################
 
         return $request->all();
 

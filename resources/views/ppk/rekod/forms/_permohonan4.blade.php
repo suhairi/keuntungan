@@ -17,7 +17,7 @@
 
 
 {{--The MAIN table--}}
-{{ Form::open(['route' => 'ppk.rekod.permohonan5']) }}
+{{ Form::model($lampiranbdua, ['route' => 'ppk.rekod.permohonan5']) }}
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
         <table class="table table-bordered">
@@ -41,22 +41,22 @@
                         <tr>
                             <td colspan="2" width=400>Siberhutang Perniagaan - Ahli</td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('item2', session('item2'), ['class' => 'form-control', 'id' => 'item2', 'required', 'readonly', 'placeholder' => '0.00', 'value' => session('item2')])}}</td>
+                            <td>{{ Form::number('item2', $lampiranbdua->item2, ['class' => 'form-control', 'id' => 'item2', 'required', 'readonly', 'placeholder' => '0.00', 'value' => session('item2')])}}</td>
                         </tr>
                         <tr>
                             <td colspan="2" width=400>Siberhutang Perniagaan - Bukan Ahli</td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('item3', session('item3'), ['class' => 'form-control', 'id' => 'item3', 'required', 'readonly', 'placeholder' => '0.00'])}}</td>
+                            <td>{{ Form::number('item3', $lampiranbdua->item3, ['class' => 'form-control', 'id' => 'item3', 'required', 'readonly', 'placeholder' => '0.00'])}}</td>
                         </tr>
                         <tr>
                             <td colspan="2" width=400>Pinjaman Tanpa Cagaran</td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('item4', session('item4'), ['class' => 'form-control', 'id' => 'item4', 'required', 'readonly', 'placeholder' => '0.00'])}}</td>
+                            <td>{{ Form::number('item4', $lampiranbdua->item4, ['class' => 'form-control', 'id' => 'item4', 'required', 'readonly', 'placeholder' => '0.00'])}}</td>
                         </tr>
                         <tr>
                             <td colspan="2" width=400>Siberhutang-siberhutang Lain</td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('item5', session('item5'), ['class' => 'form-control', 'id' => 'item5', 'required', 'readonly', 'placeholder' => '0.00'])}}</td>
+                            <td>{{ Form::number('item5', $lampiranbdua->item5, ['class' => 'form-control', 'id' => 'item5', 'required', 'readonly', 'placeholder' => '0.00'])}}</td>
                         </tr>
 
                         {{--Gutter--}}
@@ -84,7 +84,7 @@
                         <tr>
                             <td colspan="2"></td>
                             <td width="35">RM</td>
-                            <td width="250">{{ Form::number('untungBersih', session('untungBersih'), ['class' => 'form-control', 'readonly', 'id' => 'untungBersih', 'required', 'placeholder' => '0.00'])}}</td>
+                            <td width="250">{{ Form::number('untungBersih', $lampiranbdua->untungBersih, ['class' => 'form-control', 'readonly', 'id' => 'untungBersih', 'required', 'placeholder' => '0.00'])}}</td>
                             <td>&nbsp;</td>
                         </tr>
                     </table>
@@ -179,13 +179,13 @@
                         <tr>
                             <td colspan="2" width=400><ol type="i"><li>Jumlah Harta Semasa</li></ol></td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('_4Item1', '', ['class' => 'form-control', 'id' => '_4Item1', 'required', 'placeholder' => '0.00', 'value' => session('4Item1')])}}</td>
+                            <td>{{ Form::number('hartaSemasa', '', ['class' => 'form-control', 'id' => 'hartaSemasa', 'required', 'placeholder' => '0.00'])}}</td>
                         </tr>
 
                         <tr>
                             <td colspan="2" width=400><ol type="i" start="2"><li>Jumlah Tanggungan Semasa</li></ol></td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('_4Item2', '', ['class' => 'form-control', 'id' => '_4Item2', 'required', 'placeholder' => '0.00', 'value' => session('4Item2')])}}</td>
+                            <td>{{ Form::number('tanggunganSemasa', '', ['class' => 'form-control', 'id' => 'tanggunganSemasa', 'required', 'placeholder' => '0.00'])}}</td>
                         </tr>
 
 
@@ -350,6 +350,6 @@
 
 
 
-<script src={{ asset('js/permohonan/permohonan4_.js')}}></script>
+<script src={{ asset('js/permohonan/permohonan4.js')}}></script>
 
 @stop

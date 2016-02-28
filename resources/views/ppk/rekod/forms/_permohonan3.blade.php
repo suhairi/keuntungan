@@ -18,6 +18,8 @@
 
 {{--The MAIN table--}}
 {{ Form::model($lampiranbdua, ['route' => 'ppk.rekod.permohonan4']) }}
+
+{{ Form::hidden('existed', $existed)}}
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
         <table class="table table-bordered">

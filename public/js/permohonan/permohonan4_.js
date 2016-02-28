@@ -25,13 +25,14 @@ $(document).ready(function() {
 		if(item5 == '')
 			$('#item5').val(parseFloat(0).toFixed(2));
 
+		var jumlah = parseFloat(item2 + item3 + item4 + item5)
 
 		var jumlahAtas = parseFloat(untungBersih - jumlah);
 		var jumlahBawah = parseFloat(untungBersih);
 
 		var nisbah = parseFloat(jumlahAtas/jumlahBawah);
 
-
+		$('#jumlah').val(jumlah.toFixed(2));
 		$('#jumlahAtas').html(parseFloat(jumlahAtas).toFixed(2));
 		$('#jumlahBawah').html(parseFloat(jumlahBawah).toFixed(2));
 		$('#nisbah').html("1 : " + nisbah.toFixed(2));
