@@ -4,6 +4,8 @@ $(document).ready(function() {
 			calc();
 	});	
 
+	calc();
+
 
 
 
@@ -59,8 +61,6 @@ $(document).ready(function() {
 			jumlahBawah = parseFloat(0);
 		else
 			$('#jumlahBawah').val(parseFloat(jumlahBawah).toFixed(2));
-
-
 
 
 		var jumlah = parseFloat(parseFloat(item1) + parseFloat(item2) + parseFloat(item3) + parseFloat(item4) + parseFloat(item5));

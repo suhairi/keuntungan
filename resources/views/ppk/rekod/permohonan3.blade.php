@@ -39,7 +39,7 @@
                         <tr>
                             <td colspan="2"><ol type="i" start="1"><li>Peruntukan yang telah diambil kira</li></ol></td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('aItem1', '', ['class' => 'form-control', 'id' => 'aItem1', 'placeholder' => '0.00'])}}</td>
+                            <td>{{ Form::number('item1', '', ['class' => 'form-control', 'id' => 'item1', 'placeholder' => '0.00'])}}</td>
                         </tr>
                         <tr>
                             <td colspan="2" width=400>
@@ -51,7 +51,7 @@
                                 </ol>
                             </td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('aItem2', '', ['class' => 'form-control', 'id' => 'aItem2', 'placeholder' => '0.00'])}}</td>
+                            <td>{{ Form::number('item2', '', ['class' => 'form-control', 'id' => 'item2', 'placeholder' => '0.00'])}}</td>
                         </tr>
                         <tr>
                             <td colspan="2" width=400>                                
@@ -62,7 +62,7 @@
                                 </ol>
                             </td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('aItem3', '', ['class' => 'form-control', 'id' => 'aItem3', 'placeholder' => '0.00'])}}</td>
+                            <td>{{ Form::number('item3', '', ['class' => 'form-control', 'id' => 'item3', 'placeholder' => '0.00'])}}</td>
                         </tr>
                         <tr>
                             <td colspan="2" width=400>                                
@@ -73,7 +73,7 @@
                                 </ol>
                             </td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('aItem4', '', ['class' => 'form-control', 'id' => 'aItem4', 'placeholder' => '0.00'])}}</td>
+                            <td>{{ Form::number('item4', '', ['class' => 'form-control', 'id' => 'item4', 'placeholder' => '0.00'])}}</td>
                         </tr>
                         <tr>
                             <td colspan="2" width=400>                                
@@ -84,7 +84,7 @@
                                 </ol>
                             </td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('aItem5', '', ['class' => 'form-control', 'id' => 'aItem5', 'placeholder' => '0.00'])}}</td>
+                            <td>{{ Form::number('item5', '', ['class' => 'form-control', 'id' => 'item5', 'placeholder' => '0.00'])}}</td>
                         </tr>
 
                         {{--Gutter--}}
@@ -112,7 +112,7 @@
                         <tr>
                             <td colspan="2"></td>
                             <td width="35">RM</td>
-                            <td width="250">{{ Form::number('bUntungBersih', '', ['class' => 'form-control', 'id' => 'bUntungBersih', 'required', 'placeholder' => '0.00'])}}</td>
+                            <td width="250">{{ Form::number('untungBersih', '', ['class' => 'form-control', 'id' => 'untungBersih', 'required', 'placeholder' => '0.00'])}}</td>
                             <td>&nbsp;</td>
                         </tr>
                     </table>
@@ -204,7 +204,7 @@
 
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-        <div class="pull-left"><a href="{{ redirect()->back() }}">@include('buttons._previous', ['value' => 'Kembali'])</a></div>
+        <!-- <div class="pull-left"><a href="{{ redirect()->back() }}">@include('buttons._previous', ['value' => 'Kembali'])</a></div> -->
         <div class="pull-right">
             <input class="btn btn-success" type="submit" value="Seterusnya" />
         </div>

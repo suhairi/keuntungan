@@ -15,13 +15,14 @@ class CreateLapiranbduaTable extends Migration
         Schema::create('lampiranbdua', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tahun', false, false);
-            $table->float('item1', 9, 2);
-            $table->float('item2', 9, 2);
-            $table->float('item3', 9, 2);
-            $table->float('item4', 9, 2);
-            $table->float('item5', 9, 2);
-            $table->float('item6', 9, 2);
+            $table->float('item1', 9, 2)->nullable();
+            $table->float('item2', 9, 2)->nullable();
+            $table->float('item3', 9, 2)->nullable();
+            $table->float('item4', 9, 2)->nullable();
+            $table->float('item5', 9, 2)->nullable();
+            $table->float('item6', 9, 2)->nullable();
 
+            $table->float('untungBersih', 9, 2);
             $table->float('jumlahAtas', 9, 2);
             $table->float('jumlahBawah', 9, 2);
             $table->float('nisbah', 9, 2);

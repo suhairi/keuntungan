@@ -146,14 +146,15 @@ class PermohonanController extends Controller
      */
     public function permohonan4(Request $request) {
 
-        return $request->all();
+
+        $existed = 0;
 
         $year = Carbon::parse(Session::get('tarikh'))->format('Y');
 
-        if(Session::has('success'))
-            return Session::get('success');
-        else
-            return Session::get('error');
+        // if(Session::has('success'))
+        //     return Session::get('success');
+        // else
+        //     return Session::get('error');
 
         if($existed == 1) {
             $lampiranbdua = Lampiranbdua::where('tahun', $year)
@@ -163,34 +164,35 @@ class PermohonanController extends Controller
             $lampiranbdua = new Lampiranbdua;
         }
 
+        $jumlah = $request->get('item1') + $request->get('item2') + $request->get('item3') + $request->get('item4') + $request->get('item5');
+
+        $jumlahAtas = $request->get('untungBersih') - $jumlah;
+        $jumlahBawah = $request->get('untungBersih');
+
+
         $lampiranbdua->tahun        = $year;
-        $lampiranbdua->item1        = $request->get('aItem1');
-        $lampiranbdua->item2        = $request->get('aItem2');
-        $lampiranbdua->item3        = $request->get('aItem3');
-        $lampiranbdua->item4        = $request->get('aItem4');
-        $lampiranbdua->item5        = $request->get('aItem5');
-        $lampiranbdua->item6        = $request->get('aItem6');
+        $lampiranbdua->item1        = $request->get('item1');
+        $lampiranbdua->item2        = $request->get('item2');
+        $lampiranbdua->item3        = $request->get('item3');
+        $lampiranbdua->item4        = $request->get('item4');
+        $lampiranbdua->item5        = $request->get('item5');
+        $lampiranbdua->item6        = $request->get('item6');
 
-        $lampiranbdua->jumlahAtas   = $request->get('jumlahAtas');
-        $lampiranbdua->jumlahBawah  = $request->get('jumlahBawah');
+        $lampiranbdua->untungBersih = $request->get('untungBersih');
 
-        $lampiranbdua->nisbah       = $request->get('nisbah');
+        $lampiranbdua->jumlahAtas   = $jumlahAtas;
+        $lampiranbdua->jumlahBawah  = $request->get('untungBersih');
+
+        $lampiranbdua->nisbah       = number_format(($jumlahAtas / $jumlahBawah), 2);
         $lampiranbdua->markah       = $request->get('markah');
         $lampiranbdua->ppk_id       = Auth::user()->ppk_id;
+
         
         if($lampiranbdua->save())
             Session::flash('success', 'Berjaya. Lampiran B(2) telah berjaya disimpan/kemaskini');
         else 
             Session::flash('error', 'Gagal. Lampiran B(2) gagal disimpan');
 
-
-        if(Session::has('success'))
-            return Session::get('success');
-        else
-            return Session::get('error');
-
-
-        die();
 
         // Checking next data B(3)
 
@@ -204,13 +206,12 @@ class PermohonanController extends Controller
         if($lampiranbdua != null)
             $existed = 1;
 
+        // edit here
         if($existed == 1)
-            return View('ppk.rekod.forms._permohonan3', compact('existed', 'lampiranbdua'));
+            return View('ppk.rekod.forms._permohonan4', compact('existed', 'lampiranbdua'));
         else
-            return View('ppk.rekod.permohonan3');
+            return View('ppk.rekod.permohonan4');
 
-
-        return View('ppk.rekod.permohonan4');
 
     }
 
