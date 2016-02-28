@@ -37,15 +37,25 @@ class PermohonanController extends Controller
 
         // ########################  END SESSION  ################################
 
+        $existed = false;
         $year = Carbon::parse($request->get('tarikh'))->format('Y');
 
         $lampiranbsatu = Lampiranbsatu::where('ppk_id', Auth::user()->ppk_id)
             ->where('tahun', $year)
             ->first();
 
+        dd($lampiranbsatu);
+        
+        if($lampiranbsatu != null)
+            $existed = true;
+
         $banks = Bank::lists('name', 'id');
 
-        return View('ppk.rekod.permohonan2', compact('banks', 'existed', 'lampiranbsatu'));
+        if($existed)
+            return View('ppk.rekod.forms._permohonan2', compact('banks', 'lampiranbsatu'));
+        else
+            return View('ppk.rekod.permohonan2', compact('banks', 'lampiranbsatu'));
+
     }
 
     /*
@@ -69,21 +79,34 @@ class PermohonanController extends Controller
              
         $lampiranbsatu->ditangan = $request->get('ditangan');
 
-        $lampiranbsatu->semasa1 =  $request->get('semasa1');
-        $lampiranbsatu->semasa2 =  $request->get('semasa2');
-        $lampiranbsatu->semasa3 =  $request->get('semasa3');
-        $lampiranbsatu->semasa4 =  $request->get('semasa4');
-        $lampiranbsatu->semasa5 =  $request->get('semasa5');
+        $lampiranbsatu->bank_semasa1   = $request->get('semasa1Select');
+        $lampiranbsatu->semasa1        = $request->get('semasa1');
+        $lampiranbsatu->bank_semasa2   = $request->get('semasa2Select');
+        $lampiranbsatu->semasa2        = $request->get('semasa2');
+        $lampiranbsatu->bank_semasa3   = $request->get('semasa3Select');
+        $lampiranbsatu->semasa3        = $request->get('semasa3');
+        $lampiranbsatu->bank_semasa4   = $request->get('semasa4Select');
+        $lampiranbsatu->semasa4        = $request->get('semasa4');
+        $lampiranbsatu->bank_semasa5   = $request->get('semasa5Select');
+        $lampiranbsatu->semasa5        = $request->get('semasa5');
 
-        $lampiranbsatu->biasa1 =  $request->get('biasa1');
-        $lampiranbsatu->biasa2 =  $request->get('biasa2');
-        $lampiranbsatu->biasa3 =  $request->get('biasa3');
+        $lampiranbsatu->bank_biasa1    = $request->get('biasa15Select');
+        $lampiranbsatu->biasa1         = $request->get('biasa1');
+        $lampiranbsatu->bank_biasa2    = $request->get('biasa25Select');
+        $lampiranbsatu->biasa2         = $request->get('biasa2');
+        $lampiranbsatu->bank_biasa3    = $request->get('biasa35Select');
+        $lampiranbsatu->biasa3         = $request->get('biasa3');
 
-        $lampiranbsatu->tetap1 =  $request->get('tetap1');
-        $lampiranbsatu->tetap2 =  $request->get('tetap2');
-        $lampiranbsatu->tetap3 =  $request->get('tetap3');
-        $lampiranbsatu->tetap4 =  $request->get('tetap4');
-        $lampiranbsatu->tetap5 =  $request->get('tetap5');
+        $lampiranbsatu->bank_tetap1    = $request->get('tetap1Select');
+        $lampiranbsatu->tetap1         = $request->get('tetap1');
+        $lampiranbsatu->bank_tetap2    = $request->get('tetap2Select');
+        $lampiranbsatu->tetap2         = $request->get('tetap2');
+        $lampiranbsatu->bank_tetap3    = $request->get('tetap3Select');
+        $lampiranbsatu->tetap3         = $request->get('tetap3');
+        $lampiranbsatu->bank_tetap4    = $request->get('tetap4Select');
+        $lampiranbsatu->tetap4         = $request->get('tetap4');
+        $lampiranbsatu->bank_tetap5    = $request->get('tetap5Select');
+        $lampiranbsatu->tetap5         = $request->get('tetap5');
 
         $lampiranbsatu->jumlahPembahagian =  $request->get('jumlahPembahagian');
         $lampiranbsatu->simpananAhli =  $request->get('simpananAhli');

@@ -9,7 +9,7 @@ class Lampiranbsatu extends Model
 	protected $table = 'lampiranbsatu';
 	protected $primaryKey = 'id';
 	protected $fillable = [
-		'tahun',
+	'tahun',
         'ditangan',
         'bank_semasa1',
         'bank_semasa2',

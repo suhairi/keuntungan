@@ -17,9 +17,8 @@ $(document).ready(function(){
 	$('#tetap4').hide();
 	$('#tetap5').hide();
 
-	calc();
 
-	$('#semasa1Select').change(function() {
+	$('#semasa1Select').change(function() {	
 		$('#semasa1').show();
 
 		if($('#semasa1Select').val() == '') {
@@ -158,7 +157,6 @@ $(document).ready(function(){
 
 
 	$("input[type='number']").change( function() {
-		alert('changed');
   		calc();
 	});
 
