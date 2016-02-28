@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 {{--Progress Bar--}}
 
 
@@ -17,6 +21,8 @@
 
 
 {{ Form::model($lampiranbsatu, ['route' => 'ppk.rekod.permohonan3']) }}
+
+{{ Form::hidden('existed', $existed) }}
 
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
@@ -85,7 +91,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('semasa1', $banks, $lampiranbsatu->bank_semasa1, ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 1', 'id' => 'semasa1Select']) }}                                
+                                {{ Form::select('semasa1Select', $banks, $lampiranbsatu->bank_semasa1, ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 1', 'id' => 'semasa1Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -98,7 +104,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('semasa2', $banks, $lampiranbsatu->bank_semasa2, ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 2', 'id' => 'semasa2Select']) }}                                
+                                {{ Form::select('semasa2Select', $banks, $lampiranbsatu->bank_semasa2, ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 2', 'id' => 'semasa2Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -112,7 +118,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('semasa3', $banks, $lampiranbsatu->bank_semasa3, ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 3', 'id' => 'semasa3Select']) }}                                
+                                {{ Form::select('semasa3Select', $banks, $lampiranbsatu->bank_semasa3, ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 3', 'id' => 'semasa3Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -125,7 +131,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('semasa4', $banks, $lampiranbsatu->bank_semasa4, ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 4', 'id' => 'semasa4Select']) }}                                
+                                {{ Form::select('semasa4Select', $banks, $lampiranbsatu->bank_semasa4, ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 4', 'id' => 'semasa4Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -138,7 +144,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('semasa5', $banks, $lampiranbsatu->bank_semasa5, ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 5', 'id' => 'semasa5Select']) }}                                
+                                {{ Form::select('semasa5Select', $banks, $lampiranbsatu->bank_semasa5, ['class' => 'form-control', 'placeholder' => 'Akaun Semasa 5', 'id' => 'semasa5Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -162,7 +168,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('biasa1', $banks, $lampiranbsatu->bank_biasa1, ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 1', 'id' => 'biasa1Select']) }}                                
+                                {{ Form::select('biasa1Select', $banks, $lampiranbsatu->bank_biasa1, ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 1', 'id' => 'biasa1Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -176,7 +182,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('biasa2', $banks, $lampiranbsatu->bank_biasa2, ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 2', 'id' => 'biasa2Select']) }}                                
+                                {{ Form::select('biasa2Select', $banks, $lampiranbsatu->bank_biasa2, ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 2', 'id' => 'biasa2Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -190,7 +196,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('biasa3', $banks, $lampiranbsatu->bank_biasa3, ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 3', 'id' => 'biasa3Select']) }}                                
+                                {{ Form::select('biasa3Select', $banks, $lampiranbsatu->bank_biasa3, ['class' => 'form-control', 'placeholder' => 'Akaun Biasa 3', 'id' => 'biasa3Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -217,7 +223,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap1', $banks, $lampiranbsatu->bank_tetap1, ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 1', 'id' => 'tetap1Select']) }}                                
+                                {{ Form::select('tetap1Select', $banks, $lampiranbsatu->bank_tetap1, ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 1', 'id' => 'tetap1Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -230,7 +236,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap2', $banks, $lampiranbsatu->bank_tetap2, ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 2', 'id' => 'tetap2Select']) }}                                
+                                {{ Form::select('tetap2Select', $banks, $lampiranbsatu->bank_tetap2, ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 2', 'id' => 'tetap2Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -243,7 +249,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap3', $banks, $lampiranbsatu->bank_tetap3, ['class' => 'form-control', 'placeholder' => 'Akaun Tetap 3', 'id' => 'tetap3Select']) }}                                
+                                {{ Form::select('tetap3Select', $banks, $lampiranbsatu->bank_tetap3, ['class' => 'form-control', 'placeholder' => 'Akaun Tetap 3', 'id' => 'tetap3Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -256,7 +262,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap4', $banks, $lampiranbsatu->bank_tetap4, ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 4', 'id' => 'tetap4Select']) }}                                
+                                {{ Form::select('tetap4Select', $banks, $lampiranbsatu->bank_tetap4, ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 4', 'id' => 'tetap4Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -270,7 +276,7 @@
                             <td>No Akaun</td>
                             <td>:</td>
                             <td>
-                                {{ Form::select('tetap5', $banks, $lampiranbsatu->bank_tetap5, ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 5', 'id' => 'tetap5Select']) }}                                
+                                {{ Form::select('tetap5Select', $banks, $lampiranbsatu->bank_tetap5, ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Akaun Tetap 5', 'id' => 'tetap5Select']) }}                                
 
                             </td>
                             <td>RM</td>
@@ -345,13 +351,13 @@
                                         <td width="250">
                                             <table>
                                                 <tr>
-                                                    <td><div id="jumlahAtas"></div></td>
+                                                    <td><div id="jumlahAtas">{{ $lampiranbsatu->jumlahAtas }}</div></td>
                                                 </tr>
                                                 <tr>
                                                     <td style="border: solid 1px #CCCCCC"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><div id="jumlahBawah"></div></td>
+                                                    <td><div id="jumlahBawah">{{ $lampiranbsatu->jumlahBawah }}</div></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -436,7 +442,7 @@
 {{ Form::close() }}
 
 
-
+<script src="{{ asset('js/permohonan/permohonan2_.js') }}"></script>
 
 
 @stop

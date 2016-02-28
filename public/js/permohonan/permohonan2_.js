@@ -14,7 +14,7 @@ $(document).ready(function(){
 	if($('#tetap1').val() == 0) $('#tetap1').hide();
 	if($('#tetap2').val() == 0) $('#tetap2').hide();
 	if($('#tetap3').val() == 0) $('#tetap3').hide();
-	if($('#tetap4').val() == 0) $('#tetap4').hide();
+	if($('#tetap4').val() == 0) $('#tetap4').hide();	
 	if($('#tetap5').val() == 0) $('#tetap5').hide();
 
 	calc();
@@ -68,9 +68,6 @@ $(document).ready(function(){
 			calc();
 		}
 	});
-
-
-
 
 	
 	$('#biasa1Select').change(function() {
@@ -153,8 +150,6 @@ $(document).ready(function(){
 			calc();
 		}
 	});
-
-
 
 
 	$("input[type='number']").change( function() {
@@ -308,14 +303,19 @@ $(document).ready(function(){
 		var totalBawah = parseFloat(parseFloat(total) - parseFloat(totalIV));
 		var nisbah = parseFloat(totalAtas/totalBawah);
 		
+
+		// Populate data yg sudah di buat pengiraan
 		
 		$('#jumlahA').val(total.toFixed(2));
-		$('#jumlahA').val(total.toFixed(2));
+		// $('#jumlahA').val(total.toFixed(2));
 		$('#jumlahI').val(total.toFixed(2));
 		$('#jumlahIV').val(totalIV.toFixed(2));
 		$('#jumlahAtas').html(totalAtas.toFixed(2));
 		$('#jumlahBawah').html(totalBawah.toFixed(2));
 		$('#nisbah').html("1 : " + nisbah.toFixed(2));
+
+
+		// Pengiraan Markah
 		
 		if(nisbah <= 0)
 			markah = 0;

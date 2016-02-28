@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 use Auth;
 use App\Bank;
 use App\Lampiranbsatu;
+use App\Lampiranbdua;
 
 class PermohonanController extends Controller
 {
@@ -37,24 +38,24 @@ class PermohonanController extends Controller
 
         // ########################  END SESSION  ################################
 
-        $existed = false;
+        $existed = 0;
+
         $year = Carbon::parse($request->get('tarikh'))->format('Y');
 
         $lampiranbsatu = Lampiranbsatu::where('ppk_id', Auth::user()->ppk_id)
             ->where('tahun', $year)
             ->first();
 
-        dd($lampiranbsatu);
-        
+
         if($lampiranbsatu != null)
-            $existed = true;
+            $existed = 1;
 
         $banks = Bank::lists('name', 'id');
 
         if($existed)
-            return View('ppk.rekod.forms._permohonan2', compact('banks', 'lampiranbsatu'));
+            return View('ppk.rekod.forms._permohonan2', compact('banks', 'existed', 'lampiranbsatu'));
         else
-            return View('ppk.rekod.permohonan2', compact('banks', 'lampiranbsatu'));
+            return View('ppk.rekod.permohonan2', compact('banks'));
 
     }
 
@@ -68,12 +69,13 @@ class PermohonanController extends Controller
 
         $year = Carbon::parse(Session::get('tarikh'))->format('Y');
 
-        $lampiranbsatu = Lampiranbsatu::where('ppk_id', Auth::user()->ppk_id)
-            ->where('tahun', $year)
-            ->first();
-
-        if($lampiranbsatu == null)            
+        if($request->get('existed') == 1) {
+            $lampiranbsatu = Lampiranbsatu::where('ppk_id', Auth::user()->ppk_id)
+                ->where('tahun', $year)
+                ->first();
+        } else {        
             $lampiranbsatu = new Lampiranbsatu;  
+        }
 
         $lampiranbsatu->tahun = $year;
              
@@ -113,17 +115,29 @@ class PermohonanController extends Controller
         $lampiranbsatu->terimaanTerdahulu =  $request->get('terimaanTerdahulu');
 
         $lampiranbsatu->markah = $request->get('markah');
+        $lampiranbsatu->ppk_id = Auth::user()->ppk_id;
 
         if($lampiranbsatu->save())
             Session::flash('success', 'Berjaya. Lampiran B(1) telah berjaya disimpan/kemaskini');
         else 
             Session::flash('error', 'Gagal. Lampiran B(1) gagal disimpan');
 
-        // Checking next data
+        // Checking next data B(2)
 
-        
+        $existed = 0;
 
-        return View('ppk.rekod.permohonan3');
+        $lampiranbdua = Lampiranbdua::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
+
+        if($lampiranbdua != null)
+            $existed = 1;
+
+        if($existed == 1)
+            return View('ppk.rekod.forms._permohonan3', compact('existed', 'lampiranbdua'));
+        else
+            return View('ppk.rekod.permohonan3');
     }
     
 
@@ -132,26 +146,69 @@ class PermohonanController extends Controller
      */
     public function permohonan4(Request $request) {
 
+        return $request->all();
+
+        $year = Carbon::parse(Session::get('tarikh'))->format('Y');
+
+        if(Session::has('success'))
+            return Session::get('success');
+        else
+            return Session::get('error');
+
+        if($existed == 1) {
+            $lampiranbdua = Lampiranbdua::where('tahun', $year)
+                ->where('ppk_id', Auth::user()->ppk_id)
+                ->first();
+        } else {
+            $lampiranbdua = new Lampiranbdua;
+        }
+
+        $lampiranbdua->tahun        = $year;
+        $lampiranbdua->item1        = $request->get('aItem1');
+        $lampiranbdua->item2        = $request->get('aItem2');
+        $lampiranbdua->item3        = $request->get('aItem3');
+        $lampiranbdua->item4        = $request->get('aItem4');
+        $lampiranbdua->item5        = $request->get('aItem5');
+        $lampiranbdua->item6        = $request->get('aItem6');
+
+        $lampiranbdua->jumlahAtas   = $request->get('jumlahAtas');
+        $lampiranbdua->jumlahBawah  = $request->get('jumlahBawah');
+
+        $lampiranbdua->nisbah       = $request->get('nisbah');
+        $lampiranbdua->markah       = $request->get('markah');
+        $lampiranbdua->ppk_id       = Auth::user()->ppk_id;
+        
+        if($lampiranbdua->save())
+            Session::flash('success', 'Berjaya. Lampiran B(2) telah berjaya disimpan/kemaskini');
+        else 
+            Session::flash('error', 'Gagal. Lampiran B(2) gagal disimpan');
+
+
         if(Session::has('success'))
             return Session::get('success');
         else
             return Session::get('error');
 
 
-        // ###########################  SESSION  #################################
+        die();
 
-       Session::put('aItem1', $request->get('aItem1'));
-       Session::put('aItem2', $request->get('aItem2'));
-       Session::put('aItem3', $request->get('aItem3'));
-       Session::put('aItem4', $request->get('aItem4'));
-       Session::put('aItem5', $request->get('aItem5'));
+        // Checking next data B(3)
 
-       Session::put('jumlah', $request->get('jumlah'));
-       Session::put('bUntungBersih', $request->get('bUntungBersih'));
+        $existed = 0;
 
-       Session::put('p3Markah', $request->get('markah'));
+        $lampiranbtiga = Lampiranbdua::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
 
-        // ########################  END SESSION  ################################
+
+        if($lampiranbdua != null)
+            $existed = 1;
+
+        if($existed == 1)
+            return View('ppk.rekod.forms._permohonan3', compact('existed', 'lampiranbdua'));
+        else
+            return View('ppk.rekod.permohonan3');
+
 
         return View('ppk.rekod.permohonan4');
 
