@@ -238,9 +238,27 @@ class PermohonanController extends Controller
 
         $lampiranbtiga->ppk_id              = Auth::user()->ppk_id;
 
-        $lampiranbtiga->save();
+        if($lampiranbtiga->save())
+            Session::flash('success', 'Berjaya. Lampiran B(3, 4, 5) telah berjaya disimpan/kemaskini');
+        else 
+            Session::flash('error', 'Gagal. Lampiran B(3, 4, 5) gagal disimpan');
 
-        dd($request->all());
+        // Checking next data B(6, 7)
+
+        $existed = 0;
+
+        $lampiranbempat = lampiranbempat::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
+
+        if($lampiranbempat != null)
+            $existed = 1;
+
+        if($existed == 1)
+            return View('ppk.rekod.forms._permohonan4', compact('existed', 'lampiranbdua', 'lampiranbempat'));
+        else
+            return View('ppk.rekod.permohonan4', compact('lampiranbdua'));
 
     }
 

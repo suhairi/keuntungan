@@ -282,12 +282,12 @@
                             <td>&nbsp;</td>
                             <td width="150" valign="middle" align="center">Jumlah Tanggungan</td>
                             <td width="15" valign="middle" align="center" rowspan="2"><strong>=</strong></td>
-                            <td width="150" valign="middle" align="center"><div id="jumlahAtas3"></div></td>
+                            <td width="150" valign="middle" align="center"><div id="jumlahAtas3">{{ number_format($lampiranbtiga->jumlah_tanggungan, 2) }}</div></td>
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
                             <td width="150" valign="middle" align="center" style="border-top: 1px solid #CCCCCC">Jumlah Semasa</td>
-                            <td colspan="4" align="center" valign="top" style="border-top: 1px solid #CCCCCC"><div id="jumlahBawah3"></div></td>
+                            <td colspan="4" align="center" valign="top" style="border-top: 1px solid #CCCCCC"><div id="jumlahBawah3">{{ number_format($lampiranbtiga->jumlah_harta, 2) }}</div></td>
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
@@ -321,7 +321,7 @@
                     <td valign="bottom" align="center">
                     <table>
                         <tr>
-                            <td style="border: 1px solid #CCCCCC">{{ Form::number('markah3', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}</td>
+                            <td style="border: 1px solid #CCCCCC">{{ Form::number('markah3', $lampiranbtiga->markah3, ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}</td>
                         </tr>
                     </table>                    
                 </td>

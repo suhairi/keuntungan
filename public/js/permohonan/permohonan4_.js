@@ -72,8 +72,11 @@ $(document).ready(function() {
 
 		// Initialize
 
-		var harta_semasa = $('#harta_semasa').val();
-		var tanggungan_semasa = $('#tanggungan_semasa').val();		
+		var harta_semasa = parseFloat($('#harta_semasa').val());
+		var tanggungan_semasa = parseFloat($('#tanggungan_semasa').val());
+
+		$('#harta_semasa').val(harta_semasa.toFixed(2));
+		$('#tanggungan_semasa').val(tanggungan_semasa.toFixed(2));
 
 		
 		// On change
@@ -146,8 +149,11 @@ $(document).ready(function() {
 
 		// Initialize
 
-		var jumlah_tanggungan = $('#jumlah_tanggungan').val();
-		var jumlah_harta = $('#jumlah_harta').val();
+		var jumlah_tanggungan = parseFloat($('#jumlah_tanggungan').val());
+		var jumlah_harta = parseFloat($('#jumlah_harta').val());
+
+		$('#jumlah_tanggungan').val(jumlah_tanggungan.toFixed(2));
+		$('#jumlah_harta').val(jumlah_harta.toFixed(2));
 
 		$('#jumlah_tanggungan').change(function() {
 
