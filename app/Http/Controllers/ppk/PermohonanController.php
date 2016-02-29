@@ -13,6 +13,7 @@ use Auth;
 use App\Bank;
 use App\Lampiranbsatu;
 use App\Lampiranbdua;
+use App\Lampiranbtiga;
 
 class PermohonanController extends Controller
 {
@@ -192,22 +193,18 @@ class PermohonanController extends Controller
 
         $existed = 0;
 
-        $lampiranbdua = Lampiranbdua::where('tahun', $year)
+        $lampiranbtiga = Lampiranbtiga::where('tahun', $year)
             ->where('ppk_id', Auth::user()->ppk_id)
             ->first();
 
 
-        if($lampiranbdua != null)
+        if($lampiranbtiga != null)
             $existed = 1;
-        else {
-            Session::flash('error', 'Sila isikan ruangan ini terlebih dahulu sebelum ke ruangan berikutnya.');
-            return View('ppk.rekod.permohonan4');
-        }
 
         if($existed == 1)
-            return View('ppk.rekod.forms._permohonan4', compact('existed', 'lampiranbdua'));
+            return View('ppk.rekod.forms._permohonan4', compact('existed', 'lampiranbdua', 'lampiranbtiga'));
         else
-            return View('ppk.rekod.permohonan4');
+            return View('ppk.rekod.permohonan4', compact('lampiranbdua'));
 
     }
 
@@ -216,7 +213,34 @@ class PermohonanController extends Controller
      */
     public function permohonan5(Request $request) {
 
-        return $request->all();
+        $year = Carbon::parse(Session::get('tarikh'))->format('Y');
+        // return $request->all();
+
+        $lampiranbtiga = Lampiranbtiga::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
+        if($lampiranbtiga == null)
+            $lampiranbtiga = new Lampiranbtiga;
+
+
+        $lampiranbtiga->tahun               = $year;
+        $lampiranbtiga->nisbah1             = ($request->get('untungBersih') - $request->get('jumlah')) / $request->get('untungBersih');
+        $lampiranbtiga->markah1             = $request->get('markah1');
+        $lampiranbtiga->harta_semasa        = $request->get('harta_semasa');
+        $lampiranbtiga->tanggungan_semasa   = $request->get('tanggungan_semasa');
+        $lampiranbtiga->nisbah2             = $request->get('harta_semasa') / $request->get('tanggungan_semasa');
+        $lampiranbtiga->markah2             = $request->get('markah2');
+        $lampiranbtiga->jumlah_tanggungan   = $request->get('jumlah_tanggungan');
+        $lampiranbtiga->jumlah_harta        = $request->get('jumlah_harta');
+        $lampiranbtiga->nisbah3             = ($request->get('jumlah_tanggungan') / $request->get('jumlah_harta'));
+        $lampiranbtiga->markah3             = $request->get('markah3');
+
+        $lampiranbtiga->ppk_id              = Auth::user()->ppk_id;
+
+        $lampiranbtiga->save();
+
+        dd($request->all());
 
     }
 

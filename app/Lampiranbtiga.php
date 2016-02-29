@@ -11,7 +11,7 @@ class Lampiranbtiga extends Model
 	protected $fillable = [
 		'nisbah1', 'markah1',
 		'harta_semasa', 'tanggungan_semasa', 'nisbah2', 'markah2', 
-		'jumlah_tanggungan', 'jumlah_harta', 'nisbah3', 'markah3'
+		'jumlah_tanggungan', 'jumlah_harta', 'nisbah3', 'markah3',
 		'ppk_id'
 		];
 

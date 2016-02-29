@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 	three();
 	four();
+	five();
 
 
 	function three() {
@@ -25,67 +26,182 @@ $(document).ready(function() {
 		if(item5 == '')
 			$('#item5').val(parseFloat(0).toFixed(2));
 
-		var jumlah = parseFloat(item2 + item3 + item4 + item5)
-
-		var jumlahAtas = parseFloat(untungBersih - jumlah);
-		var jumlahBawah = parseFloat(untungBersih);
-
-		var nisbah = parseFloat(jumlahAtas/jumlahBawah);
+		var jumlah = parseFloat(item2 + item3 + item4 + item5);
 
 		$('#jumlah').val(jumlah.toFixed(2));
-		$('#jumlahAtas').html(parseFloat(jumlahAtas).toFixed(2));
-		$('#jumlahBawah').html(parseFloat(jumlahBawah).toFixed(2));
-		$('#nisbah').html("1 : " + nisbah.toFixed(2));
 
-		if(nisbah <= 0)
-			markah = 0;
 
-		if(nisbah.toFixed(2) >= 0.01 && nisbah.toFixed(2) <= 0.09)
-			markah = 1;
+		var jumlahAtas1 = parseFloat(untungBersih - jumlah);
+		var jumlahBawah1 = parseFloat(untungBersih);
 
-		if(nisbah.toFixed(2) >= 0.10 && nisbah.toFixed(2) <= 0.19)
-			markah = 2;
+		var nisbah1 = parseFloat(jumlahAtas1/jumlahBawah1);
 
-		if(nisbah.toFixed(2) >= 0.20 && nisbah.toFixed(2) <= 0.29)
-			markah = 3;
 
-		if(nisbah.toFixed(2) >= 0.30 && nisbah.toFixed(2) <= 0.39)
-			markah = 4;
+		$('#jumlahAtas1').html(parseFloat(jumlahAtas1).toFixed(2));
+		$('#jumlahBawah1').html(parseFloat(jumlahBawah1).toFixed(2));
+		$('#nisbah1').html("1 : " + nisbah1.toFixed(2));
 
-		if(nisbah.toFixed(2) >= 0.40 && nisbah.toFixed(2) <= 0.49)
-			markah = 5;
+		if(nisbah1 <= 0)
+			markah1 = 0;
 
-		if(nisbah.toFixed(2) >= 0.50 && nisbah.toFixed(2) <= 0.59)
-			markah = 6;
+		if(nisbah1.toFixed(2) >= 0.01 && nisbah1.toFixed(2) <= 0.09)
+			markah1 = 1;
 
-		if(nisbah.toFixed(2) >= 0.60)
-			markah = 7;
+		if(nisbah1.toFixed(2) >= 0.10 && nisbah1.toFixed(2) <= 0.19)
+			markah1 = 2;
 
-		$('#markah').val(markah.toFixed(1));
+		if(nisbah1.toFixed(2) >= 0.20 && nisbah1.toFixed(2) <= 0.29)
+			markah1 = 3;
+
+		if(nisbah1.toFixed(2) >= 0.30 && nisbah1.toFixed(2) <= 0.39)
+			markah1 = 4;
+
+		if(nisbah1.toFixed(2) >= 0.40 && nisbah1.toFixed(2) <= 0.49)
+			markah1 = 5;
+
+		if(nisbah1.toFixed(2) >= 0.50 && nisbah1.toFixed(2) <= 0.59)
+			markah1 = 6;
+
+		if(nisbah1.toFixed(2) >= 0.60)
+			markah1 = 7;
+
+		$('#markah1').val(markah1.toFixed(1));
 	}
 
 	function four() {
 
 		// Initialize
 
-		var _4Item1 = $('#_4Item1').val();
-		var _4Item2 = $('#_4Item2').val();		
+		var harta_semasa = $('#harta_semasa').val();
+		var tanggungan_semasa = $('#tanggungan_semasa').val();		
 
-		if(_4Item1 == '')
-			$('#_4Item1').val(parseFloat(0).toFixed(2));
-
-		if(_4Item2 == '')
-			$('#_4Item2').val(parseFloat(0).toFixed(2));
 		
 		// On change
 
-		$('#_4Item1').change(function() {
+		$('#harta_semasa').change(function() {
+			var jumlahAtas2 = parseFloat($('#harta_semasa').val());	
+			jumlahAtas2 = jumlahAtas2.toFixed(2);
 
-			var _4jumlahAtas = $('#_4Item1').val();
-			
-			alert(_4jumlahAtas);
-			$('#_4jumlahAtas').html(_4jumlahAtas.toFixed(2));
+			$('#jumlahAtas2').html(jumlahAtas2);
+			$('#harta_semasa').val(jumlahAtas2);
+			nisbah2();
+
 		});
+
+
+		$('#tanggungan_semasa').change(function() {
+			var jumlahBawah2 = parseFloat($('#tanggungan_semasa').val());	
+			jumlahBawah2 = jumlahBawah2.toFixed(2);
+
+			$('#jumlahBawah2').html(jumlahBawah2);
+			$('#tanggungan_semasa').val(jumlahBawah2);
+			nisbah2();
+
+		});
+
+
+		function nisbah2() {
+
+			var jumlahAtas2 = parseFloat($('#harta_semasa').val());
+			var jumlahBawah2 = parseFloat($('#tanggungan_semasa').val());
+
+			var nisbah2 = parseFloat(jumlahAtas2/jumlahBawah2);
+
+			$('#nisbah2').html('1 : ' + nisbah2.toFixed(2));
+
+			if(nisbah2 <= 1)
+				markah2 = 0;
+
+			if(nisbah2.toFixed(2) >= 1.01 && nisbah2.toFixed(2) <= 1.10)
+				markah2 = 1;
+			
+			if(nisbah2.toFixed(2) >= 1.11 && nisbah2.toFixed(2) <= 1.20)
+				markah2 = 2;
+
+			if(nisbah2.toFixed(2) >= 1.21 && nisbah2.toFixed(2) <= 1.30)
+				markah2 = 3;
+
+			if(nisbah2.toFixed(2) >= 1.31 && nisbah2.toFixed(2) <= 1.40)
+				markah2 = 4;
+			
+			if(nisbah2.toFixed(2) >= 1.41 && nisbah2.toFixed(2) <= 1.50)
+				markah2 = 5;
+
+			if(nisbah2.toFixed(2) >= 1.51 && nisbah2.toFixed(2) <= 1.60)
+				markah2 = 6;
+
+			if(nisbah2.toFixed(2) >= 1.61)
+				markah2 = 7;
+
+			$('#markah2').val(markah2.toFixed(1));			
+
+		}//end nisbah2()
+
+	} //end four()
+
+
+	// ###################### 5 ##########################
+
+	function five() {
+
+		// Initialize
+
+		var jumlah_tanggungan = $('#jumlah_tanggungan').val();
+		var jumlah_harta = $('#jumlah_harta').val();
+
+		$('#jumlah_tanggungan').change(function() {
+
+			var jumlah_tanggungan = parseFloat($('#jumlah_tanggungan').val());
+			jumlah_tanggungan = jumlah_tanggungan.toFixed(2);
+
+			$('#jumlah_tanggungan').val(jumlah_tanggungan);
+			$('#jumlahAtas3').html(jumlah_tanggungan);
+			nisbah3();
+		});
+
+		$('#jumlah_harta').change(function() {
+
+			var jumlah_harta = parseFloat($('#jumlah_harta').val());
+			jumlah_harta = jumlah_harta.toFixed(2);
+
+			$('#jumlah_harta').val(jumlah_harta);
+			$('#jumlahBawah3').html(jumlah_harta);
+
+			nisbah3();
+		});
+
+		function nisbah3() {
+			
+			var jumlahAtas3 = parseFloat($('#jumlah_tanggungan').val());
+			var jumlahBawah3 = parseFloat($('#jumlah_harta').val());
+
+			var nisbah3 = parseFloat(jumlahAtas3/jumlahBawah3);
+
+			$('#nisbah3').html('1 : ' + nisbah3.toFixed(2));
+
+			if(nisbah3 >= 0.81)
+				markah3 = 0;
+
+			if(nisbah3.toFixed(2) >= 0.71 && nisbah3.toFixed(2) <= 0.80)
+				markah3 = 1;
+			
+			if(nisbah3.toFixed(2) >= 0.61 && nisbah3.toFixed(2) <= 0.70)
+				markah3 = 2;
+
+			if(nisbah3.toFixed(2) >= 0.51 && nisbah3.toFixed(2) <= 0.60)
+				markah3 = 3;
+
+			if(nisbah3.toFixed(2) >= 0.41 && nisbah3.toFixed(2) <= 0.50)
+				markah3 = 4;
+			
+			if(nisbah3.toFixed(2) <= 0.40)
+				markah3 = 6;
+
+			$('#markah3').val(markah3.toFixed(1));
+		}
+
+
+
 
 	}
 

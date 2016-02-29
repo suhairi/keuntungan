@@ -14,6 +14,7 @@ class CreateLampiranbtigaTable extends Migration
     {
         Schema::create('lampiranbtiga', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('tahun', false, false);
             $table->float('nisbah1', 4, 2)->nullable();
             $table->tinyInteger('markah1', false, false)->nullable();
             $table->float('harta_semasa', 9, 2)->nullable();
