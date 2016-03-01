@@ -248,18 +248,23 @@ class PermohonanController extends Controller
 
         $existed = 0;
 
-        $lampiranbempat = lampiranbempat::where('tahun', $year)
+        $lampiranbdua = Lampiranbdua::where('tahun', $year)
             ->where('ppk_id', Auth::user()->ppk_id)
             ->first();
+
+        $lampiranbempat = Lampiranbempat::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
 
 
         if($lampiranbempat != null)
             $existed = 1;
 
         if($existed == 1)
-            return View('ppk.rekod.forms._permohonan4', compact('existed', 'lampiranbdua', 'lampiranbempat'));
+            return View('ppk.rekod.forms._permohonan5', compact('existed', 'lampiranbdua', 'lampiranbempat'));
         else
-            return View('ppk.rekod.permohonan4', compact('lampiranbdua'));
+            return View('ppk.rekod.permohonan5', compact('lampiranbdua'));
 
     }
 
