@@ -14,6 +14,7 @@ use App\Bank;
 use App\Lampiranbsatu;
 use App\Lampiranbdua;
 use App\Lampiranbtiga;
+use App\Lampiranbempat;
 
 class PermohonanController extends Controller
 {
