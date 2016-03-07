@@ -29,7 +29,7 @@
                 <th>Markah Diperolehi</th>
             </tr>
 
-            <!-- ###########################################     3       ############################################## -->
+            <!-- ###########################################     6      ############################################## -->
 
             <tr>
                 <td>6.</td>
@@ -42,7 +42,7 @@
                         <tr>
                             <td colspan="2" width=400>Keuntungan / (Kerugian Terkumpul )</td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('untungrugi', '', ['class' => 'form-control', 'id' => 'untungrugi', 'required', 'placeholder' => '0.00'])}}</td>
+                            <td>{{ Form::number('untungrugi', '', ['class' => 'form-control', 'id' => 'untungRugi', 'required', 'placeholder' => '0.00'])}}</td>
                         </tr>
                         <tr>
                             <td colspan="2" width=400>Jumlah Keuntungan Bersih</td>
@@ -139,7 +139,7 @@
                         <tr>
                             <td width="25">(b)</td>
                             <td colspan="3">
-                                Keputusan : &nbsp;&nbsp;&nbsp;&nbsp;<div id="kaedah"></div> <div id="jumlah"></div>
+                                Keputusan : <div id="keputusan"></div>
                             </td>
                             
                         </tr>                        
@@ -157,66 +157,61 @@
                 </td>
             </tr>
 
-            <!-- #############################################    4    ######################################### -->
+            <!-- #############################################    spaces/gutter    ######################################### -->
             <tr>
-                <td>here 1</td>
-                <td>
-                    here 2
-                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 {{--MAIN TABLE - Second Column--}}
-                <td>Jumlah</td>
-                <td>50</td>
+                <td><strong>Jumlah</strong></td>
+                <td align="center">50</td>
             </tr>
 
-            <!-- #############################################    5    ######################################### -->
+            <!-- #############################################    7    ######################################### -->
 
             <tr>
                 <td>5.</td>
                 <td>
-                    <p>(a) Perbezaan Akaun Bagi Akaun Akan Terima <br />(Rujuk Laporan Audit)</p>
+                    <p>Memastikan PP : </p>
                     <br/>
-                    <table width="100%" border=0>
-
-                        <tr>
-                            <td colspan="2" width=400>Jumlah Tanggungan</td>
-                            <td width="35">RM</td>
-                            <td>{{ Form::number('jumlah_tanggungan', '', ['class' => 'form-control', 'id' => 'jumlah_tanggungan', 'required', 'placeholder' => '0.00'])}}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" width=400>Jumlah Harta</td>
-                            <td width="35">RM</td>
-                            <td>{{ Form::number('jumlah_harta', '', ['class' => 'form-control', 'id' => 'jumlah_harta', 'required', 'placeholder' => '0.00'])}}</td>
-                        </tr>
-
-                    </table>
+                    <ol type="i">
+                    <li>Telah mengagihkan pembahagian dividen dan hadiah di atas langganan yang telah diluluskan oleh Pendaftar sebelum ini. </li>
+                    <li>Mendapat audit tidak bersyarat.</li>
+                    <li>Penggunaan purata kumpulan wang sebanyak 60% yang telah diluluskan oleh Pendaftar sebelum ini.</li>
+                    <li>Keuntungan bersih setelah ditolak kos dibantu.</li>
+                    </ol>
                 </td>
                 {{--MAIN TABLE - Second Column--}}
                 <td>
                     <table width="100%" border="0">
                         <tr>
-                            <td width="25">(a)</td>
-                            <td>Nisbah Digunakan : </td>
+                            <td width="25" colspan="2">Menggunakan kaedah : </td>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
-                        </tr>
-                        {{--Gutter--}}
-                        <tr>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr valign="bottom">
-                            <td>&nbsp;</td>
-                            <td width="150" valign="middle" align="center">Jumlah Tanggungan</td>
-                            <td width="15" valign="middle" align="center" rowspan="2"><strong>=</strong></td>
-                            <td width="150" valign="middle" align="center"><div id="jumlahAtas3"></div></td>
                         </tr>
                         <tr>
+                            <td width="25" valign="top">(a)</td>
+                            <td>Peruntukan pembahagian dividen berbaki atau tidak</td>
                             <td>&nbsp;</td>
-                            <td width="150" valign="middle" align="center" style="border-top: 1px solid #CCCCCC">Jumlah Semasa</td>
-                            <td colspan="4" align="center" valign="top" style="border-top: 1px solid #CCCCCC"><div id="jumlahBawah3"></div></td>
+                            <td>{{ Form::number('7a', '', ['class' => 'form-control', 'align' => 'center', 'id' => '7a', 'placeholder' => '0.00']) }}</td>
                         </tr>
                         <tr>
+                            <td width="25" valign="top">(b)</td>
+                            <td>Peruntukan rebat atas langganan berbaki atau tidak</td>
                             <td>&nbsp;</td>
-                        </tr>                        
+                            <td>{{ Form::number('7a', '', ['class' => 'form-control', 'align' => 'center', 'id' => '7a', 'placeholder' => '0.00']) }}</td>
+                        </tr>
+                        <tr>
+                            <td width="25" valign="top">(c)</td>
+                            <td>Laporan audit (Bersyarat / Tidak Bersyarat)</td>
+                            <td>&nbsp;</td>
+                            <td>{{ Form::select('7a', ['1' => 'BERSYARAT', '2' => 'TIDAK BERSYARAT'], '', ['class' => 'form-control', 'align' => 'center', 'id' => '7a', 'placeholder' => 'Teguran Audit']) }}</td>
+                        </tr>
+                        <tr>
+                            <td width="25" valign="top">(d)</td>
+                            <td>Penggunaan purata keseluruhan kumpulan wang sebanyak 60% </td>
+                            <td>&nbsp;</td>
+                            <td>{{ Form::number('7a', '', ['class' => 'form-control', 'align' => 'center', 'id' => '7a', 'placeholder' => '0.00']) }}</td>
+                        </tr>                   
 
                         {{--Gutter--}}
                         <tr>
@@ -246,7 +241,7 @@
                     <td valign="bottom" align="center">
                     <table>
                         <tr>
-                            <td style="border: 1px solid #CCCCCC">{{ Form::number('markah3', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}</td>
+                            <td style="border: 1px solid #CCCCCC">{{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}</td>
                         </tr>
                     </table>                    
                 </td>
@@ -269,6 +264,6 @@
 
 
 
-<script src={{ asset('js/permohonan/permohonan4.js')}}></script>
+<script src={{ asset('js/permohonan/permohonan5.js')}}></script>
 
 @stop
