@@ -12,17 +12,17 @@ $(document).ready(function() {
 		
 
 		if($('#untungRugi').val() > 0 && $('#untungBersih').val() > 0 && jumlah > 0) {
-			$('#keputusan').html('<u>(a)</a>&nbsp;&nbsp;&nbsp;&nbsp;' + jumlah.toFixed(2));
+			$('#keputusan').html('Keputusan : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>(a)</u>&nbsp;&nbsp;&nbsp;&nbsp;' + jumlah.toFixed(2));
 			$('#markah1').val(5.0);
 		}
 
 		if($('#untungRugi').val() < 0 && $('#untungBersih').val() > 0 && jumlah > 0) {
-			$('#keputusan').html('<u>(b)</a>&nbsp;&nbsp;&nbsp;&nbsp;' + jumlah.toFixed(2));
+			$('#keputusan').html('Keputusan : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>(b)</u>&nbsp;&nbsp;&nbsp;&nbsp;' + jumlah.toFixed(2));
 			$('#markah1').val(3.0);
 		}
 
 		if(jumlah < 0) {
-			$('#keputusan').html('<u>(c)</a>&nbsp;&nbsp;&nbsp;&nbsp;' + jumlah.toFixed(2));
+			$('#keputusan').html('Keputusan : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>(c)</u>&nbsp;&nbsp;&nbsp;&nbsp;' + jumlah.toFixed(2));
 			$('#markah1').val(1.0);
 		}
 

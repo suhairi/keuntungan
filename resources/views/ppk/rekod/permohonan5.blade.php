@@ -139,7 +139,7 @@
                         <tr>
                             <td width="25">(b)</td>
                             <td colspan="3">
-                                Keputusan : <div id="keputusan"></div>
+                                <div id="keputusan">Keputusan : </div>
                             </td>
                             
                         </tr>                        
@@ -169,7 +169,7 @@
             <!-- #############################################    7    ######################################### -->
 
             <tr>
-                <td>5.</td>
+                <td>7.</td>
                 <td>
                     <p>Memastikan PP : </p>
                     <br/>
@@ -184,7 +184,7 @@
                 <td>
                     <table width="100%" border="0">
                         <tr>
-                            <td width="25" colspan="2">Menggunakan kaedah : </td>
+                            <td width="25" colspan="2">Menggunakan kaedah : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?= date('d - M - y'); ?></td>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
                         </tr>
@@ -241,8 +241,16 @@
                     <td valign="bottom" align="center">
                     <table>
                         <tr>
-                            <td style="border: 1px solid #CCCCCC">{{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}</td>
+                            <td width="125" valign="top">
+                                <br />{{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}
+                                <br />{{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}
+                                <br />{{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}
+                                <br />{{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}
+
+                            </td>
+                  
                         </tr>
+
                     </table>                    
                 </td>
             </tr>
