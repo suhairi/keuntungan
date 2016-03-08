@@ -192,26 +192,48 @@
                             <td width="25" valign="top">(a)</td>
                             <td>Peruntukan pembahagian dividen berbaki atau tidak</td>
                             <td>&nbsp;</td>
-                            <td>{{ Form::number('7a', '', ['class' => 'form-control', 'align' => 'center', 'id' => '7a', 'placeholder' => '0.00']) }}</td>
+                            <td valign="top">{{ Form::number('7a', '', ['class' => 'form-control', 'align' => 'center', 'id' => '7a', 'placeholder' => '0.00']) }}</td>
                         </tr>
                         <tr>
                             <td width="25" valign="top">(b)</td>
                             <td>Peruntukan rebat atas langganan berbaki atau tidak</td>
                             <td>&nbsp;</td>
-                            <td>{{ Form::number('7a', '', ['class' => 'form-control', 'align' => 'center', 'id' => '7a', 'placeholder' => '0.00']) }}</td>
+                            <td valign="top">{{ Form::number('7b', '', ['class' => 'form-control', 'align' => 'center', 'id' => '7b', 'placeholder' => '0.00']) }}</td>
                         </tr>
                         <tr>
                             <td width="25" valign="top">(c)</td>
                             <td>Laporan audit (Bersyarat / Tidak Bersyarat)</td>
                             <td>&nbsp;</td>
-                            <td>{{ Form::select('7a', ['1' => 'BERSYARAT', '2' => 'TIDAK BERSYARAT'], '', ['class' => 'form-control', 'align' => 'center', 'id' => '7a', 'placeholder' => 'Teguran Audit']) }}</td>
+                            <td valign="top">{{ Form::select('7c', ['1' => 'BERSYARAT', '2' => 'TIDAK BERSYARAT'], '', ['class' => 'form-control', 'align' => 'center', 'id' => '7c', 'placeholder' => 'Teguran Audit']) }}</td>
                         </tr>
                         <tr>
                             <td width="25" valign="top">(d)</td>
                             <td>Penggunaan purata keseluruhan kumpulan wang sebanyak 60% </td>
                             <td>&nbsp;</td>
-                            <td>{{ Form::number('7a', '', ['class' => 'form-control', 'align' => 'center', 'id' => '7a', 'placeholder' => '0.00']) }}</td>
-                        </tr>                   
+                            <td valign="top">{{ Form::number('7d', '', ['class' => 'form-control', 'align' => 'center', 'id' => '7d', 'placeholder' => '0.00']) }}</td>
+                        </tr> 
+
+                        <tr>
+                            <td width="25" valign="top">(e)</td>
+                            <td>Keuntungan bersih setelah ditolak kos dibantu</td>
+                            <td>&nbsp;</td>
+                            <td valign="top"></td>
+                        </tr>
+                        <tr>
+                            <td width="25" valign="top">&nbsp;</td>
+                            <td>- Keuntungan Semasa</td>
+                            <td>&nbsp;</td>
+                            <td valign="top">{{ Form::number('7d', '', ['class' => 'form-control', 'align' => 'center', 'id' => '7d', 'placeholder' => '0.00']) }}</td>
+                        </tr>
+                        <tr>
+                            <td width="25" valign="top">&nbsp;</td>
+                            <td>- Kos dibantu</td>
+                            <td>&nbsp;</td>
+                            <td valign="top">{{ Form::number('7d', '', ['class' => 'form-control', 'align' => 'center', 'id' => '7d', 'placeholder' => '0.00']) }}</td>
+                        </tr>
+
+
+
 
                         {{--Gutter--}}
                         <tr>
@@ -239,17 +261,32 @@
                     </table> 
 
                     <td valign="bottom" align="center">
-                    <table>
+                    <table border="0">
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
                         <tr>
                             <td width="125" valign="top">
-                                <br />{{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}
-                                <br />{{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}
-                                <br />{{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}
-                                <br />{{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}
-
-                            </td>
-                  
+                                {{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah2', 'placeholder' => '0']) }}
+                            </td>                  
                         </tr>
+                        <tr>
+                            <td width="125" valign="top">
+                                {{ Form::number('markah3', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}
+                            </td>                  
+                        </tr>
+                        <tr><td>&nbsp;</td></tr>
+                        <tr>
+                            <td width="125" valign="top">
+                                {{ Form::number('markah4', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah4', 'placeholder' => '0']) }}
+                            </td>                  
+                        </tr>
+                        <tr>
+                            <td width="125" valign="top">
+                                {{ Form::number('markah5', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah5', 'placeholder' => '0']) }}
+                            </td>                  
+                        </tr>
+
 
                     </table>                    
                 </td>

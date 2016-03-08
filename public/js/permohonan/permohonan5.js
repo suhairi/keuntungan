@@ -25,9 +25,62 @@ $(document).ready(function() {
 			$('#keputusan').html('Keputusan : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>(c)</u>&nbsp;&nbsp;&nbsp;&nbsp;' + jumlah.toFixed(2));
 			$('#markah1').val(1.0);
 		}
-
-
 	});
+
+	$('#markah2').val(3.0);
+	$('#markah3').val(3.0);
+	$('#markah5').val(3.0);
+
+	$('#7a').change(function() {
+
+		var jumlah = parseFloat($('#7a').val());
+		$('#7a').val(jumlah.toFixed(2));
+
+		var markah2 = $('#markah2').val();
+
+		if(jumlah <= 0)
+			$('#markah2').val(-3.0);
+	});
+
+	$('#7b').change(function() {
+
+		var jumlah = parseFloat($('#7b').val());
+		$('#7b').val(jumlah.toFixed(2));
+
+		var markah3 = $('#markah3').val();
+
+		if(jumlah <= 0)
+			$('#markah3').val(-3.0);
+	});
+
+	$('#7c').change(function() {
+
+		var jumlah = parseFloat($('#7c').val());
+
+		var markah4 = $('#markah4').val();
+
+		if(jumlah == 1)
+			$('#markah4').val(-3.0);
+		else
+			$('#markah4').val(3.0);
+	});
+
+	$('#7d').change(function() {
+
+		var jumlah = parseFloat($('#7d').val());
+		$('#7d').val(jumlah.toFixed(2));
+
+		if(jumlah > 0)
+			$('#markah5').val(3.0);
+		else
+			$('#markah5').val(-3.0);
+	});
+
+
+
+
+
+
 
 
 });
