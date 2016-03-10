@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Session;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        \Mail::send('mailers', ['user' => 'Suhairi'], function($message) {
+            $message->to('suhairi81@gmail.com', 'user')->subject('Testing Email');
+            Session::flash('success', 'Berjaya send email');
+        });
+
+
         if(auth()->user()->level->name == 1)
             return view('admin/home');
         elseif(auth()->user()->level->name == 2)

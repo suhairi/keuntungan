@@ -7,6 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">e-Dividen - Login</div>
                 <div class="panel-body">
+
+                    @if(Session::has('success'))
+                        {{ Session::get('success') }}
+                    @else
+                        Message : None
+                    @endif
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {!! csrf_field() !!}
 

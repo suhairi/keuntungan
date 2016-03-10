@@ -233,8 +233,6 @@
                         </tr>
 
 
-
-
                         {{--Gutter--}}
                         <tr>
                             <td>&nbsp;</td>

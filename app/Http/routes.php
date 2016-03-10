@@ -30,6 +30,7 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => 'web'], function () {
+    
     Route::auth();
 
     Route::get('/home', [
@@ -37,9 +38,10 @@ Route::group(['middleware' => 'web'], function () {
         'uses'      => 'HomeController@index'
     ]);
 
-    /*
+    /******************************************
      *                  ADMIN
-     */
+     ******************************************/
+
     Route::group(['prefix' => 'admin'], function() {
 
         Route::group(['prefix' => 'preset'], function() {
