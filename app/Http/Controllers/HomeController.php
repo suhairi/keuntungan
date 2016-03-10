@@ -26,10 +26,10 @@ class HomeController extends Controller
     public function index()
     {
 
-        \Mail::send('mailers', ['user' => 'Suhairi'], function($message) {
-            $message->to('suhairi81@gmail.com', 'user')->subject('Testing Email');
-            Session::flash('success', 'Berjaya send email');
-        });
+        // \Mail::send('mailers', ['user' => 'Suhairi'], function($message) {
+        //     $message->to('suhairi81@gmail.com', 'user')->subject('Testing Email');
+        //     Session::flash('success', 'Berjaya send email');
+        // });
 
 
         if(auth()->user()->level->name == 1)

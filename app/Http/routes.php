@@ -71,9 +71,9 @@ Route::group(['middleware' => 'web'], function () {
                 return View('admin.preset.markah.edit', compact('mark'));
             });
 
-            /*
-             * Users
-             */
+            /****************************************
+             *                  Users
+             ****************************************/
 
             Route::get('users', [
                 'as'        => 'admin.preset.users',
@@ -106,9 +106,9 @@ Route::group(['middleware' => 'web'], function () {
             ]);
 
 
-            /*
-             * Bank
-             */
+            /**************************************
+             *                 Bank
+             **************************************/
 
             Route::get('bank', [
                 'as'        => 'admin.preset.bank',
@@ -133,9 +133,9 @@ Route::group(['middleware' => 'web'], function () {
 
     });
 
-    /*
-     *                  PPK
-     */
+    /******************************************************
+     *                         PPK
+     ******************************************************/
 
     Route::group(['prefix' => 'ppk'], function() {
 
@@ -173,10 +173,10 @@ Route::group(['middleware' => 'web'], function () {
                 'uses'      => 'Ppk\UsersController@kemaskini'
             ]);
 
-            /*
-             * Rekod Preset
-             * PPK Details, Pengurus, Bank, Penerima Bonus dan Honororium
-             */
+            /***************************************************************
+             *                          Rekod Preset
+             *   PPK Details, Pengurus, Bank, Penerima Bonus dan Honororium
+             ***************************************************************/
 
             Route::get('ppk', [
                 'as'        => 'ppk.rekod.ppk',
@@ -212,9 +212,9 @@ Route::group(['middleware' => 'web'], function () {
                 'uses'      => 'Ppk\PenerimaController@penerimaPost'
             ]);
 
-            /*
-             * Permarkahan
-             */
+            /***********************************
+             *             Permarkahan
+             ***********************************/
 
             Route::get('permarkahan', [
                 'as'        => 'ppk.rekod.permarkahan',
@@ -248,9 +248,9 @@ Route::group(['middleware' => 'web'], function () {
                 'uses'      => 'Ppk\PermarkahanController@edit'
             ]);
 
-            /*
-             * Permohonan
-             */
+            /************************************
+             *            Permohonan
+             ************************************/
 
             Route::get('permohonan', [
                 'as'        => 'ppk.rekod.permohonan',
