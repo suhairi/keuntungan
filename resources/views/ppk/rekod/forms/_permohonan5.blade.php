@@ -17,7 +17,7 @@
 
 
 {{--The MAIN table--}}
-{{ Form::model($lampiranlima, ['route' => 'ppk.rekod.permohonan5']) }}
+{{ Form::model($lampiranlima, ['route' => 'ppk.rekod.permohonan6']) }}
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
         <table class="table table-bordered">
@@ -139,7 +139,7 @@
                         <tr>
                             <td width="25">(b)</td>
                             <td colspan="3">
-                                <div id="keputusan">Keputusan : </div>
+                                <div id="keputusan">Keputusan : <u>( {{ $lampiranlima->keputusan }} )</u>&nbsp;&nbsp;&nbsp;&nbsp;{{ $lampiranlima->jumlahKeputusan }}</div>
                             </td>
                             
                         </tr>                        
@@ -151,7 +151,7 @@
                 <td valign="bottom" align="center">
                     <table>
                         <tr>
-                            <td style="border: 1px solid #CCCCCC">{{ Form::number('markah1', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah1', 'placeholder' => '0']) }}</td>
+                            <td style="border: 1px solid #CCCCCC">{{ Form::number('markah1', $lampiranlima->markah1, ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah1', 'placeholder' => '0']) }}</td>
                         </tr>
                     </table>                    
                 </td>
@@ -192,25 +192,25 @@
                             <td width="25" valign="top">(a)</td>
                             <td>Peruntukan pembahagian dividen berbaki atau tidak</td>
                             <td>&nbsp;</td>
-                            <td valign="top">{{ Form::number('7a', '', ['class' => 'form-control', 'step' => 'any', 'align' => 'center', 'id' => '7a', 'placeholder' => '0.00', 'required']) }}</td>
+                            <td valign="top">{{ Form::number('7a', $lampiranlima->_7a, ['class' => 'form-control', 'step' => 'any', 'align' => 'center', 'id' => '7a', 'placeholder' => '0.00', 'required']) }}</td>
                         </tr>
                         <tr>
                             <td width="25" valign="top">(b)</td>
                             <td>Peruntukan rebat atas langganan berbaki atau tidak</td>
                             <td>&nbsp;</td>
-                            <td valign="top">{{ Form::number('7b', '', ['class' => 'form-control', 'step' => 'any', 'align' => 'center', 'id' => '7b', 'placeholder' => '0.00', 'required']) }}</td>
+                            <td valign="top">{{ Form::number('7b', $lampiranlima->_7b, ['class' => 'form-control', 'step' => 'any', 'align' => 'center', 'id' => '7b', 'placeholder' => '0.00', 'required']) }}</td>
                         </tr>
                         <tr>
                             <td width="25" valign="top">(c)</td>
                             <td>Laporan audit (Bersyarat / Tidak Bersyarat)</td>
                             <td>&nbsp;</td>
-                            <td valign="top">{{ Form::select('7c', ['1' => 'BERSYARAT', '2' => 'TIDAK BERSYARAT'], '', ['class' => 'form-control', 'align' => 'center', 'id' => '7c', 'placeholder' => 'Teguran Audit', 'required']) }}</td>
+                            <td valign="top">{{ Form::select('7c', ['1' => 'BERSYARAT', '2' => 'TIDAK BERSYARAT'], $lampiranlima->_7c, ['class' => 'form-control', 'align' => 'center', 'id' => '7c', 'placeholder' => 'Teguran Audit', 'required']) }}</td>
                         </tr>
                         <tr>
                             <td width="25" valign="top">(d)</td>
                             <td>Penggunaan purata keseluruhan kumpulan wang sebanyak 60% </td>
                             <td>&nbsp;</td>
-                            <td valign="top">{{ Form::number('7d', '', ['class' => 'form-control', 'step' => 'any', 'align' => 'center', 'id' => '7d', 'placeholder' => '0.00', 'required']) }}</td>
+                            <td valign="top">{{ Form::number('7d', $lampiranlima->_7d, ['class' => 'form-control', 'step' => 'any', 'align' => 'center', 'id' => '7d', 'placeholder' => '0.00', 'required']) }}</td>
                         </tr> 
 
                         <tr>
@@ -223,20 +223,20 @@
                             <td width="25" valign="top">&nbsp;</td>
                             <td>- Keuntungan Semasa</td>
                             <td>&nbsp;</td>
-                            <td valign="top">{{ Form::number('7e1', '', ['class' => 'form-control', 'step' => 'any', 'align' => 'center', 'id' => '7e1', 'placeholder' => '0.00', 'readonly', 'required']) }}</td>
+                            <td valign="top">{{ Form::number('7e1', $lampiranlima->_7e1, ['class' => 'form-control', 'step' => 'any', 'align' => 'center', 'id' => '7e1', 'placeholder' => '0.00', 'readonly', 'required']) }}</td>
                         </tr>
                         <tr>
                             <td width="25" valign="top">&nbsp;</td>
                             <td>- Kos dibantu</td>
                             <td>&nbsp;</td>
-                            <td valign="top">{{ Form::number('7e2', '', ['class' => 'form-control', 'step' => 'any', 'align' => 'center', 'id' => '7e2', 'placeholder' => '0.00', 'required']) }}</td>
+                            <td valign="top">{{ Form::number('7e2', $lampiranlima->_7e2, ['class' => 'form-control', 'step' => 'any', 'align' => 'center', 'id' => '7e2', 'placeholder' => '0.00', 'required']) }}</td>
                         </tr>
                         <tr>
                             <td width="25" valign="top">&nbsp;</td>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
                             <td valign="top" align="center" style="border-top: 1px solid #000000; border-bottom-style: double">
-                                <div id="jumlah7e">RM 0.00</div>
+                                <div id="jumlah7e">{{ $lampiranlima->jumlah7e }}</div>
                             </td>
                         </tr>
 
@@ -248,13 +248,7 @@
                         </tr>
 
                         {{-- MAIN TABLE - SECOND COLUMN - SECTION B--}}
-                        <tr>
-                            <td width="25">(b)</td>
-                            <td>Keputusan Nisbah :</td>
-                            <td colspan="2">
-                                <span style="text-decoration: underline; text-decoration-color: #CCCCCC; font-weight: bold"><div id="nisbah3"></div></span>
-                            </td>
-                        </tr>
+
                         {{-- 3 Gutter--}}
                         <tr>
                             <td>&nbsp;</td>
@@ -274,23 +268,23 @@
                         </tr>
                         <tr>
                             <td width="125" valign="top">
-                                {{ Form::number('markah2', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah2', 'placeholder' => '0']) }}
+                                {{ Form::number('markah2', $lampiranlima->markah2, ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah2', 'placeholder' => '0']) }}
                             </td>                  
                         </tr>
                         <tr>
                             <td width="125" valign="top">
-                                {{ Form::number('markah3', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}
+                                {{ Form::number('markah3', $lampiranlima->markah3, ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah3', 'placeholder' => '0']) }}
                             </td>                  
                         </tr>
                         <tr><td>&nbsp;</td></tr>
                         <tr>
                             <td width="125" valign="top">
-                                {{ Form::number('markah4', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah4', 'placeholder' => '0']) }}
+                                {{ Form::number('markah4', $lampiranlima->markah4, ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah4', 'placeholder' => '0']) }}
                             </td>                  
                         </tr>
                         <tr>
                             <td width="125" valign="top">
-                                {{ Form::number('markah5', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah5', 'placeholder' => '0']) }}
+                                {{ Form::number('markah5', $lampiranlima->markah5, ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah5', 'placeholder' => '0']) }}
                             </td>                  
                         </tr>
                         <tr>
@@ -308,7 +302,7 @@
 
                         <tr>
                             <td width="125" valign="top">
-                                {{ Form::number('markah6', '', ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah6', 'placeholder' => '0']) }}
+                                {{ Form::number('markah6', $lampiranlima->markah6, ['class' => 'form-control', 'align' => 'center', 'readonly' => 'true', 'id' => 'markah6', 'placeholder' => '0']) }}
                             </td>                  
                         </tr>
 

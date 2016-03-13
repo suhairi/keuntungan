@@ -16,6 +16,7 @@ use App\Lampiranbdua;
 use App\Lampiranbtiga;
 use App\Lampiranbempat;
 use App\Lampiranlima;
+use App\Lampiranenam;
 
 class PermohonanController extends Controller
 {
@@ -253,17 +254,18 @@ class PermohonanController extends Controller
             ->where('ppk_id', Auth::user()->ppk_id)
             ->first();
 
-        $lampiranbempat = Lampiranbempat::where('tahun', $year)
+        $lampiranlima = Lampiranlima::where('tahun', $year)
             ->where('ppk_id', Auth::user()->ppk_id)
             ->first();
 
 
 
-        if($lampiranbempat != null)
+        if($lampiranlima != null)
             $existed = 1;
 
+
         if($existed == 1)
-            return View('ppk.rekod.forms._permohonan5', compact('existed', 'lampiranbdua', 'lampiranbempat'));
+            return View('ppk.rekod.forms._permohonan5', compact('existed', 'lampiranbdua', 'lampiranlima'));
         else
             return View('ppk.rekod.permohonan5', compact('lampiranbdua'));
 
@@ -274,6 +276,7 @@ class PermohonanController extends Controller
         // return $request->all();
 
         $year = Carbon::parse(Session::get('tarikh'))->format('Y');
+        // return $request->all();
 
         $lampiranlima = Lampiranlima::where('tahun', $year)
             ->where('ppk_id', Auth::user()->ppk_id)
@@ -307,7 +310,21 @@ class PermohonanController extends Controller
         else 
             Session::flash('error', 'Gagal. Lampiran B(6, 7) gagal disimpan');
 
-        return 'selesai';
+        // Checking next data B(6, 7)
+
+        $existed = 0;
+
+        $lampiranenam = Lampiranenam::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
+        if($lampiranenam != null)
+            $existed = 1;
+
+        if($existed == 1)
+            return View('ppk.rekod.forms._permohonan6', compact('existed', 'lampiranenam'));
+        else
+            return View('ppk.rekod.permohonan6');
 
 
     }

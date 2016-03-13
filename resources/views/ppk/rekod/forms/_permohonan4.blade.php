@@ -303,7 +303,7 @@
                             <td width="25">(b)</td>
                             <td>Keputusan Nisbah :</td>
                             <td colspan="2">
-                                <span style="text-decoration: underline; text-decoration-color: #CCCCCC; font-weight: bold"><div id="nisbah3"></div></span>
+                                <span style="text-decoration: underline; text-decoration-color: #CCCCCC; font-weight: bold"><div id="nisbah3">{{ $lampiranbtiga->nisbah3 }}</div></span>
                             </td>
                         </tr>
                         {{-- 3 Gutter--}}
