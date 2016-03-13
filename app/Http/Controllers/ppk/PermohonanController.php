@@ -215,15 +215,70 @@ class PermohonanController extends Controller
      */
     public function permohonan5(Request $request) {
 
+        $year = Carbon::parse(Session::get('tarikh'))->format('Y');
+        // return $request->all();
+
+        $lampiranbtiga = Lampiranbtiga::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
+        if($lampiranbtiga == null)
+            $lampiranbtiga = new Lampiranbtiga;
+
+
+        $lampiranbtiga->tahun               = $year;
+        $lampiranbtiga->nisbah1             = ($request->get('untungBersih') - $request->get('jumlah')) / $request->get('untungBersih');
+        $lampiranbtiga->markah1             = $request->get('markah1');
+        $lampiranbtiga->harta_semasa        = $request->get('harta_semasa');
+        $lampiranbtiga->tanggungan_semasa   = $request->get('tanggungan_semasa');
+        $lampiranbtiga->nisbah2             = $request->get('harta_semasa') / $request->get('tanggungan_semasa');
+        $lampiranbtiga->markah2             = $request->get('markah2');
+        $lampiranbtiga->jumlah_tanggungan   = $request->get('jumlah_tanggungan');
+        $lampiranbtiga->jumlah_harta        = $request->get('jumlah_harta');
+        $lampiranbtiga->nisbah3             = ($request->get('jumlah_tanggungan') / $request->get('jumlah_harta'));
+        $lampiranbtiga->markah3             = $request->get('markah3');
+
+        $lampiranbtiga->ppk_id              = Auth::user()->ppk_id;
+
+        if($lampiranbtiga->save())
+            Session::flash('success', 'Berjaya. Lampiran B(3, 4, 5) telah berjaya disimpan/kemaskini');
+        else 
+            Session::flash('error', 'Gagal. Lampiran B(3, 4, 5) gagal disimpan');
+
+        // Checking next data B(6, 7)
+
+        $existed = 0;
+
+        $lampiranbdua = Lampiranbdua::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
+        $lampiranbempat = Lampiranbempat::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
+
+
+        if($lampiranbempat != null)
+            $existed = 1;
+
+        if($existed == 1)
+            return View('ppk.rekod.forms._permohonan5', compact('existed', 'lampiranbdua', 'lampiranbempat'));
+        else
+            return View('ppk.rekod.permohonan5', compact('lampiranbdua'));
+
+    }
+
+    public function permohonan6(Request $request) {
+
         // return $request->all();
 
         $year = Carbon::parse(Session::get('tarikh'))->format('Y');
 
-        $lampiranlima = lampiranlima::where('tahun', $year)
+        $lampiranlima = Lampiranlima::where('tahun', $year)
             ->where('ppk_id', Auth::user()->ppk_id)
             ->first();
 
-        // Check wether the data already exist in lampiranlima table
         if($lampiranlima == null)
             $lampiranlima = new lampiranlima;
 
@@ -237,27 +292,23 @@ class PermohonanController extends Controller
         $lampiranlima->_7c                  = $request->get('7c');
         $lampiranlima->_7d                  = $request->get('7d');
         $lampiranlima->_7e1                 = $request->get('7e1');
-        $lampiranlima->_7e1                 = $request->get('7e2');
+        $lampiranlima->_7e2                 = $request->get('7e2');
         $lampiranlima->jumlah7e             = $request->get('_7e1') + $request->get('_7e2');
         $lampiranlima->markah2              = $request->get('markah2');
         $lampiranlima->markah3              = $request->get('markah3');
         $lampiranlima->markah4              = $request->get('markah4');
         $lampiranlima->markah5              = $request->get('markah5');
-        $lampiranlima->markah6              = $request->get('markah6');
+        $lampiranlima->markah6              = $request->get('markah6');        
 
-        $lampiranlima->ppk_id              = Auth::user()->ppk_id;
+        $lampiranlima->ppk_id               = Auth::user()->ppk_id;
 
         if($lampiranlima->save())
             Session::flash('success', 'Berjaya. Lampiran B(6, 7) telah berjaya disimpan/kemaskini');
         else 
             Session::flash('error', 'Gagal. Lampiran B(6, 7) gagal disimpan');
 
-        return 'Selesai simpan';
+        return 'selesai';
 
-        if($existed == 1)
-            return View('ppk.rekod.forms._permohonan5', compact('existed', 'lampiranbdua', 'lampiranbempat'));
-        else
-            return View('ppk.rekod.permohonan5', compact('lampiranbdua'));
 
     }
 

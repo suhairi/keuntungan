@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-        <h4>Penunjuk Kemajuan Permohonan</h4>
+        <h4>Penunjuk Kemajuan Permohonan...</h4>
         <div class="progress">
             <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                 <span class="sr-only">80% Complete</span>
@@ -17,7 +17,7 @@
 
 
 {{--The MAIN table--}}
-{{ Form::open(['route' => 'ppk.rekod.permohonan6']) }}
+{{ Form::model($lampiranlima, ['route' => 'ppk.rekod.permohonan5']) }}
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
         <table class="table table-bordered">
@@ -42,7 +42,7 @@
                         <tr>
                             <td colspan="2" width=400>Keuntungan / (Kerugian Terkumpul )</td>
                             <td width="35">RM</td>
-                            <td>{{ Form::number('untungrugi', '', ['class' => 'form-control', 'id' => 'untungRugi', 'required', 'placeholder' => '0.00'])}}</td>
+                            <td>{{ Form::number('untungrugi', $lampiranlima->untungrugi, ['class' => 'form-control', 'id' => 'untungRugi', 'required', 'placeholder' => '0.00'])}}</td>
                         </tr>
                         <tr>
                             <td colspan="2" width=400>Jumlah Keuntungan Bersih</td>
@@ -335,6 +335,6 @@
 
 
 
-<script src={{ asset('js/permohonan/permohonan5.js')}}></script>
+<script src={{ asset('js/permohonan/permohonan5_.js')}}></script>
 
 @stop

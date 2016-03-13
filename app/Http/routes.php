@@ -277,6 +277,13 @@ Route::group(['middleware' => 'web'], function () {
                 'uses'      => 'Ppk\PermohonanController@permohonan5'
             ]);
 
+            Route::post('permohonan6', [
+                'as'        => 'ppk.rekod.permohonan6',
+                'uses'      => 'Ppk\PermohonanController@permohonan6'
+            ]);
+
+
+
 
 
         });

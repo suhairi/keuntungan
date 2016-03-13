@@ -22,7 +22,7 @@ class CreateLampiranlimaTable extends Migration
             $table->tinyInteger('markah1', false, false);
             $table->float('7a', 9, 2);
             $table->float('7b', 9, 2);
-            $table->float('7c', 9, 2);
+            $table->tinyInteger('7c', false, false);
             $table->float('7d', 9, 2);
             $table->float('7esatu', 9, 2);
             $table->float('7edua', 9, 2);

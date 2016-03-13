@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 	var untungBersih = parseFloat($('#untungBersih').val());
 	$('#untungBersih').val(untungBersih.toFixed(2));
+	$('#7e1').val(untungBersih.toFixed(2));
 
 	$('#untungRugi').change(function() {
 
@@ -78,25 +79,6 @@ $(document).ready(function() {
 			$('#markah5').val(-2.0);
 		else
 			$('#markah5').val(-3);
-	});
-
-	$('#7e1').change(function() {
-
-		var jumlah7e1 = parseFloat($('#7e1').val());
-		$('#7e1').val(jumlah7e1.toFixed(2));
-
-		var jumlah7e2 = parseFloat($('#7e2').val());
-
-		if(jumlah7e1 == '' || isNaN(jumlah7e1))
-			jumlah7e1 = 0.00;
-
-		if(jumlah7e2 == '' || isNaN(jumlah7e2))
-			jumlah7e2 = 0.00;
-
-		var total = parseFloat(jumlah7e1 - jumlah7e2);
-
-		$('#jumlah7e').html("RM " + total.toFixed(2));
-
 	});
 
 	$('#7e2').change(function() {
