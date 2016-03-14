@@ -53,27 +53,28 @@
                         </tr>
                         <tr>
                             <td>Kebajikan Am</td>
-                            <td>{{ Form::number('amawal', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required']) }}</td>
-                            <td>{{ Form::number('amsemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required']) }}</td>
-                            <td>{{ Form::number('ampenggunaansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required']) }}</td>
-                            <td>{{ Form::number('ambakiakhir', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly']) }}</td>
-                            <td>{{ Form::number('amperatuspenggunaan', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly']) }}</td>
+                            <td>{{ Form::number('amawal', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'amawal']) }}</td>
+                            <td>{{ Form::number('amsemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'amsemasa']) }}</td>
+                            <td>{{ Form::number('ampenggunaansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'ampenggunaansemasa']) }}</td>
+                            <td>{{ Form::number('ambakiakhir', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'ambakiakhir']) }}</td>
+                            <td>{{ Form::number('amperatuspenggunaan', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'amperatuspenggunaan']) }}</td>
                         </tr>
                         <tr>
                             <td>Pendidikan</td>
-                            <td>{{ Form::number('pendidikanawal', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required']) }}</td>
-                            <td>{{ Form::number('pendidikansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required']) }}</td>
-                            <td>{{ Form::number('pendidikanpenggunaansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required']) }}</td>
-                            <td>{{ Form::number('pendidikanbakiakhir', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly']) }}</td>
-                            <td>{{ Form::number('pendidikanperatuspenggunaan', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly']) }}</td>
+                            <td>{{ Form::number('pendidikanawal', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pendidikanawal']) }}</td>
+                            <td>{{ Form::number('pendidikansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pendidikansemasa']) }}</td>
+                            <td>{{ Form::number('pendidikanpenggunaansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pendidikanpenggunaansemasa']) }}</td>
+                            <td>{{ Form::number('pendidikanbakiakhir', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pendidikanbakiakhir']) }}</td>
+                            <td>{{ Form::number('pendidikanperatuspenggunaan', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pendidikanperatuspenggunaan']) }}</td>
                         </tr>
                         <tr>
                             <td>Pemajuan</td>
-                            <td>{{ Form::number('pemajuanawal', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required']) }}</td>
-                            <td>{{ Form::number('pemajuansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required']) }}</td>
-                            <td>{{ Form::number('pemajuanpenggunaansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required']) }}</td>
-                            <td>{{ Form::number('pemajuanbakiakhir', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly']) }}</td>
-                            <td>{{ Form::number('pemajuanperatuspenggunaan', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly']) }}</td>
+                            <td>{{ Form::number('pemajuanawal', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pemajuanawal']) }}</td>
+                            <td>{{ Form::number('pemajuansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pemajuansemasa']) }}</td>
+                            <td>{{ Form::number('pemajuanpenggunaansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 
+                            'pemajuanpenggunaansemasa']) }}</td>
+                            <td>{{ Form::number('pemajuanbakiakhir', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pemajuanbakiakhir']) }}</td>
+                            <td>{{ Form::number('pemajuanperatuspenggunaan', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pemajuanperatuspenggunaan']) }}</td>
                         </tr>
                         <tr>
                             <td>JUMLAH</td>
@@ -82,6 +83,14 @@
                             <td align="center"><div id="penggunaansemasa">0.00</div></td>
                             <td align="center"><div id="bakiakhir">0.00</div></td>
                             <td align="center"><div id="peratuspenggunaan">0.00</div></td>
+                        </tr>
+                        <tr>
+                            <td>Peratus</td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"></td>
+                            <td align="center"><div id="purataperatus">0.00</div></td>
                         </tr>
 
 
