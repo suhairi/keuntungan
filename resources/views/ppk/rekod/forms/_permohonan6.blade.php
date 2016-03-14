@@ -17,7 +17,7 @@
 
 
 {{--The MAIN table--}}
-{{ Form::open(['route' => 'ppk.rekod.permohonan7']) }}
+{{ Form::model($lampiranenam, ['route' => 'ppk.rekod.permohonan7']) }}
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
         <table class="table table-bordered">
@@ -45,36 +45,36 @@
                         </tr>
                         <tr>
                             <td>Kebajikan Ahli</td>
-                            <td>{{ Form::number('ahliawal', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'ahliawal']) }}</td>
-                            <td>{{ Form::number('ahlisemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'ahlisemasa']) }}</td>
-                            <td>{{ Form::number('ahlipenggunaansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'ahlipenggunaansemasa']) }}</td>
-                            <td>{{ Form::number('ahlibakiakhir', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'ahlibakiakhir']) }}</td>
-                            <td>{{ Form::number('ahliperatuspenggunaan', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'ahliperatuspenggunaan']) }}</td>
+                            <td>{{ Form::number('ahliawal', $lampiranenam->ahliawal, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'ahliawal']) }}</td>
+                            <td>{{ Form::number('ahlisemasa', $lampiranenam->ahlisemasa, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'ahlisemasa']) }}</td>
+                            <td>{{ Form::number('ahlipenggunaansemasa', $lampiranenam->ahlipenggunaansemasa, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'ahlipenggunaansemasa']) }}</td>
+                            <td>{{ Form::number('ahlibakiakhir', $lampiranenam->ahlibakiakhir, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'ahlibakiakhir']) }}</td>
+                            <td>{{ Form::number('ahliperatuspenggunaan', $lampiranenam->ahliperatuspenggunaan, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'ahliperatuspenggunaan']) }}</td>
                         </tr>
                         <tr>
                             <td>Kebajikan Am</td>
-                            <td>{{ Form::number('amawal', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'amawal']) }}</td>
-                            <td>{{ Form::number('amsemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'amsemasa']) }}</td>
-                            <td>{{ Form::number('ampenggunaansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'ampenggunaansemasa']) }}</td>
-                            <td>{{ Form::number('ambakiakhir', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'ambakiakhir']) }}</td>
-                            <td>{{ Form::number('amperatuspenggunaan', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'amperatuspenggunaan']) }}</td>
+                            <td>{{ Form::number('amawal', $lampiranenam->amawal, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'amawal']) }}</td>
+                            <td>{{ Form::number('amsemasa', $lampiranenam->amsemasa, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'amsemasa']) }}</td>
+                            <td>{{ Form::number('ampenggunaansemasa', $lampiranenam->ampenggunaansemasa, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'ampenggunaansemasa']) }}</td>
+                            <td>{{ Form::number('ambakiakhir', $lampiranenam->ambakiakhir, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'ambakiakhir']) }}</td>
+                            <td>{{ Form::number('amperatuspenggunaan', $lampiranenam->amperatuspenggunaan, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'amperatuspenggunaan']) }}</td>
                         </tr>
                         <tr>
                             <td>Pendidikan</td>
-                            <td>{{ Form::number('pendidikanawal', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pendidikanawal']) }}</td>
-                            <td>{{ Form::number('pendidikansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pendidikansemasa']) }}</td>
-                            <td>{{ Form::number('pendidikanpenggunaansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pendidikanpenggunaansemasa']) }}</td>
-                            <td>{{ Form::number('pendidikanbakiakhir', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pendidikanbakiakhir']) }}</td>
-                            <td>{{ Form::number('pendidikanperatuspenggunaan', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pendidikanperatuspenggunaan']) }}</td>
+                            <td>{{ Form::number('pendidikanawal', $lampiranenam->pendidikanawal, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pendidikanawal']) }}</td>
+                            <td>{{ Form::number('pendidikansemasa', $lampiranenam->pendidikansemasa, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pendidikansemasa']) }}</td>
+                            <td>{{ Form::number('pendidikanpenggunaansemasa', $lampiranenam->pendidikanpenggunaansemasa, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pendidikanpenggunaansemasa']) }}</td>
+                            <td>{{ Form::number('pendidikanbakiakhir', $lampiranenam->pendidikanbakiakhir, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pendidikanbakiakhir']) }}</td>
+                            <td>{{ Form::number('pendidikanperatuspenggunaan', $lampiranenam->pendidikanperatuspenggunaan, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pendidikanperatuspenggunaan']) }}</td>
                         </tr>
                         <tr>
                             <td>Pemajuan</td>
-                            <td>{{ Form::number('pemajuanawal', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pemajuanawal']) }}</td>
-                            <td>{{ Form::number('pemajuansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pemajuansemasa']) }}</td>
-                            <td>{{ Form::number('pemajuanpenggunaansemasa', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 
+                            <td>{{ Form::number('pemajuanawal', $lampiranenam->pemajuanawal, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pemajuanawal']) }}</td>
+                            <td>{{ Form::number('pemajuansemasa', $lampiranenam->pemajuansemasa, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 'pemajuansemasa']) }}</td>
+                            <td>{{ Form::number('pemajuanpenggunaansemasa', $lampiranenam->pemajuanpenggunaansemasa, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'id' => 
                             'pemajuanpenggunaansemasa']) }}</td>
-                            <td>{{ Form::number('pemajuanbakiakhir', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pemajuanbakiakhir']) }}</td>
-                            <td>{{ Form::number('pemajuanperatuspenggunaan', '', ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pemajuanperatuspenggunaan']) }}</td>
+                            <td>{{ Form::number('pemajuanbakiakhir', $lampiranenam->pemajuanbakiakhir, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pemajuanbakiakhir']) }}</td>
+                            <td>{{ Form::number('pemajuanperatuspenggunaan', $lampiranenam->pemajuanperatuspenggunaan, ['class' => 'form-control', 'placeholder' => '0.00', 'required', 'readonly', 'id' => 'pemajuanperatuspenggunaan']) }}</td>
                         </tr>
                         <tr>
                             <td>JUMLAH</td>
@@ -136,6 +136,6 @@
 
 
 
-<script src={{ asset('js/permohonan/permohonan6.js')}}></script>
+<script src={{ asset('js/permohonan/permohonan6_.js')}}></script>
 
 @stop

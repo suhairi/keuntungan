@@ -9,7 +9,8 @@ class Lampiranenam extends Model
     protected $table = 'lampiranenam';
     protected $id = 'id';
     protected $fillable = [
-    	'tahun', 'ahliawal', 'ahlisemasa', 'ahlipenggunaansemasa', 'ahlibakiakhir', 'ahliperatuspenggunaan',
+    	'tahun', 
+        'ahliawal', 'ahlisemasa', 'ahlipenggunaansemasa', 'ahlibakiakhir', 'ahliperatuspenggunaan',
     	'amamawal', 'amsemasa', 'ampenggunaansemasa', 'ambakiakhir', 'amperatuspenggunaan',
     	'pendidikanawal', 'pendidikansemasa', 'pendidikanpenggunaansemasa', 'pendidikanbakiakhir', 'pendidikanperatuspenggunaan',
     	'pemajuanawal', 'pemajuansemasa', 'pemajuanpenggunaansemasa', 'pemajuanbakiakhir', 'pemajuanperatuspenggunaan',

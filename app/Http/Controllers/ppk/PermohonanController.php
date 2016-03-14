@@ -271,6 +271,9 @@ class PermohonanController extends Controller
 
     }
 
+    /*
+     *  PERMOHONAN 6
+     */
     public function permohonan6(Request $request) {
 
         // return $request->all();
@@ -321,11 +324,91 @@ class PermohonanController extends Controller
         if($lampiranenam != null)
             $existed = 1;
 
-        if($existed == 1)
-            return View('ppk.rekod.forms._permohonan6', compact('existed', 'lampiranenam'));
-        else
-            return View('ppk.rekod.permohonan6');
+        // Markah 1
+        $lampiranbsatu = Lampiranbsatu::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+        $markah1 = $lampiranbsatu->markah;
 
+        // Markah 2
+        $lampiranbdua = Lampiranbdua::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+        $markah2 = $lampiranbdua->markah;
+
+        // Markah 3
+        $lampiranbtiga = Lampiranbtiga::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+        $markah3 = $lampiranbtiga->markah1 + $lampiranbtiga->markah2 + $lampiranbtiga->markah3;
+
+        // Markah 5
+        $lampiranlima = Lampiranlima::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+        $markah5 = $lampiranlima->markah1 + $lampiranlima->markah2 + $lampiranlima->markah3 + $lampiranlima->markah4 + $lampiranlima->markah5 + $lampiranlima->markah6;
+
+        $totalMarkah = $markah1 + $markah2 + $markah3 + $markah5;
+
+
+        if($existed == 1)
+            return View('ppk.rekod.forms._permohonan6', compact('existed', 'lampiranenam', 'totalMarkah'));
+        else
+            return View('ppk.rekod.permohonan6', compact('totalMarkah'));
+
+
+    }
+
+    /*
+     *  PERMOHONAN 7
+     */
+    public function permohonan7(Request $request) {
+
+        // return $request->all();
+
+        $year = Carbon::parse(Session::get('tarikh'))->format('Y');
+
+        $lampiranenam = Lampiranenam::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
+        if($lampiranenam == null)
+            $lampiranenam = new lampiranenam;
+
+        $lampiranenam->tahun                = $year;
+
+        $lampiranenam->ahliawal             = $request->get('ahliawal');
+        $lampiranenam->ahlisemasa           = $request->get('ahlisemasa');
+        $lampiranenam->ahlipenggunaansemasa = $request->get('ahlipenggunaansemasa');
+        $lampiranenam->ahlibakiakhir        = $request->get('ahlibakiakhir');
+        $lampiranenam->ahliperatuspenggunaan= $request->get('ahliperatuspenggunaan');
+
+        $lampiranenam->amawal               = $request->get('amawal');
+        $lampiranenam->amsemasa             = $request->get('amsemasa');
+        $lampiranenam->ampenggunaansemasa   = $request->get('ampenggunaansemasa');
+        $lampiranenam->ambakiakhir          = $request->get('ambakiakhir');
+        $lampiranenam->amperatuspenggunaan  = $request->get('amperatuspenggunaan');
+
+        $lampiranenam->pendidikanawal       = $request->get('pendidikanawal');
+        $lampiranenam->pendidikansemasa     = $request->get('pendidikansemasa');
+        $lampiranenam->pendidikanpenggunaansemasa = $request->get('pendidikanpenggunaansemasa');
+        $lampiranenam->pendidikanbakiakhir  = $request->get('pendidikanbakiakhir');
+        $lampiranenam->pendidikanperatuspenggunaan = $request->get('pendidikanperatuspenggunaan');
+
+        $lampiranenam->pemajuanawal       = $request->get('pemajuanawal');
+        $lampiranenam->pemajuansemasa     = $request->get('pemajuansemasa');
+        $lampiranenam->pemajuanpenggunaansemasa = $request->get('pemajuanpenggunaansemasa');
+        $lampiranenam->pemajuanbakiakhir  = $request->get('pemajuanbakiakhir');
+        $lampiranenam->pemajuanperatuspenggunaan = $request->get('pemajuanperatuspenggunaan');
+
+        $lampiranenam->ppk_id               = Auth::user()->ppk_id;
+
+        if($lampiranenam->save())
+            Session::flash('success', 'Berjaya. Lampiran B(7(iii)(d)) telah berjaya disimpan/kemaskini');
+        else 
+            Session::flash('error', 'Gagal. Lampiran B(7(iii)(d)) gagal disimpan');
+
+        return 'success';
 
     }
 

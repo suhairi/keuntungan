@@ -1,5 +1,66 @@
 $(document).ready(function() {
 
+	// Initialize
+
+	// Awal
+	var jumlah1 = parseFloat($('#ahliawal').val());
+	var jumlah2 = parseFloat($('#amawal').val());
+	var jumlah3 = parseFloat($('#pendidikanawal').val());
+	var jumlah4 = parseFloat($('#pemajuanawal').val());
+
+	var jumlahawal = parseFloat(jumlah1 + jumlah2 + jumlah3 + jumlah4);
+	$('#awal').html('<strong>' + jumlahawal.toFixed(2) + '</strong>');
+	$('#jumlahawal').val(jumlahawal.toFixed(2));
+
+	// Semasa
+	var jumlah1 = parseFloat($('#ahlisemasa').val());
+	var jumlah2 = parseFloat($('#amsemasa').val());
+	var jumlah3 = parseFloat($('#pendidikansemasa').val());
+	var jumlah4 = parseFloat($('#pemajuansemasa').val());
+
+	var jumlahawal = parseFloat(jumlah1 + jumlah2 + jumlah3 + jumlah4);
+	$('#semasa').html('<strong>' + jumlahawal.toFixed(2) + '</strong>');
+	$('#jumlahsemasa').val(jumlahawal.toFixed(2));
+
+	// Penggunaan Semasa
+	var jumlah1 = parseFloat($('#ahlipenggunaansemasa').val());
+	var jumlah2 = parseFloat($('#ampenggunaansemasa').val());
+	var jumlah3 = parseFloat($('#pendidikanpenggunaansemasa').val());
+	var jumlah4 = parseFloat($('#pemajuanpenggunaansemasa').val());
+
+	var jumlahawal = parseFloat(jumlah1 + jumlah2 + jumlah3 + jumlah4);
+	$('#penggunaansemasa').html('<strong>' + jumlahawal.toFixed(2) + '</strong>');
+	$('#jumlahpenggunaansemasa').val(jumlahawal.toFixed(2));
+
+
+	// Baki Akhir
+	var jumlah1 = parseFloat($('#ahlibakiakhir').val());
+	var jumlah2 = parseFloat($('#ambakiakhir').val());
+	var jumlah3 = parseFloat($('#pendidikanbakiakhir').val());
+	var jumlah4 = parseFloat($('#pemajuanbakiakhir').val());
+
+	var jumlahawal = parseFloat(jumlah1 + jumlah2 + jumlah3 + jumlah4);
+	$('#bakiakhir').html('<strong>' + jumlahawal.toFixed(2) + '</strong>');
+	$('#jumlahbakiakhir').val(jumlahawal.toFixed(2));
+
+	// Jumlah Peratus
+	var jumlah1 = parseFloat($('#jumlahawal').val());
+	var jumlah2 = parseFloat($('#jumlahsemasa').val());
+	var jumlah3 = parseFloat($('#jumlahpenggunaansemasa').val());
+
+	var peratusPenggunaan = parseFloat(jumlah3 / (jumlah1 + jumlah2) * 100);
+	$('#peratuspenggunaan').html('<strong>' + peratusPenggunaan.toFixed(2) + '</strong>');
+
+	// Purata Peratus
+	var jumlah1 = parseFloat($('#ahliperatuspenggunaan').val());
+	var jumlah2 = parseFloat($('#amperatuspenggunaan').val());
+	var jumlah3 = parseFloat($('#pendidikanperatuspenggunaan').val());
+	var jumlah4 = parseFloat($('#pemajuanperatuspenggunaan').val());
+
+	var purataperatus = parseFloat((jumlah1 + jumlah2 + jumlah3 + jumlah4) / 4);
+	$('#purataperatus').html('<strong>' + purataperatus.toFixed(2) + '</strong>');
+
+
 	/**********************************************
 	*                   First Column
 	***********************************************/
