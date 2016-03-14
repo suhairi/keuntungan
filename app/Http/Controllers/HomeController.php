@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Session;
+use Mail;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -26,8 +28,8 @@ class HomeController extends Controller
     public function index()
     {
 
-        \Mail::send('mail.mailers', ['user' => 'Suhairi'], function($message) {
-            $message->to('suhairi81@gmail.com', 'user')->subject('Testing Email');
+        Mail::send('mail.mailers', ['user' => 'Suhairi', 'ppk' => Auth::user()->ppk->fullname, 'name' => Auth::user()->ppk->name], function($message) {
+            $message->to('suhairi81@gmail.com', 'user')->subject('e-Dividen');
             Session::flash('success', 'Berjaya send email');
         });
 
