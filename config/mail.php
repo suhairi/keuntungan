@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'suhairi81@gmail.com', 'name' => 'BPIP :: e-Dividen'],
+    'from' => ['address' => 'bpip.dividen@gmail.com', 'name' => 'BPIP :: e-Dividen'],
 
     /*
     |--------------------------------------------------------------------------

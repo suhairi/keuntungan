@@ -356,7 +356,6 @@ class PermohonanController extends Controller
         else
             return View('ppk.rekod.permohonan6', compact('totalMarkah'));
 
-
     }
 
     /*
