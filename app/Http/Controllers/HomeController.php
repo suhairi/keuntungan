@@ -28,10 +28,16 @@ class HomeController extends Controller
     public function index()
     {
 
-        Mail::send('mail.mailers', ['user' => 'Suhairi', 'ppk' => Auth::user()->ppk->fullname, 'name' => Auth::user()->ppk->name], function($message) {
-            $message->to('suhairi81@gmail.com', 'user')->subject('e-Dividen');
-            Session::flash('success', 'Berjaya send email');
+        Mail::send('mail.mailers', ['user' => '', 'ppk' => Auth::user()->ppk->fullname, 'name' => Auth::user()->ppk->name], function($message) {
+            $message->to('suhairi81@gmail.com', 'user')->subject('e-Dividen (test)');            
         });
+
+        Mail::send('mail.mailers', ['user' => '', 'ppk' => Auth::user()->ppk->fullname, 'name' => Auth::user()->ppk->name], function($message) {
+            $message->to('rozaidi@mada.gov.my', 'user')->subject('e-Dividen (test)');            
+        });
+
+
+        Session::flash('success', 'Berjaya send email');
 
 
         if(auth()->user()->level->name == 1)
