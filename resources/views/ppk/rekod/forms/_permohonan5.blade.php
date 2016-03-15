@@ -236,7 +236,7 @@
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
                             <td valign="top" align="center" style="border-top: 1px solid #000000; border-bottom-style: double">
-                                <div id="jumlah7e">{{ $lampiranlima->jumlah7e }}</div>
+                                <div id="jumlah7e">{{ $jumlah7e }}</div>
                             </td>
                         </tr>
 

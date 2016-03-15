@@ -258,14 +258,14 @@ class PermohonanController extends Controller
             ->where('ppk_id', Auth::user()->ppk_id)
             ->first();
 
-
+        $jumlah7e = $lampiranlima->_7e1 + $lampiranlima->_7e2;
 
         if($lampiranlima != null)
             $existed = 1;
 
 
         if($existed == 1)
-            return View('ppk.rekod.forms._permohonan5', compact('existed', 'lampiranbdua', 'lampiranlima'));
+            return View('ppk.rekod.forms._permohonan5', compact('existed', 'lampiranbdua', 'lampiranlima', 'jumlah7e'));
         else
             return View('ppk.rekod.permohonan5', compact('lampiranbdua'));
 
@@ -324,31 +324,8 @@ class PermohonanController extends Controller
         if($lampiranenam != null)
             $existed = 1;
 
-        // Markah 1
-        $lampiranbsatu = Lampiranbsatu::where('tahun', $year)
-            ->where('ppk_id', Auth::user()->ppk_id)
-            ->first();
-        $markah1 = $lampiranbsatu->markah;
-
-        // Markah 2
-        $lampiranbdua = Lampiranbdua::where('tahun', $year)
-            ->where('ppk_id', Auth::user()->ppk_id)
-            ->first();
-        $markah2 = $lampiranbdua->markah;
-
-        // Markah 3
-        $lampiranbtiga = Lampiranbtiga::where('tahun', $year)
-            ->where('ppk_id', Auth::user()->ppk_id)
-            ->first();
-        $markah3 = $lampiranbtiga->markah1 + $lampiranbtiga->markah2 + $lampiranbtiga->markah3;
-
-        // Markah 5
-        $lampiranlima = Lampiranlima::where('tahun', $year)
-            ->where('ppk_id', Auth::user()->ppk_id)
-            ->first();
-        $markah5 = $lampiranlima->markah1 + $lampiranlima->markah2 + $lampiranlima->markah3 + $lampiranlima->markah4 + $lampiranlima->markah5 + $lampiranlima->markah6;
-
-        $totalMarkah = $markah1 + $markah2 + $markah3 + $markah5;
+        
+        $totalMarkah = $this->getMarkah($year, Auth::user()->ppk_id);
 
 
         if($existed == 1)
@@ -407,7 +384,67 @@ class PermohonanController extends Controller
         else 
             Session::flash('error', 'Gagal. Lampiran B(7(iii)(d)) gagal disimpan');
 
+        // Next Data
+
+        $markah = $this->getMarkah($year, Auth::user()->ppk_id);
+        $para = $this->getPara($markah);
+
+        return $para;
+
         return 'success';
+
+    }
+
+
+
+    // Helper Functions
+
+    private function getMarkah($year, $ppk_id) {
+
+        // Markah 1
+        $lampiranbsatu = Lampiranbsatu::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+        $markah1 = $lampiranbsatu->markah;
+
+        // Markah 2
+        $lampiranbdua = Lampiranbdua::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+        $markah2 = $lampiranbdua->markah;
+
+        // Markah 3
+        $lampiranbtiga = Lampiranbtiga::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+        $markah3 = $lampiranbtiga->markah1 + $lampiranbtiga->markah2 + $lampiranbtiga->markah3;
+
+        // Markah 5
+        $lampiranlima = Lampiranlima::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+        $markah5 = $lampiranlima->markah1 + $lampiranlima->markah2 + $lampiranlima->markah3 + $lampiranlima->markah4 + $lampiranlima->markah5 + $lampiranlima->markah6;
+
+        $markah = $markah1 + $markah2 + $markah3 + $markah5;
+
+        return $markah;
+
+    }
+
+    private function getPara($markah) {
+
+        if($markah >= 46 && $markah <= 65)
+            return "Para 6 a (i)";
+
+        if($markah >= 27 && $markah <= 45)
+            return "Para 6 a (ii)";
+
+        if($markah <= 26)
+            return "Para 6 a (iii)";
+
+
+
+
 
     }
 
