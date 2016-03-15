@@ -336,7 +336,7 @@
     <div class="col-xs-10 col-xs-offset-1">
         <div class="pull-left"><a href="{{ redirect()->back() }}">@include('buttons._previous', ['value' => 'Kembali'])</a></div>
         <div class="pull-right">
-            <input class="btn btn-success" type="submit" value="Seterusnya" />
+            <input class="btn btn-success" type="submit" value="Simpan & Seterusnya" />
         </div>
     </div>
 </div>

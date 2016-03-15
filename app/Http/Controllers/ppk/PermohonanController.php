@@ -377,7 +377,7 @@ class PermohonanController extends Controller
         $lampiranenam->pemajuanbakiakhir  = $request->get('pemajuanbakiakhir');
         $lampiranenam->pemajuanperatuspenggunaan = $request->get('pemajuanperatuspenggunaan');
 
-        $lampiranenam->ppk_id               = Auth::user()->ppk_id;
+        $lampiranenam->ppk_id              = Auth::user()->ppk_id;
 
         if($lampiranenam->save())
             Session::flash('success', 'Berjaya. Lampiran B(7(iii)(d)) telah berjaya disimpan/kemaskini');
@@ -394,8 +394,6 @@ class PermohonanController extends Controller
         return 'success';
 
     }
-
-
 
     // Helper Functions
 
