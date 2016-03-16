@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-        <h4>Penunjuk Kemajuan Permohonan</h4>
+        <h4>..Penunjuk Kemajuan Permohonan</h4>
         <div class="progress">
             <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
                 <span class="sr-only">50% Complete</span>
@@ -336,7 +336,7 @@
     <div class="col-xs-10 col-xs-offset-1">
         <div class="pull-left"><a href="{{ redirect()->back() }}">@include('buttons._previous', ['value' => 'Kembali'])</a></div>
         <div class="pull-right">
-            <input class="btn btn-success" type="submit" value="Seterusnya" />
+            <input class="btn btn-success" type="submit" value="Simpan & Seterusnya" />
         </div>
     </div>
 </div>

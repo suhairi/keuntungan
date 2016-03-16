@@ -15,7 +15,7 @@ class CreateLampiranenamTable extends Migration
         Schema::create('lampiranenam', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->tinyInteger('tahun', false, false);
+            $table->integer('tahun', false, false);
             $table->float('ahliawal', 9, 2);
             $table->float('ahlisemasa', 9, 2);
             $table->float('ahlipenggunaansemasa', 9, 2);

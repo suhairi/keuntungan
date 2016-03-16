@@ -17,6 +17,7 @@ use App\Lampiranbtiga;
 use App\Lampiranbempat;
 use App\Lampiranlima;
 use App\Lampiranenam;
+use App\Lampirantujuh;
 
 class PermohonanController extends Controller
 {
@@ -258,10 +259,15 @@ class PermohonanController extends Controller
             ->where('ppk_id', Auth::user()->ppk_id)
             ->first();
 
-        $jumlah7e = $lampiranlima->_7e1 + $lampiranlima->_7e2;
-
-        if($lampiranlima != null)
+        $jumlah7e = 0;
+        
+        if($lampiranlima != null){
             $existed = 1;
+            $jumlah7e = $lampiranlima->_7e1 + $lampiranlima->_7e2;
+        }
+            
+
+        // return $existed;
 
 
         if($existed == 1)
@@ -386,12 +392,24 @@ class PermohonanController extends Controller
 
         // Next Data
 
+        $existed = 0;
+
+        $lampirantujuh = Lampirantujuh::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
+        if($lampirantujuh != null)
+            $existed = 1;
+
         $markah = $this->getMarkah($year, Auth::user()->ppk_id);
         $para = $this->getPara($markah);
 
         return $para;
 
-        return 'success';
+        if($existed == 1)
+            return View('ppk.rekod.forms._permohonan7', compact('existed', 'lampiranenam', 'totalMarkah'));
+        else
+            return View('ppk.rekod.permohonan7', compact('totalMarkah'));
 
     }
 
@@ -439,10 +457,6 @@ class PermohonanController extends Controller
 
         if($markah <= 26)
             return "Para 6 a (iii)";
-
-
-
-
 
     }
 

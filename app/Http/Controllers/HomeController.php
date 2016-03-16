@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 use Mail;
 use Auth;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -44,6 +45,51 @@ class HomeController extends Controller
         //     $message->to('abrahim59@hotmail.com', 'user')->subject('e-Dividen (test)');            
         // });
 
+        // Mail::send('mail.mailers', ['user' => '', 'ppk' => Auth::user()->ppk->fullname, 'name' => Auth::user()->ppk->name], function($message) {
+        //     $message->to('abrahim59@hotmail.com', 'user')->subject('e-Dividen (test)');            
+        // });
+
+
+        //test to pendaftar
+
+        // $ppk = Auth::user()->ppk->name;
+        // $url = "http://login.bulksms.my/websmsapi/ISendSMS.aspx";
+
+        // $fields_string = null;       
+
+
+        // $pendaftars = User::where('level_id', 5)
+        //     ->where('phone', '!=', '')
+        //     ->get();
+
+        // foreach ($pendaftars as $pendaftar) {
+
+        //     $fields = array(
+        //             'username' => 'suhairi',
+        //             'password' => 'harry5367' ,           
+        //             'message' => 'e-Dividen. Tuan, PPK ' . $ppk . ' telah memohon pembahagian dividen. Mohon tindakan tuan. Emel pautan/link telah dihantar kepada tuan. Terima kasih.',
+        //             'mobile' => $pendaftar->phone,
+        //             'type' => '1',            
+        //         );
+
+        //     $fields_string = http_build_query($fields);
+
+        //     $ch = curl_init();
+
+        //     curl_setopt($ch, CURLOPT_URL, $url);
+        //     curl_setopt($ch, CURLOPT_POST, count($fields));
+        //     curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+
+        //     $result = curl_exec($ch);
+
+        //     curl_close($ch);
+        // }
+
+        // return;
+
+
+
+
         /*****************************************
         *           SMS Notification
         ******************************************/
@@ -72,8 +118,7 @@ class HomeController extends Controller
         // $result = curl_exec($ch);
 
         // curl_close($ch);
-
-
+        
 
         if(auth()->user()->level->name == 1)
             return view('admin/home');
