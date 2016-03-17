@@ -97,10 +97,12 @@ class HomeController extends Controller
         // $ppk = Auth::user()->ppk->name;
 
         // $url = "http://login.bulksms.my/websmsapi/ISendSMS.aspx";
+        // $url = "http://login.sms99.net/websmsapi/ISendSMS.aspx";
         // $fields_string = null;
 
         // $fields = array(
-        //     'username' => 'suhairi',
+        //     // 'username' => 'suhairi',
+        //     'username' => 'suhairi81',
         //     'password' => 'harry5367' ,           
         //     'message' => 'e-Dividen. Tuan, PPK ' . $ppk . ' telah memohon pembahagian dividen. Mohon tindakan tuan. Emel pautan/link telah dihantar kepada tuan. Terima kasih.',
         //     'mobile' => '601114962017',
@@ -118,6 +120,8 @@ class HomeController extends Controller
         // $result = curl_exec($ch);
 
         // curl_close($ch);
+
+        // return;
         
 
         if(auth()->user()->level->name == 1)
