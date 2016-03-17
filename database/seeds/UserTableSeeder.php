@@ -14,6 +14,8 @@ class UserTableSeeder extends Seeder
     {
         // Ibu Pejabat - id = 1
 
+        // Level 1, SYS_ADMIN
+
         User::create([
             'name'      => strtoupper('Suhairi Abdul Hamid'),
             'email'     => 'suhairi81@gmail.com',
@@ -22,6 +24,8 @@ class UserTableSeeder extends Seeder
             'level_id'     => '1',
             'ppk_id'    => '1'
         ]);
+
+        // Level 2, PENGURUS BESAR MADA
 
         User::create([
             'name'      => strtoupper('Mohd Fouzi Bin Ali'),
@@ -32,6 +36,8 @@ class UserTableSeeder extends Seeder
             'ppk_id'    => '1'
         ]);
 
+        // Level 3, PENGARAH BPIP
+
         User::create([
             'name'      => strtoupper('Rozaidi Bin Sharee'),
             'email'     => 'rozaidi@mada.gov.my',
@@ -40,6 +46,19 @@ class UserTableSeeder extends Seeder
             'level_id'     => '3',
             'ppk_id'    => '1'
         ]);
+
+        // Level 4, AKAUNTAN
+
+        User::create([
+            'name'      => strtoupper('mohamad izham bin ahmad'),
+            'email'     => 'ahmadizham12@gmail.com',
+            'phone'     => '601113045141',
+            'password'  => bcrypt('password'),
+            'level_id'     => '4',
+            'ppk_id'    => '1'
+        ]);
+
+        // Level 5, KERANI PENDAFTAR
 
         User::create([
             'name'      => strtoupper('noorazeawaty binti salleh'),
@@ -75,8 +94,9 @@ class UserTableSeeder extends Seeder
             'password'  => bcrypt('password'),
             'level_id'     => '5',
             'ppk_id'    => '1'
-        ]);       
+        ]);  
 
+        // Level 6, PENGURUS WILAYAH
 
         User::create([
             'name'      => strtoupper('Muhamad Hishamudin bin mohd noor'),
@@ -85,6 +105,8 @@ class UserTableSeeder extends Seeder
             'level_id'     => '6',
             'ppk_id'    => '4'
         ]);
+
+        // Level 7, PENGURUS PPK
 
         User::create([
             'name'      => strtoupper('ulul azmi bin mohamad noor'),
@@ -95,6 +117,8 @@ class UserTableSeeder extends Seeder
             'ppk_id'    => '24'
         ]);
 
+        // Level 8, KERANI AKAUN
+
         User::create([
             'name'      => strtoupper('nor shahidah bt yahya'),
             'email'     => 'norshahidah@mada.gov.my',
@@ -102,15 +126,6 @@ class UserTableSeeder extends Seeder
             'level_id'     => '8',
             'ppk_id'    => '24'
         ]);
-
-
-
-
-
-
-
-
-
 
     }
 }
