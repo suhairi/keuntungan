@@ -22,7 +22,7 @@ use App\Lampirantujuh;
 class PermohonanController extends Controller
 {
 
-    /*
+    /* 
      *  PERMOHONAN 1
      */
     public function permohonan() {
@@ -386,9 +386,9 @@ class PermohonanController extends Controller
         $lampiranenam->ppk_id              = Auth::user()->ppk_id;
 
         if($lampiranenam->save())
-            Session::flash('success', 'Berjaya. Lampiran B(7(iii)(d)) telah berjaya disimpan/kemaskini');
+            Session::flash('success', 'Berjaya. Lampiran B(7 (iii) (d)) telah berjaya disimpan/kemaskini');
         else 
-            Session::flash('error', 'Gagal. Lampiran B(7(iii)(d)) gagal disimpan');
+            Session::flash('error', 'Gagal. Lampiran B(7 (iii) (d)) gagal disimpan');
 
         // Next Data
 
@@ -404,16 +404,85 @@ class PermohonanController extends Controller
         $markah = $this->getMarkah($year, Auth::user()->ppk_id);
         $para = $this->getPara($markah);
 
-        return $para;
+        $tahunBerakhir = Session::get('tahunBerakhir');
+
+        $untungBersih = $this->getUntungBersih($year, Auth::user()->ppk_id);
+
+        $maxDividen = $maxHonorarium = $maxBonus = $maxHadiah = $maxKumpulan = $maxSaham = $maxPesaraan = Array();
+
+        $max = 10;           
+
+        for($i=$max; $i>=1; $i--)
+            array_push($maxDividen, $i);
+
+        if($markah >= 46) {
+
+            $maxHonorarium = $this->getMax(5);
+            $maxBonus = $this->getMax(10);
+            $maxHadiah = $this->getMax(20);
+            $maxKumpulan = $this->getMax(10);
+            $maxSaham = $this->getMax(10);
+            $maxPesaraan = $this->getMax(10);            
+            
+
+            
+        } else if($markah <= 45 && $markah >= 27) {
+
+            $maxHonorarium = $this->getMax(4);
+            $maxBonus = $this->getMax(8);
+            $maxHadiah = $this->getMax(10);
+            $maxKumpulan = $this->getMax(5);
+            $maxSaham = $this->getMax(10);
+            $maxPesaraan = $this->getMax(5);
+
+            
+        } else {
+
+            $maxHonorarium = $this->getMax(3);
+            $maxBonus = $this->getMax(6);
+            $maxHadiah = $this->getMax(5);
+            $maxKumpulan = $this->getMax(2.5);
+            $maxSaham = $this->getMax(5);
+            $maxPesaraan = $this->getMax(2.5);
+
+            
+        }
+
 
         if($existed == 1)
             return View('ppk.rekod.forms._permohonan7', compact('existed', 'lampiranenam', 'totalMarkah'));
         else
-            return View('ppk.rekod.permohonan7', compact('totalMarkah'));
+            return View('ppk.rekod.permohonan7', 
+                compact('totalMarkah', 'tahunBerakhir', 'markah', 'para', 'untungBersih', 'maxDividen',
+                    'maxHonorarium', 'maxBonus', 'maxHadiah', 'maxKumpulan', 'maxSaham', 'maxPesaraan')
+
+                );
 
     }
 
     // Helper Functions
+
+
+    private function getMax($max) {
+
+        $maxDetails = Array();
+
+        for($i=$max; $i>=1; $i--)
+            array_push($maxDetails, $i);
+
+        return $maxDetails;
+    }
+
+    private function getUntungBersih($year, $ppk_id) {
+
+        $lampiranbdua = Lampiranbdua::where('tahun', $year)
+            ->where('ppk_id', $ppk_id)
+            ->first()
+            ->untungBersih;
+
+        return $lampiranbdua;
+
+    }
 
     private function getMarkah($year, $ppk_id) {
 

@@ -16,11 +16,11 @@ class CreateLampirantujuhTable extends Migration
             $table->increments('id');
             $table->integer('tahun', false, false);
             $table->float('untungBersih', 9, 2);
-            $table->float('luarbiasa', 9, 2);
+            $table->float('luarbiasa', 9, 2)->nullable();
             $table->float('rezabberkanun', 9, 2);
-            $table->float('yayasanpelajaran', 9, 2);
+            $table->float('yayasanpelajaran', 9, 2)->nullable();
             $table->float('cukaipendapatan', 9, 2);
-            $table->float('pelarasan', 9, 2);
+            $table->float('pelarasan', 9, 2)->nullable();
             $table->float('dividentunai', 9, 2);
             $table->float('honorarium', 9, 2);
             $table->float('bonus', 9, 2);

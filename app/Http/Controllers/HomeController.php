@@ -94,6 +94,8 @@ class HomeController extends Controller
         *           SMS Notification
         ******************************************/
 
+        // bulksms.my
+
         // $ppk = Auth::user()->ppk->name;
 
         // $url = "http://login.bulksms.my/websmsapi/ISendSMS.aspx";
@@ -122,6 +124,46 @@ class HomeController extends Controller
         // curl_close($ch);
 
         // return;
+
+        
+
+        /********************************************
+        //                  isms.com.my
+        ********************************************/
+
+        // function ismscURL($link){
+
+        //     $http = curl_init($link);
+
+        //     curl_setopt($http, CURLOPT_RETURNTRANSFER, TRUE);
+        //     $http_result = curl_exec($http);
+        //     $http_status = curl_getinfo($http, CURLINFO_HTTP_CODE);
+        //     curl_close($http);
+
+        //     return $http_result;
+        // }
+
+
+        // $destination = urlencode("601114962017");
+        // $message = "e-Dividen. This is a test message sent by isms.com.my";
+        // $message = html_entity_decode($message, ENT_QUOTES, 'utf-8'); 
+        // $message = urlencode($message);
+          
+        // $username = urlencode("suhairi");
+        // $password = urlencode("Suhairi1981");
+        // $sender_id = urlencode("66630");
+        // $type = 1;
+
+        // $fp = "https://www.isms.com.my/isms_send.php";
+        // $fp .= "?un=$username&pwd=$password&dstno=$destination&msg=$message&type=$type&sendid=$sender_id";
+        // echo $fp;
+          
+        // $result = ismscURL($fp);
+        // echo $result;
+
+        // return;
+
+
         
 
         if(auth()->user()->level->name == 1)
