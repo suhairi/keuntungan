@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group" align="right">
                     <label for="submit"></label>
-                    @include('buttons._next', ['value' => 'Seterusnya'])
+                    @include('buttons._next', ['value' => 'Simpan & Seterusnya'])
                 </div>
                 {{ Form::close() }}
 

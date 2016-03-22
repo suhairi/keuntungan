@@ -14,17 +14,25 @@ $(document).ready(function() {
 		var untungBersih = $('#untungBersih').val();
 		var jumlah = $('#jumlah').val();
 
-		if(item2 == '')
-			$('#item2').val(parseFloat(0).toFixed(2));
+		if(item2 == '' || isNaN(item2)){
+			item2 = 0;
+			$('#item2').val(item2.toFixed(2));
+		}
 
-		if(item3 == '')
-			$('#item3').val(parseFloat(0).toFixed(2));
+		if(item3 == '' || isNaN(item3)){
+			item3 = 0;
+			$('#item3').val(item3.toFixed(2));
+		}
 
-		if(item4 == '')
-			$('#item4').val(parseFloat(0).toFixed(2));
+		if(item4 == '' || isNaN(item4)){			
+			item4 = 0;
+			$('#item4').val(item4.toFixed(2));
+		}
 
-		if(item5 == '')
-			$('#item5').val(parseFloat(0).toFixed(2));
+		if(item5 == '' || isNaN(item5)){
+			item5 = 0;
+			$('#item5').val(item5.toFixed(2));
+		}
 
 		var jumlah = parseFloat(item2 + item3 + item4 + item5);
 

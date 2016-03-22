@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 use Mail;
 use Auth;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -44,36 +45,30 @@ class HomeController extends Controller
         //     $message->to('abrahim59@hotmail.com', 'user')->subject('e-Dividen (test)');            
         // });
 
-        /*****************************************
-        *           SMS Notification
-        ******************************************/
-
-        $ppk = Auth::user()->ppk->name;
-
-        $url = "http://login.bulksms.my/websmsapi/ISendSMS.aspx";
-        $fields_string = null;
-
-        $fields = array(
-            'username' => 'suhairi',
-            'password' => 'harry5367' ,           
-            'message' => 'e-Dividen. Tuan, PPK ' . $ppk . ' telah memohon pembahagian dividen. Mohon tindakan tuan. Emel pautan/link telah dihantar kepada tuan. Terima kasih.',
-            'mobile' => '601114962017',
-            'type' => '1',            
-        );
-
-        $fields_string = http_build_query($fields);
-
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, count($fields));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
-
-        $result = curl_exec($ch);
-
-        curl_close($ch);
+        // Mail::send('mail.mailers', ['user' => '', 'ppk' => Auth::user()->ppk->fullname, 'name' => Auth::user()->ppk->name], function($message) {
+        //     $message->to('abrahim59@hotmail.com', 'user')->subject('e-Dividen (test)');            
+        // });
 
 
+        /********************************************
+        //            onewaysms.com.my
+        ********************************************/
+
+
+        // function gw_send_sms($user, $pass, $sms_from, $sms_to, $sms_msg) {       
+
+        //     $query_string = "api.aspx?apiusername=".$user."&apipassword=".$pass;
+        //     $query_string .= "&senderid=".rawurlencode($sms_from)."&mobileno=".rawurlencode($sms_to);
+        //     $query_string .= "&message=".rawurlencode(stripslashes($sms_msg)) . "&languagetype=1";        
+        //     $url = "http://gateway.onewaysms.com.my:10001/".$query_string;
+            
+        //     $fd = @implode ('', file($url));   
+        // }
+        
+        // gw_send_sms("API9P5RC2EQDL", "API9P5RC2EQDL9P5RC", "senderid", "601114962017", "e-Dividen. This message is by onewaysms.com.my");
+
+        
+        // return;
 
         if(auth()->user()->level->name == 1)
             return view('admin/home');
