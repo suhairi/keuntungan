@@ -55,8 +55,6 @@ class HomeController extends Controller
         *              onewaysms.com.my
         ******************************************/
 
-
-
         // function gw_send_sms($user, $pass, $sms_from, $sms_to, $sms_msg) {       
 
         //     $query_string = "api.aspx?apiusername=".$user."&apipassword=".$pass;
@@ -75,8 +73,8 @@ class HomeController extends Controller
         //             $ok = "fail";
         //         }
         //     } else {                       
-        //           // no contact with gateway                      
-        //           $ok = "<strong>Failed !!</strong>";      
+        //           // no contact with gateway
+        //           $ok = "<strong>Failed !!</strong>";
         //     }   
 
         //     return $ok;  
