@@ -56,6 +56,7 @@ class HomeController extends Controller
         ******************************************/
 
 
+
         // function gw_send_sms($user, $pass, $sms_from, $sms_to, $sms_msg) {       
 
         //     $query_string = "api.aspx?apiusername=".$user."&apipassword=".$pass;
@@ -88,7 +89,6 @@ class HomeController extends Controller
         // $message = "Info e-Dividen:  This is a test message";
         
         // Print("Sending to one way sms <br />" . gw_send_sms($username, $password, $senderid, $to, $message));
-
         
         // return;
 
