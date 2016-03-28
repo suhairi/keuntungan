@@ -18,6 +18,7 @@ use App\Lampiranbempat;
 use App\Lampiranlima;
 use App\Lampiranenam;
 use App\Lampirantujuh;
+use App\Level;
 
 class PermohonanController extends Controller
 {
@@ -413,7 +414,9 @@ class PermohonanController extends Controller
         $max = 10;           
 
         for($i=$max; $i>=1; $i--)
-            array_push($maxDividen, $i);
+            $maxDividen[$i] = $i;
+
+        $maxDividen[0] = 0;
 
         if($markah >= 46) {
 
@@ -422,9 +425,7 @@ class PermohonanController extends Controller
             $maxHadiah = $this->getMax(20);
             $maxKumpulan = $this->getMax(10);
             $maxSaham = $this->getMax(10);
-            $maxPesaraan = $this->getMax(10);            
-            
-
+            $maxPesaraan = $this->getMax(10);
             
         } else if($markah <= 45 && $markah >= 27) {
 
@@ -434,7 +435,6 @@ class PermohonanController extends Controller
             $maxKumpulan = $this->getMax(5);
             $maxSaham = $this->getMax(10);
             $maxPesaraan = $this->getMax(5);
-
             
         } else {
 
@@ -443,9 +443,7 @@ class PermohonanController extends Controller
             $maxHadiah = $this->getMax(5);
             $maxKumpulan = $this->getMax(2.5);
             $maxSaham = $this->getMax(5);
-            $maxPesaraan = $this->getMax(2.5);
-
-            
+            $maxPesaraan = $this->getMax(2.5);            
         }
 
 
@@ -468,7 +466,9 @@ class PermohonanController extends Controller
         $maxDetails = Array();
 
         for($i=$max; $i>=1; $i--)
-            array_push($maxDetails, $i);
+            $maxDetails[$i] = $i;
+
+        $maxDetails[0] = 0;
 
         return $maxDetails;
     }

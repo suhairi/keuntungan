@@ -173,7 +173,7 @@
 						<tr>
 							<td>
 								Dividen Atas Saham pada {{ $tahunBerakhir }} 
-								{{ Form::number('dividenSaham', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00']) }}								
+								{{ Form::number('dividenSaham', '', ['class' => 'form-control', 'id' => 'dividenSaham', 'placeholder' => 'RM 0.00']) }}								
 							</td>
 							<td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td>
