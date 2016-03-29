@@ -301,6 +301,6 @@
 {{ Form::close() }}
 
 
-<script src={{ asset('js/permohonan/permohonan7.js')}}></script>
+<script src={{ asset('js/permohonan/permohonan7_.js')}}></script>
 
 @stop

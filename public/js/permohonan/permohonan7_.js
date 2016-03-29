@@ -1,6 +1,12 @@
 
 $(document).ready(function() {
 
+	// Initializing populated data
+
+	var value = parseFloat($('#cukaiPendapatan').val());
+	$('#cukaiPendapatan').val(value.toFixed(2));
+
+
 	var untungBersih = parseFloat($('#untungBersih').val());
 
 	$('#untungBersih_').html(untungBersih.toFixed(2));
