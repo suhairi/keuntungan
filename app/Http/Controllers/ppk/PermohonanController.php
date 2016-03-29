@@ -446,9 +446,18 @@ class PermohonanController extends Controller
             $maxPesaraan = $this->getMax(2.5);            
         }
 
+        $lampirantujuh = Lampirantujuh::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
+        if($lampirantujuh != null)
+            $existed = 1;
+
 
         if($existed == 1)
-            return View('ppk.rekod.forms._permohonan7', compact('existed', 'lampiranenam', 'totalMarkah'));
+            return View('ppk.rekod.forms._permohonan7', compact('existed', 'tahunBerakhir', 'markah', 'para', 'untungBersih',
+                     'maxDividen', 'maxHonorarium', 'maxBonus', 'maxHadiah', 'maxKumpulan', 'maxSaham', 'maxPesaraan',
+                     'lampirantujuh', 'totalMarkah'));
         else
             return View('ppk.rekod.permohonan7', 
                 compact('totalMarkah', 'tahunBerakhir', 'markah', 'para', 'untungBersih', 'maxDividen',
@@ -458,8 +467,72 @@ class PermohonanController extends Controller
 
     }
 
-    // Helper Functions
+    public function pengesahanPermohonan(Request $request) {
 
+        // return $request->all();
+
+        $year = Carbon::parse(Session::get('tarikh'))->format('Y');
+
+        $lampirantujuh = Lampirantujuh::where('tahun', $year)
+            ->where('ppk_id', Auth::user()->ppk_id)
+            ->first();
+
+        if($lampirantujuh == null)
+            $lampirantujuh = new lampirantujuh;
+
+        $lampirantujuh->tahun               = $year;
+        $lampirantujuh->untungBersih        = $request->get('untungBersih');
+        $lampirantujuh->luarbiasa           = $request->get('luarbiasa');
+        $lampirantujuh->rezabBerkanun       = $request->get('rezabBerkanun');
+        $lampirantujuh->yayasanpelajaran    = $request->get('yayasan');
+        $lampirantujuh->cukaiPendapatan     = $request->get('cukaiPendapatan');
+        $lampirantujuh->pelarasan           = $request->get('pelarasan');
+
+        $lampirantujuh->dividenSaham        = $request->get('dividenSaham');
+
+        $lampirantujuh->dividenTunai        = $request->get('dividenTunai');
+        $lampirantujuh->honorarium          = $request->get('honorarium');
+        $lampirantujuh->bonus               = $request->get('bonus');
+        $lampirantujuh->hadiah              = $request->get('hadiah');
+        $lampirantujuh->ahli                = $request->get('ahli');
+        $lampirantujuh->am                  = $request->get('am');
+        $lampirantujuh->pendidikan          = $request->get('pendidikan');
+        $lampirantujuh->pemajuan            = $request->get('pemajuan');
+        $lampirantujuh->menebusSaham        = $request->get('menebusSaham');
+        $lampirantujuh->pesaraan            = $request->get('pesaraan');
+        $lampirantujuh->jumlah              = $request->get('jumlah');
+        $lampirantujuh->bakiDepan              = $request->get('bakiDepan');
+
+
+        $lampirantujuh->ppk_id              = Auth::user()->ppk_id;
+
+
+        // dd($lampirantujuh);
+
+        if($lampirantujuh->save())
+            Session::flash('success', 'Berjaya. Kelulusan Permohonan telah berjaya disimpan/kemaskini');
+        else 
+            Session::flash('error', 'Gagal. Kelulusan Permohonan gagal disimpan');
+
+
+        return View('ppk.rekod.disclaimer');
+
+    }
+
+
+
+
+
+
+
+
+    /*****************************************************************
+    ******************************************************************
+    *                                                                *
+    *                       Helper Functions                         *
+    *                                                                *
+    ******************************************************************
+    *****************************************************************/
 
     private function getMax($max) {
 

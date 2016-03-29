@@ -13,7 +13,7 @@
     </div>
 </div>
 
-{{ Form::open(['route' => 'ppk.rekod.pengesahanPermohonan']) }}
+{{ Form::model($lampirantujuh, ['route' => 'ppk.rekod.pengesahanPermohonan']) }}
 
 <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
@@ -110,7 +110,7 @@
 						<tr>
 							<td>TOLAK : PERUNTUKAN CUKAI PENDAPATAN</td>
 							<td style="border-left: 1px solid #333333">&nbsp;</td>	
-							<td align="right" style="border-left: 1px solid #333333">{{ Form::number('cukaiPendapatan', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'required', 'id' => 'cukaiPendapatan', 'value' => '0.00']) }}</td>
+							<td align="right" style="border-left: 1px solid #333333">{{ Form::number('cukaiPendapatan', $lampirantujuh->cukaipendapatan, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'required', 'id' => 'cukaiPendapatan', 'value' => '0.00']) }}</td>
 							<!-- <td style="border-left: 1px solid #333333">&nbsp;</td>
 							<td style="border-left: 1px solid #333333">&nbsp;</td> -->
 						</tr>

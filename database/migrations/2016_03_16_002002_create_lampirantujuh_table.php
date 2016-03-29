@@ -32,6 +32,7 @@ class CreateLampirantujuhTable extends Migration
             $table->float('menebussaham', 9, 2);
             $table->float('persaraan', 9, 2);
             $table->float('jumlah', 9, 2);
+            $table->float('bakiDepan', 9, 2);
             $table->float('dividentunai_', 9, 2);
             $table->float('honorarium_', 9, 2);
             $table->float('bonus_', 9, 2);
@@ -41,8 +42,9 @@ class CreateLampirantujuhTable extends Migration
             $table->float('pendidikan_', 9, 2);
             $table->float('pemajuan_', 9, 2);
             $table->float('menebussaham_', 9, 2);
-            $table->float('persaraan_', 9, 2);
+            $table->float('pesaraan_', 9, 2);
             $table->float('jumlah_', 9, 2);
+            $table->float('bakiDepan_', 9, 2);
             $table->tinyInteger('ppk_id', false, false);
             $table->timestamps();
         });

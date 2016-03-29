@@ -288,6 +288,11 @@ Route::group(['middleware' => 'web'], function () {
 
             ]);
 
+            Route::post('pengesahanPermohonan', [
+                'as'        => 'ppk.rekod.pengesahanPermohonan',
+                'uses'      => 'Ppk\PermohonanController@pengesahanPermohonan'
+            ]);
+
 
 
 

@@ -87,6 +87,8 @@ $(document).ready(function() {
 		var total = parseFloat(value * percentage / 100);		
 		$('#pesaraan').val(total.toFixed(2));
 
+		calcJumlah();
+
 	});
 
 
@@ -96,6 +98,8 @@ $(document).ready(function() {
 		var percentage = parseFloat($('#dividenTunaiPercent').val());
 		var total = parseFloat(value * percentage / 100);
 		$('#dividenTunai').val(total.toFixed(2));
+
+		calcJumlah();
 	});
 
 	// Honorarium
@@ -104,6 +108,8 @@ $(document).ready(function() {
 		var percentage = parseFloat($('#honorariumPercent').val());
 		var total = parseFloat(value * percentage / 100);		
 		$('#honorarium').val(total.toFixed(2));
+
+		calcJumlah();
 
 	});
 
@@ -114,6 +120,8 @@ $(document).ready(function() {
 		var total = parseFloat(value * percentage / 100);		
 		$('#bonus').val(total.toFixed(2));
 
+		calcJumlah();
+
 	});
 
 	// Hadiah
@@ -122,6 +130,8 @@ $(document).ready(function() {
 		var percentage = parseFloat($('#hadiahPercent').val());
 		var total = parseFloat(value * percentage / 100);		
 		$('#hadiah').val(total.toFixed(2));
+
+		calcJumlah();
 
 	});
 
@@ -132,6 +142,8 @@ $(document).ready(function() {
 		var total = parseFloat(value * percentage / 100);		
 		$('#ahli').val(total.toFixed(2));
 
+		calcJumlah();
+
 	});
 
 	// Am
@@ -141,6 +153,8 @@ $(document).ready(function() {
 		var total = parseFloat(value * percentage / 100);		
 		$('#am').val(total.toFixed(2));
 
+		calcJumlah();
+
 	});
 
 	// Pendidikan
@@ -149,6 +163,9 @@ $(document).ready(function() {
 		var percentage = parseFloat($('#pendidikanPercent').val());
 		var total = parseFloat(value * percentage / 100);		
 		$('#pendidikan').val(total.toFixed(2));
+
+		calcJumlah();
+
 	});
 
 	// Pemajuan
@@ -157,6 +174,8 @@ $(document).ready(function() {
 		var percentage = parseFloat($('#pemajuanPercent').val());
 		var total = parseFloat(value * percentage / 100);		
 		$('#pemajuan').val(total.toFixed(2));
+
+		calcJumlah();
 
 	});
 
@@ -167,6 +186,8 @@ $(document).ready(function() {
 		var total = parseFloat(value * percentage / 100);		
 		$('#menebusSaham').val(total.toFixed(2));
 
+		calcJumlah();
+
 	});
 
 	// Pesaraan
@@ -176,7 +197,34 @@ $(document).ready(function() {
 		var total = parseFloat(value * percentage / 100);		
 		$('#pesaraan').val(total.toFixed(2));
 
+		calcJumlah();
+
 	});
+
+	function calcJumlah() {
+
+		var untungBersih = parseFloat($('#untungBersih').val());
+
+		var dividenTunai = parseFloat($('#dividenTunai').val());
+		var honorarium = parseFloat($('#honorarium').val());
+		var bonus = parseFloat($('#bonus').val());
+		var hadiah = parseFloat($('#hadiah').val());
+		var ahli = parseFloat($('#ahli').val());
+		var am = parseFloat($('#am').val());
+		var pendidikan = parseFloat($('#pendidikan').val());
+		var pemajuan = parseFloat($('#pemajuan').val());
+		var menebusSaham = parseFloat($('#menebusSaham').val());
+		var pesaraan = parseFloat($('#pesaraan').val());
+
+		var jumlah = parseFloat(dividenTunai + honorarium + bonus + ahli + am + pendidikan + pemajuan + menebusSaham + pesaraan);
+		var bakiDepan = parseFloat(untungBersih - jumlah);
+
+		$('#jumlah').val(jumlah.toFixed(2));	
+		$('#bakiDepan').val(bakiDepan.toFixed(2));
+
+
+
+	}
 	
 
 
