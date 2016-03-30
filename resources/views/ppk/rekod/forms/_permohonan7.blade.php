@@ -173,7 +173,7 @@
 						<tr>
 							<td>
 								Dividen Atas Saham pada {{ $tahunBerakhir }} 
-								{{ Form::number('dividenSaham', '', ['class' => 'form-control', 'id' => 'dividenSaham', 'placeholder' => 'RM 0.00']) }}								
+								{{ Form::number('dividenSaham', $lampirantujuh->dividenSaham, ['class' => 'form-control', 'id' => 'dividenSaham', 'placeholder' => 'RM 0.00']) }}								
 							</td>
 							<td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td>
@@ -183,7 +183,7 @@
 						<tr>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Dividen Tunai</td>
 							<td style="border-left: 1px solid #333333">{{ Form::select('dividenTunaiPercent', $maxDividen, '', ['class' => 'form-control', 'id' => 'dividenTunaiPercent']) }}</td>
-							<td style="border-left: 1px solid #333333">{{ Form::number('dividenTunai', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'dividenTunai']) }}</td>
+							<td style="border-left: 1px solid #333333">{{ Form::number('dividenTunai', $lampirantujuh->dividenTunai, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'dividenTunai']) }}</td>
 							<!-- <td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td> -->
 						</tr>
@@ -191,63 +191,63 @@
 						<tr>
 							<td>Honorarium Kepada Pegawai-pegawai</td>
 							<td style="border-left: 1px solid #333333">{{ Form::select('honorariumPercent', $maxHonorarium, '', ['class' => 'form-control', 'id' => 'honorariumPercent']) }}</td>
-							<td style="border-left: 1px solid #333333">{{ Form::number('honorarium', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'honorarium']) }}</td>
+							<td style="border-left: 1px solid #333333">{{ Form::number('honorarium', $lampirantujuh->honorarium, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'honorarium']) }}</td>
 							<!-- <td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td> -->
 						</tr>
 						<tr>
 							<td>Bonus kepada pekerja-pekerja</td>
 							<td style="border-left: 1px solid #333333">{{ Form::select('bonusPercent', $maxBonus, '', ['class' => 'form-control', 'id' => 'bonusPercent']) }}</td>
-							<td style="border-left: 1px solid #333333">{{ Form::number('bonus', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'bonus']) }}</td>
+							<td style="border-left: 1px solid #333333">{{ Form::number('bonus', $lampirantujuh->bonus, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'bonus']) }}</td>
 							<!-- <td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td> -->
 						</tr>
 						<tr>
 							<td>Hadiah Atas Langganan</td>
 							<td style="border-left: 1px solid #333333">{{ Form::select('hadiahPercent', $maxHadiah, '', ['class' => 'form-control', 'id' => 'hadiahPercent']) }}</td>
-							<td style="border-left: 1px solid #333333">{{ Form::number('hadiah', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'hadiah']) }}</td>
+							<td style="border-left: 1px solid #333333">{{ Form::number('hadiah', $lampirantujuh->hadiah, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'hadiah']) }}</td>
 							<!-- <td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td> -->
 						</tr>
 						<tr>
 							<td>Kumpulanwang Kebajikan Ahli</td>
 							<td style="border-left: 1px solid #333333">{{ Form::select('ahliPercent', $maxKumpulan, '', ['class' => 'form-control', 'id' => 'ahliPercent']) }}</td>
-							<td style="border-left: 1px solid #333333">{{ Form::number('ahli', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'ahli']) }}</td>
+							<td style="border-left: 1px solid #333333">{{ Form::number('ahli', $lampirantujuh->ahli, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'ahli']) }}</td>
 							<!-- <td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td> -->
 						</tr>
 						<tr>
 							<td>Kumpulanwang Kebajikan Am</td>
 							<td style="border-left: 1px solid #333333">{{ Form::select('amPercent', $maxKumpulan, '', ['class' => 'form-control', 'id' => 'amPercent']) }}</td>
-							<td style="border-left: 1px solid #333333">{{ Form::number('am', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'am']) }}</td>
+							<td style="border-left: 1px solid #333333">{{ Form::number('am', $lampirantujuh->am, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'am']) }}</td>
 							<!-- <td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td> -->
 						</tr>
 						<tr>
 							<td>Kumpulanwang Pendidikan</td>
 							<td style="border-left: 1px solid #333333">{{ Form::select('pendidikanPercent', $maxKumpulan, '', ['class' => 'form-control', 'id' => 'pendidikanPercent']) }}</td>
-							<td style="border-left: 1px solid #333333">{{ Form::number('pendidikan', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'pendidikan']) }}</td>
+							<td style="border-left: 1px solid #333333">{{ Form::number('pendidikan', $lampirantujuh->pendidikan, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'pendidikan']) }}</td>
 							<!-- <td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td> -->
 						</tr>
 						<tr>
 							<td>Kumpulanwang Pemajuan </td>
 							<td style="border-left: 1px solid #333333">{{ Form::select('pemajuanPercent', $maxKumpulan, '', ['class' => 'form-control', 'id' => 'pemajuanPercent']) }}</td>
-							<td style="border-left: 1px solid #333333">{{ Form::number('pemajuan', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'pemajuan']) }}</td>
+							<td style="border-left: 1px solid #333333">{{ Form::number('pemajuan', $lampirantujuh->pemajuan, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'pemajuan']) }}</td>
 							<!-- <td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td> -->
 						</tr>
 						<tr>
 							<td>Kumpulanwang Menebus Saham</td>
 							<td style="border-left: 1px solid #333333">{{ Form::select('menebusSahamPercent', $maxSaham, '', ['class' => 'form-control', 'id' => 'menebusSahamPercent']) }}</td>
-							<td style="border-left: 1px solid #333333">{{ Form::number('menebusSaham', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'menebusSaham']) }}</td>
+							<td style="border-left: 1px solid #333333">{{ Form::number('menebusSaham', $lampirantujuh->menebusSaham, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'menebusSaham']) }}</td>
 							<!-- <td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td> -->
 						</tr>
 						<tr>
 							<td>Hadiah Pesaraan Pekerja</td>
 							<td style="border-left: 1px solid #333333">{{ Form::select('pesaraanPercent', $maxPesaraan, '', ['class' => 'form-control', 'id' => 'pesaraanPercent']) }}</td>
-							<td style="border-left: 1px solid #333333">{{ Form::number('pesaraan', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'pesaraan']) }}</td>
+							<td style="border-left: 1px solid #333333">{{ Form::number('pesaraan', $lampirantujuh->pesaraan, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'pesaraan']) }}</td>
 							<!-- <td style="border-left: 1px solid #333333"></td>
 							<td style="border-left: 1px solid #333333"></td> -->
 						</tr>
@@ -267,7 +267,7 @@
 						</tr>
 						<tr>
 							<td align="">BAKI KEUNTUNGAN BERSIH DIBAWA KE HADAPAN</td>
-							<td style="border-left: 1px solid #333333">{{ Form::number('bakiDepan', '', ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'bakiDepan']) }}</td>
+							<td style="border-left: 1px solid #333333">{{ Form::number('bakiDepan', $lampirantujuh->bakiDepan, ['class' => 'form-control', 'placeholder' => 'RM 0.00', 'readonly', 'id' => 'bakiDepan']) }}</td>
 							<td style="border-left: 1px solid #333333">&nbsp;</td>
 							<!-- <td style="border-left: 1px solid #333333">&nbsp;</td>
 							<td style="border-left: 1px solid #333333">&nbsp;</td> -->
